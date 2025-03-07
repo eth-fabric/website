@@ -3,7 +3,7 @@ description: A collection of documentation and research for the Fabric effort
 theme: just-the-docs
 
 url: https://eth-fabric.github.io/
-baseurl: /
+baseurl: /website
 
 mermaid:
   # Version of mermaid library
