@@ -3,3 +3,12 @@ description: A collection of documentation and research for the Fabric effort
 theme: just-the-docs
 
 url: https://eth-fabric.github.io/fabric-docs/
+
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "9.1.3"
+
+nav_enabled: true
+
+color_scheme: dark
