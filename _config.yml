@@ -2,7 +2,7 @@ title: Fabric Docs
 description: A collection of documentation and research for the Fabric effort
 theme: just-the-docs
 
-url: https://eth-fabric.github.io/fabric-docs/
+url: https://eth-fabric.github.io/fabric-docs/website
 
 mermaid:
   # Version of mermaid library

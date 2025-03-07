@@ -19,10 +19,10 @@ permalink: /roadmap
 So far we have met with over a dozen teams to get perspectives on a roadmap for Fabric. Below is the output of those conversations focused on weighing what should be a public good, areas where things should and can potentially be standardized, what can be achieved in the near-term, and where there may already be teams focused. We look forward to more feedback on this, but believe we can accelerate some items and starting moving on a few that need some TLC! We look forward to continuing this effort with the community! 
 
 ## Priorities
-![Fabric Priorities](../website/assets/images/fabric-priorities.png)
+![Fabric Priorities](/assets/images/fabric-priorities.png)
 
 ## Overview
-![Fabric Overview](../website/assets/images/fabric-overview.png)
+![Fabric Overview](/assets/images/fabric-overview.png)
 
 ### Education (in progress)
 
