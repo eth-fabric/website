@@ -24,7 +24,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
 ## Overview
 ![Fabric Overview](/website/assets/images/fabric-overview.png)
 
-### Education (in progress)
+### Education
 
 - **What is it**
     - Spreading awareness of based rollups is essential for adoption. Users should understand their choices and clearly see the benefits and potential tradeoffs.
@@ -38,11 +38,11 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
     - Should Fabric maintain a dedicated knowledge base or collaborate with existing educational platforms?
     - What are the most effective ways to reach different audiences (developers, users, projects)?
     - How can we ensure neutrality while promoting based rollups?
-- **Resources**
+- **Similar Resources**
     - https://docs.spire.dev/spire-overview/based-resources
     - https://github.com/NethermindEth/awesome-preconfirmations
 
-### Commit-Boost (in production Q1 2025)
+### Commit-Boost
 
 - **What is it**
     - Commit-Boost is a Ethereum validator sidecar focused on standardizing the communication between validators and third-party protocols (i.e., preconfs).
@@ -53,7 +53,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
     - [intro post](https://ethresear.ch/t/commit-boost-proposer-platform-to-safely-make-commitments/20107)
     - [docs](https://commit-boost.github.io/commit-boost-client/)
 
-### Constraints API (v0 ready, in production Q1 - Q2 2025)
+### Constraints API
 
 - **What is it**
     - A minimal set of endpoints extending the existing PBS architecture for proposers to add constraints during block building. This unlocks proposer commitments, particularly for unsophisticated proposers who delegate block building responsibilities.
@@ -64,7 +64,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
     - [annotated API](https://github.com/eth-fabric/constraints-specs/blob/main/specs/constraints-api.md)
     - [Proposer / Gateway / Builder specs](https://github.com/eth-fabric/constraints-specs/pull/22)
 
-### Commitments API (in progress for production ready Q2 2025)
+### Commitments API 
 
 - **What is it**
     - A standardized API that defines how gateways receive commitment requests and issue signed commitments. While the first use case is preconfs, it includes flexibility in the schemas to support future commitment types, given the evolving design space (e.g., inclusion, execution, state lock).
@@ -87,7 +87,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
 - **Resources**
     - [repo](https://github.com/ethereum-commitments/urc)
 
-### Lookahead Window (in research)
+### Lookahead Window 
 
 - **What is it?**
     - A smart contract that provides an on-chain view of the beacon chain lookahead, essential for *most* based rollups to move beyond “total anarchy mode” by granting sequencing rights ahead-of-time—such as for enforcing state locks for L2 execution preconfs.
@@ -102,7 +102,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
 - **Resources**
     - [Nethermind/Taiko implementation](https://github.com/NethermindEth/Taiko-Preconf-AVS/blob/9cb5f467c0065cb84d152f9b217d819b294b8d5d/SmartContracts/src/avs/PreconfTaskManager.sol#L316)
 
-### Inbox Contracts (in research)
+### Inbox Contracts
 
 - **What is it?**
     - The L1 smart contract where sequencers post DA. It is responsible for determining who can submit data and how they do it.
@@ -125,7 +125,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
 - **Resources**
     - ‣
 
-### Blob Sharing (Nethermind Driving Effort / Specs)
+### Blob Sharing
 
 - **What is it**
     - Until blob supply is abundant, rollups need a way to share a single blob efficiently to reduce transaction costs.
@@ -146,7 +146,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
     - https://x.com/Spire_Labs/status/1892030335212454308
     
 
-### Shared Bridging (In Research by Several Teams!)
+### Shared Bridging
 
 - **What is it**
     - Shared bridging is where multiple rollups leverage a common L1 bridge to transfer assets and messages between each other, improving interoperability, while reducing security by not relying on third parties.
