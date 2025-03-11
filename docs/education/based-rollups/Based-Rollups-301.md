@@ -2,8 +2,8 @@
 title: Based Rollups 301
 nav_order: 3.3
 layout: default
-parent: Education
-permalink: /education/based-rollups-201
+parent: Based Rollups 101
+permalink: /education/based-rollups-301
 ---
 
 {: .no_toc }
