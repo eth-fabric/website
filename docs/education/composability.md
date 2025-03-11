@@ -1,8 +1,9 @@
 ---
-title: Based Rollups
-nav_order: 2
+title: Composability
+nav_order: 3.2
 layout: default
-permalink: /based-rollups
+parent: Education
+permalink: /education/composability
 ---
 
 {: .no_toc }
