@@ -4,26 +4,34 @@ nav_order: 2
 layout: default
 permalink: /roadmap
 ---
+# Fabric Roadmap
+
+This page provides an overview of how Fabric views the components required for a based rollup. We begin by providing context for this perspective, then reorder the components based on our current priorities in collaboration with the community. This approach has been shaped by countless conversations with teams and community members. We welcome feedback and input and will continue to refine our approach as we research, engage with others, and fully develop the specifications.
+
+![Fabric Overview](/website/assets/images/fabric-overview.png)
 
 {: .no_toc }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
 {:toc}
 
 ---
+# Priorities
 
-# Fabric Roadmap
-So far we have met with over a dozen teams to get perspectives on a roadmap for Fabric. Below is the output of those conversations focused on weighing what should be a public good, areas where things should and can potentially be standardized, what can be achieved in the near-term, and where there may already be teams focused. We look forward to more feedback on this, but believe we can accelerate some items and starting moving on a few that need some TLC! We look forward to continuing this effort with the community! 
+Below are two visuals around the current priortization of efforts around Fabirc after speaking with teams and gathering input weighing what should be a public good, areas where things should and can potentially be standardized, what can be achieved in the near-term, and where there may already be teams focused. We look forward to more feedback on this, but believe we can accelerate some items and starting moving on a few that need some TLC! We look forward to continuing this effort with the community! 
 
-## Priorities
+### Visual By Summary Description
 ![Fabric Priorities](/website/assets/images/fabric-priorities.png)
 
-## Overview
-![Fabric Overview](/website/assets/images/fabric-overview.png)
+### Timeline Fabric Priorities
+![Timeline Fabric Priorities](/website/assets/images/Timeline-Fabric-Priorities.png)
 
+___
+# Details On Sub-Components
 ### Education
 
 - **What is it**
@@ -79,7 +87,7 @@ So far we have met with over a dozen teams to get perspectives on a roadmap for 
 - **Resources**
     - [repo](https://github.com/ethereum-commitments/commitments-specs)
 
-### URC (nearly to v0 for production ready Q2 2025)
+### URC
 
 - **What is it**
     - A minimal smart contract that enables registrations and slashing to enhance the credibility of generic proposer commitments.
