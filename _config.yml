@@ -13,3 +13,5 @@ mermaid:
 nav_enabled: true
 
 color_scheme: dark
+
+enable_copy_code_button: true
