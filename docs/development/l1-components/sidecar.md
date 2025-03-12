@@ -1,6 +1,6 @@
 ---
 title: Validator Sidecar
-nav_order: 6.4
+nav_order: 7.4
 layout: default
 parent: L1 Components
 permalink: /development/l1-components/sidecar

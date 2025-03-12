@@ -1,20 +1,11 @@
 ---
 title: Based Rollups 201
-nav_order: 3.4
+nav_order: 3.1
 layout: default
 parent: Based Rollups 101
 permalink: /education/based-rollups-201
 ---
 
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 ## Details Around Componenents and Sub-Componenets of Based Rollups from Fabric's POV
 
 Building on Based Rollup 101, this provides context for the key components and sub-components of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack.

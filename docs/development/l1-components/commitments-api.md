@@ -1,6 +1,6 @@
 ---
 title: Commitments API
-nav_order: 6.3
+nav_order: 7.3
 layout: default
 parent: L1 Components
 permalink: /development/l1-components/commitments-api

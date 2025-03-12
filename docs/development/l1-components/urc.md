@@ -1,6 +1,6 @@
 ---
 title: Universal Registry Contract
-nav_order: 6.2
+nav_order: 7.2
 layout: default
 parent: L1 Components
 permalink: /development/l1-components/urc

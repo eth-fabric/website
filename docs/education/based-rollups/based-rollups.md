@@ -1,20 +1,11 @@
 ---
 title: Based Rollups 101
-nav_order: 3.3
+nav_order: 3
 layout: default
 parent: Education
 permalink: /education/based-rollups-101
 ---
 
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 ## A Brief History of Based Rollups
 
 The concept of based rollups was formally introduced in an ETH Research post in early 2023 by Justin Drake (previously this conceptually had been introduced by Vitalik in 2021). Based rollups have continued to be pursed by teams across the Ethereum community due to the following features based rollups provide:
@@ -80,5 +71,5 @@ Based sequencing is the foundation for all of this. It ensures that rollups natu
 
 The latest for this image can be found [here](https://docs.google.com/presentation/d/1YckjQ1LEGs9E8lhSO3-qFvpdLAefEAzgx5018CL7O-M/edit#slide=id.g2e3075303b5_0_204)
 
-This was just a based rollup 101, for more technical details please see here (NEED TO UPDATE LINK).
+This was just a based rollup 101, for more technical details please see the [Based Rollups 201](/website/education/Based-Rollups-201) document.
 

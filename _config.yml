@@ -15,3 +15,10 @@ nav_enabled: true
 color_scheme: dark
 
 enable_copy_code_button: true
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+aux_links:
+  Fabric on GitHub:
+    - https://github.com/eth-fabric
