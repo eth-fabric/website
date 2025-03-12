@@ -4,7 +4,7 @@ layout: home
 nav_order: 1
 permalink: /
 ---
-# Overview of Fabric?
+# Overview of Fabric
 
 ![Fabric](/website/assets/images/Fabric.png)
 
