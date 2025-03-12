@@ -134,7 +134,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
    - [Tariz - Radius](https://streameth.org/zuberlin/watch?session=66686a3306eda795c892964e) - Shares how Radius integrates based sequencing.
 - [Preconf.erence Devcon 7](https://www.youtube.com/playlist?list=PLoHFINX7DFU7q5MTJIEha1Ll2DWVG-zSb)
 - [Preconf.erence ETH Denver](https://www.youtube.com/playlist?list=PLoHFINX7DFU5W6x2b-u_KpbEsbsmJ8qb5)
-- [ETHGas ETHDenver Event on Preconfs](https://www.youtube.com/@ETHGas/videos)
+- [ETHGas ETHDenver Event on Preconfs](https://www.youtube.com/playlist?list=PLW6BSM3-lmsXF9XeWTWfb8Wu-psRHL-4Q)
 
 ## Related Concepts
 - [Proposer-Builder Separation (PBS)](https://github.com/ethereum/builder-specs) - A related concept that separates the roles of proposers and builders in the Ethereum consensus layer.
