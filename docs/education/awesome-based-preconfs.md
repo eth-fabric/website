@@ -8,7 +8,7 @@ permalink: /education/awesome-based-preconfs
 
 # Awesome Based Preconfirmations [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-A curated list of resources, research, and implementations related to preconfirmations in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. With his permission we continue it forward. 
+A curated list of resources, research, and implementations related to preconfirmations in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. During aggregation we also want to thank the Spire and mteam for also working on similar types of collections. 
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -42,7 +42,6 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 ## Fair-Exchange
 - [Preconfirmation Fair Exchange](https://ethresear.ch/t/preconfirmation-fair-exchange/21891) - Framework for analyzing protocols that seek to enforce timely-fair exchange of preconfirmations.
 - [Solutions to the Preconf Fair Exchange Problem](https://ethresear.ch/t/solutions-to-the-preconf-fair-exchange-problem/19779) - Solutions for dealing with the fair exchange problem in leader-based preconfirmation setups.
-
 
 ## Sidecars
 - [A simple, small, mev-boost compatible preconfirmation idea](https://ethresear.ch/t/a-simple-small-mev-boost-compatible-preconfirmation-idea/19800) - Adjusting MEV-Boost to handle preconfs.
@@ -88,6 +87,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Interstate](https://docs.interstate.so/intro) - preconf protocol.
 - [Luban Taiyi](https://docs.luban.wtf/taiyi_overview) - preconf protocol.
 - [ETHGas](https://docs.ethgas.com) - preconf protocol.
+- [Cairo](https://github.com/cairoeth/preconfirmations) - Early implementation.
 
 ## Articles
 - [Preconfirmation for the Average Joe](https://x.com/ceciliaz030/status/1875558701324759392) - Simple explnation on preconfs.
@@ -96,6 +96,14 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Preconfirmations: The Fulfillment-Delivery Paradigm](https://mirror.xyz/preconf.eth/sgcuSbd1jgaRXj9odSJW-_OlWIg6jcDREw1hUJnXtgI) - Proposes a formal definition for a preconfirmation, outlined how they’re relevant in the context of decentralized systems and mev, and analyzed considerations to enable them efficiently.
 - [Preconfirmations: Explained](https://www.luganodes.com/blog/preconfirmations-explained/) - Preconfs 101.
 - [Preconfirmations: On splitting the block, mev-boost compatibility and relays](https://ethresear.ch/t/preconfirmations-on-splitting-the-block-mev-boost-compatibility-and-relays/19837) - Article discussing XGA style preconfs.
+- [Proposal: Onboard Bolt to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-bolt-to-the-lido-alliance/7724) - Proposal for Bolt (preconfs protocol) to join Lido Alliance.
+- [Introducing ETHGas and Realtime Proposer Commitments to the Lido Community](https://research.lido.fi/t/introducing-ethgas-and-realtime-proposer-commitments-to-the-lido-community/9018) - ETHGas introduction to Lido Community.
+- [The Preconfirmation Sauna](https://ethresear.ch/t/the-preconfirmation-sauna/19762) - Outlines Switchboard’s vision for how this preconfirmation competition should play out.
+- [Grounded Relay: Superpowers from Relay Coordination](https://ethresear.ch/t/grounded-relay-superpowers-from-relay-coordination/18601) - Using the relay as a coordinator for various services.
+- [RFC Preconfirmations Flow Exploration](https://limechain.notion.site/RFC-Preconfirmations-Flow-Exploration-30fe218a0ea0443fb6bc213da969a47d) - Early exploration of preconfirmations flows.
+- [State Lock Auctions: Towards Collaborative Block Building](https://ethresear.ch/t/state-lock-auctions-towards-collaborative-block-building/18558) - Idea on how to implement state locks on Ethereum.
+- [Preconfirmations Glossary & Requirements](https://hackmd.io/@Perseverance/Sy4a_BX2p) - Early work to define terms around preconfs flows.
+- [Conditions API - Block Conditions Extension to the Builder API](https://hackmd.io/@Perseverance/H1d95Jf4C) - Early idea around APIs to enable commitments / preconfs.
 
 ## Presentations
 - [Get Ready for Preconfs: Are They the Future of Ethereum?](https://www.youtube.com/watch?v=89-S4IvbAwg)
@@ -112,6 +120,8 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Sidecar standardization with Commit-Boost](https://www.youtube.com/watch?v=-wWLcwz08iI&list=PLCjVy6JjB1u7dL6cGJgs3RZH4rDgJdGW9&index=17)
 - [How Preconfs & Blockspace Products Make Ethereum Relevant](https://www.youtube.com/watch?v=3QW1XSbBmvQ&list=PLCjVy6JjB1u7dL6cGJgs3RZH4rDgJdGW9&index=20)
 - [Supercharging Ethereum w/ Fast Preconfs & Decentralized Yield Distribution](https://www.youtube.com/watch?v=61qbQTbu5KM&list=PLCjVy6JjB1u7dL6cGJgs3RZH4rDgJdGW9&index=25)
+- [Keynote : Rollup Preconfirmations](https://www.youtube.com/watch?v=boxGqp9mGJ4)
+- [Soft Confirmations and other builder services](https://docs.google.com/presentation/d/1sXJA9vCzJ3sT-3FyrH6CBrOnkjBERiWnvc8gQxilnoM/edit#slide=id.p) - Presentation from Alex Stokes on builder services. 
 
 ## Full-Day-Events
 - ZuBerlin - 2024
@@ -124,6 +134,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
    - [Tariz - Radius](https://streameth.org/zuberlin/watch?session=66686a3306eda795c892964e) - Shares how Radius integrates based sequencing.
 - [Preconf.erence Devcon 7](https://www.youtube.com/playlist?list=PLoHFINX7DFU7q5MTJIEha1Ll2DWVG-zSb)
 - [Preconf.erence ETH Denver](https://www.youtube.com/playlist?list=PLoHFINX7DFU5W6x2b-u_KpbEsbsmJ8qb5)
+- [ETHGas ETHDenver Event on Preconfs](https://www.youtube.com/@ETHGas/videos)
 
 ## Related Concepts
 - [Proposer-Builder Separation (PBS)](https://github.com/ethereum/builder-specs) - A related concept that separates the roles of proposers and builders in the Ethereum consensus layer.
