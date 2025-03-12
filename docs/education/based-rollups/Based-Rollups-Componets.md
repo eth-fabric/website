@@ -6,6 +6,7 @@ parent: Based-Rollups-Series
 permalink: /education/Based-Rollups-Componets
 ---
 
+
 ## Details Around Componenents and Sub-Componenets of Based Rollups from Fabric's POV
 
 Building on Based Rollup 101, this provides context for the key components and sub-components of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack.
@@ -124,9 +125,7 @@ Below are sub-componenets that are focused on ...
     - https://hackmd.io/@linoscope/blob-sharing-for-based-rollups
     - https://x.com/Spire_Labs/status/1892030335212454308
 
----
-## Derivation Layer
-
 ### Sequencer Resolution
 
 ### Sequencer Shared Blob Parsing
+
