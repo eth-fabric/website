@@ -1,6 +1,6 @@
 ---
 title: Education
-nav_order: 2
+nav_order: 2.1
 layout: default
 permalink: /education
 ---
