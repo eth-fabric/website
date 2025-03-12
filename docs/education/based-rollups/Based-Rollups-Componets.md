@@ -2,8 +2,8 @@
 title: Based Rollups 201
 nav_order: 3.2
 layout: default
-parent: Based Rollups 101
-permalink: /education/based-rollups-201
+parent: Based Rollups Series
+permalink: /education/Based-Rollups-Componets
 ---
 
 ## Details Around Componenents and Sub-Componenets of Based Rollups from Fabric's POV
