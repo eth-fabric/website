@@ -43,6 +43,16 @@ A based rollup with preconfirmations introduces additional complexity but also e
 
 ![Based Rollup With Preconfs](/website/assets/images/BasedRollup-Preconf.png)
 
+## Just a Bit More on How Do Ethereum Blocks Get Built
+_This section was inspired by Spire's [docs](https://docs.spire.dev/readme/based-rollups-overview) who helped trailed blazed drafting based rollups in simpler words / pictures._
+The following diagram provides a bit more context around how a validator acts as the sequencer for based rollups as well as L1 transactions. Please note the items post the diagram. 
+
+![Based Rollup With Preconfs](/website/assets/images/Based-rollup-blocks.png)
+
+Couple items that are important to note on the picture above.
+- Transaction pool represents the broader mempool, this could be the public mempool or other source of transaction flow (i.e., OFAs, private, etc).
+- The current market structure of the L1 today relies heavily on proposers delegating "block stuffing" (aka proposer builder separation, "PBS") to sophisticated actors. We expect this to be similar market structure to be leveraged for based rollups
+
 ## Based Rollups Solve Everything
 
 Based rollups are one tool to help improve composability across Ethereum and lower the barrier to launching a rollup. To really see the benefits of composability we also need social consensus around things like shared cross-chain standards, proof aggregation, shared bridging and many other technological developments.
@@ -71,5 +81,5 @@ Based sequencing is the foundation for all of this. It ensures that rollups natu
 
 The latest for this image can be found [here](https://docs.google.com/presentation/d/1YckjQ1LEGs9E8lhSO3-qFvpdLAefEAzgx5018CL7O-M/edit#slide=id.g2e3075303b5_0_204)
 
-This was just a based rollup 101, for more technical details please see the [Based Rollups 201](/website/education/Based-Rollups-201) document.
+This was just a based rollup 101, for more technical details on based rollups from a Fabric point of view, please see the [Based Rollups Componenets](/website/education/Based-Rollups-Componets) document for componenets of a based rollup and [Based Rollups: Threading the Needle](/website/education/Threading-the-Needle).
 
