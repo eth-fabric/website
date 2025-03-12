@@ -4,38 +4,31 @@ layout: home
 nav_order: 1
 permalink: /
 ---
-# What is Fabric?
-todo
+# Overview of Fabric
 
----
+![Fabric](/website/assets/images/Fabric.png)
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+## Background
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+The Ethereum rollup ecosystem has experienced remarkable growth, with multiple L2s driving scalability, innovation, and adoption. Years of progress have provided the community with valuable insights into design trade-offs and opportunities for collaboration. Over the past year, based rollup research and development contributions and efforts have progressed significantly with the goal of offering an alternative way to sequence rollups that aims to inherit as much of Ethereum’s core properties—liveness, decentralization, and censorship resistance—as possible, while helping address fragmentation within the L2 ecosystem, improving UX, and enabling new forms of composability with the L1.
 
-More specifically, the created site:
+With based rollups now live in production and several preconfirmation (preconf) protocols in development/testing on Holesky, we believe based rollups have matured to a point where the community has a clearer understanding of design trade-offs and a path forward. To support this vision, teams across Ethereum propose “Fabric” (Fabric to Accelerate Based Rollup Infrastructure & Connectivity)—a community effort to continue accelerating coordination and to collectively agree on standards to help drive the based rollup ecosystem forward. Fabric in practice will be a minimal collection of common components required by based rollups and aims to become a Schelling point for rollup developers to build on and build towards.
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+This initiative is stitching together work started last year by Justin Drake and other contributors across the Ethereum ecosystem and it will not progress without their continued collective efforts. 
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+## Fabric to Accelerate Based Rollup Infrastructure & Connectivity
+A community effort to continue accelerating coordination and to collectively agree on standards to help drive the based rollup ecosystem forward. Fabric in practice will be a minimal collection of common components required by based rollups and aims to become a Schelling point for rollup developers to build on and build towards. This initiative is stitching together work started last year by Justin Drake and other contributors across the Ethereum ecosystem and it will not progress without their continued collective efforts. 
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+## North Stars
+The goal is to coordinate, help build, shepherd adoption, and then sustain a collection of common standards and components that anyone can use or develop towards in their own based or non-based rollup stack. The specific focus areas are to the following:
+- Align on minimal standards that the community can agree they will collectively adopt.
+- Ship a minimal viable reference implementation of a based rollup stack that prioritizes simplicity, legibility, and trustlessness.
+- Collaborate with existing rollup stacks to support these standards.
 
-To get started with creating a site, simply:
+## Design Principles
+- Open-source/Open Development: Everything will be developed in the open and released under open-source licenses (MIT/Apache-2.0).
+- Limit Stack Lock-In: We aim to develop the minimal components necessary to integrate with a variety of existing rollups ensuring they are not purpose-built for any single stack.
+- Modularity: Fabric will establish a minimal set of standards that rollup developers can adopt to expedite the creation of based rollups while leaving room for competition, such as developers creating custom stacks or SDKs.
+- Governance Minimized: This effort will not be venture-backed, and there are no plans to launch a token or monetize. It is a public good and will involve contributions from teams across the Ethereum ecosystem
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
-
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+More details on Fabric can be found in the repo and broader documetnation! Any and all feedback is welcome.
