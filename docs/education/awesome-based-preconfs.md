@@ -1,6 +1,6 @@
 ---
 title: Awesome Based Preconfirmations
-nav_order: 2.1
+nav_order: 2.3
 layout: default
 parent: Education
 permalink: /education/awesome-based-preconfs
