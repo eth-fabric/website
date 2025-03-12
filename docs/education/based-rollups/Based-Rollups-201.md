@@ -124,9 +124,6 @@ Below are sub-componenets that are focused on ...
     - https://hackmd.io/@linoscope/blob-sharing-for-based-rollups
     - https://x.com/Spire_Labs/status/1892030335212454308
 
----
-## Derivation Layer
-
 ### Sequencer Resolution
 
 ### Sequencer Shared Blob Parsing
