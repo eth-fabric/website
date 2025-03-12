@@ -1,6 +1,6 @@
 ---
 title: Based Rollups Series
-nav_order: 3
+nav_order: 2
 layout: default
 parent: Education
 permalink: /education/based-rollups-series
