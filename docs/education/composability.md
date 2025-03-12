@@ -1,6 +1,6 @@
 ---
 title: Composability
-nav_order: 3.4
+nav_order: 3.6
 layout: default
 parent: Education
 permalink: /education/composability

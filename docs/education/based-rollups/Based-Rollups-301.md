@@ -1,6 +1,6 @@
 ---
 title: Based Rollups 301
-nav_order: 3.3
+nav_order: 3.5
 layout: default
 parent: Based Rollups 101
 permalink: /education/based-rollups-301
