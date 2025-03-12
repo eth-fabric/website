@@ -19,7 +19,9 @@ permalink: /development/l1-components/sidecar
 The following will highlight sidecars that can be leveraged for Ethereum L1 proposers to issue preconfs for based rollups. A sidecar is an extra piece of software that validators run, in current instances, alongside their consensus client. This enables them to have additional functionality or features. The longest standing example of a sidecar is [MEV-boost]( https://github.com/flashbots/mev-boost).
 
 # Commit-Boost
+
 ![Commit-Boost](/website/assets/images/Commit-Boost-Logo.png)
+
 Due to the risks developing for Ethereum, core development, and its validators set, a group of teams / individuals are working on developing a public good called Commit-Boost. [Commit-Boost](https://x.com/Commit_Boost) is an open-source public good that is fully compatible with MEV-Boost, but acts as a light-weight validator platform to safely make commitments. Specifically, Commit-Boost is a new Ethereum validator sidecar focused on standardizing the last mile of communication between validators and third-party protocols. It's being developed in Rust from scratch, and has been designed with safety and modularity at its core, with the goal of not limiting the market downstream including stakeholders, flows, proposer commitments, enforcement mechanisms, etc. Some of its features include:
 
 - Unification: Core devs will be able to interact and work with one standard during Ethereum forks / upgrades / when and if things go wrong
