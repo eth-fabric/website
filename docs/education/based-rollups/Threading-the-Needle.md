@@ -1,9 +1,9 @@
 ---
-title: Based Rollups 301
+title: Based Rollups: Threading-the-Needle
 nav_order: 3.3
 layout: default
-parent: Based Rollups 101
-permalink: /education/based-rollups-301
+parent: Based-Rollups-Series
+permalink: /education/Threading-the-Needle
 ---
 
 ## Tying It All Together
