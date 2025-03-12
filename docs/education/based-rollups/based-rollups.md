@@ -3,7 +3,7 @@ title: Based Rollups 101
 nav_order: 3.1
 layout: default
 parent: Education
-permalink: /education/based-rollups-101
+permalink: /education/based-rollups
 ---
 
 ## A Brief History of Based Rollups
