@@ -3,7 +3,7 @@ title: Based Rollups 301
 nav_order: 3.3
 layout: default
 parent: Based Rollups 101
-permalink: /education/based-rollups-301
+permalink: /education/based-rollups
 ---
 
 ## Tying It All Together
