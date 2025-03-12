@@ -1,5 +1,5 @@
 ---
-title: Based Rollups 201
+title: Based-Rollups-Componets
 nav_order: 3.2
 layout: default
 parent: Based-Rollups-Series
