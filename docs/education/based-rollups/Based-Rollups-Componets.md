@@ -3,7 +3,7 @@ title: Based-Rollups-Componets
 nav_order: 3.2
 layout: default
 parent: based-rollups
-permalink: /education/Based-Rollups-Componets
+permalink: /education/Based-Rollup-Series/Based-Rollups-Componets
 ---
 
 
