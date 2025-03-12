@@ -88,6 +88,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Luban Taiyi](https://docs.luban.wtf/taiyi_overview) - preconf protocol.
 - [ETHGas](https://docs.ethgas.com) - preconf protocol.
 - [Cairo](https://github.com/cairoeth/preconfirmations) - Early implementation.
+- [ZuBerlin - Preconfs Devnet]([https://www.notion.so/ZuBerlin-Preconfs-Devnet-b693047f41e7407cadac0170a6711dea](https://twisty-wednesday-4be.notion.site/ZuBerlin-Preconfs-Devnet-b693047f41e7407cadac0170a6711dea)) - Early devnets with various teams working on preconfs. 
 
 ## Articles
 - [Preconfirmation for the Average Joe](https://x.com/ceciliaz030/status/1875558701324759392) - Simple explnation on preconfs.
