@@ -26,7 +26,7 @@ For more context on each componenet and sub component, please see [Based Rollup 
 
 ### L2 Components
 - Lookahead Window 
-- Universal Registry Contract 
+- [Universal Registry Contract](https://github.com/eth-fabric/urc)
 - Inbox Contract
 - Blob Sharing
 
