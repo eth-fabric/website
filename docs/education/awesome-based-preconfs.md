@@ -20,6 +20,10 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Rollup-Centric Considerations of Based Preconfimations](https://ethresear.ch/t/rollup-centric-considerations-of-based-preconfimations) - Explores how implementations of preconfirmations can configure blocktime and more efficient data publishing
 - [Blob Preconfirmations with Inclusion Lists to Mitigate Blob Contention and Censorship](https://ethresear.ch/t/blob-preconfirmations-with-inclusion-lists-to-mitigate-blob-contention-and-censorship/19150)
 
+## Validators
+- [Delegation in Bolt: Outsourcing Sophistication While Preserving Decentralization](https://research.chainbound.io/delegation-in-bolt-outsourcing-sophistication-while-preserving-decentralization) - Article explores various “levels” of delegation from proposers for preconfs. 
+- [Preconfirmations under the NO lens](https://ethresear.ch/t/preconfirmations-under-the-no-lens/19975) - Research analyzing preconfs from a validator's perspective. 
+
 ## Sidecars
 - [A simple, small, mev-boost compatible preconfirmation idea](https://ethresear.ch/t/a-simple-small-mev-boost-compatible-preconfirmation-idea/19800) - Adjusting MEV-Boost to handle preconfs.
 - [Based Preconfirmations with Multi-round MEV-Boost](https://ethresear.ch/t/based-preconfirmations-with-multi-round-mev-boost/20091) - Propose multi-round MEV-Boost, a modification of MEV-Boost that enables based preconfirmations by running multiple rounds of MEV-Boost auctions within a single slot.
@@ -27,10 +31,6 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Based proposer commitments - Ethereum’s marketplace for proposer commitments](https://ethresear.ch/t/based-proposer-commitments-ethereum-s-marketplace-for-proposer-commitments) - New sidecar that allows proposers to make commitments to preconf protocols.
 - [Block Building Pipelines for Vanilla Based Rollups](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/pipelines.md) - Proposal for GMEV, a drop and replace for MEV-Boost.
 - [Commit-Boost Community Calls](https://github.com/Commit-Boost/pm/tree/main/Community_Calls) - Community calls on Commit-Boost.
-
-## Validators
-- [Delegation in Bolt: Outsourcing Sophistication While Preserving Decentralization](https://research.chainbound.io/delegation-in-bolt-outsourcing-sophistication-while-preserving-decentralization) - Article explores various “levels” of delegation from proposers for preconfs. 
-- [Preconfirmations under the NO lens](https://ethresear.ch/t/preconfirmations-under-the-no-lens/19975) - Research analyzing preconfs from a validator's perspective. 
 
 ## Universal-Registry-for-Commitments
 - [Credibly Neutral Preconfirmation Collateral: The Preconfirmation Registry](https://ethresear.ch/t/credibly-neutral-preconfirmation-collateral-the-preconfirmation-registry/19634) - Introduces a design for a credibly neutral preconfirmations registry.
