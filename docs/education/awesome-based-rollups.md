@@ -83,7 +83,8 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [How do based rollups actually work?](https://x.com/Spire_Labs/status/1869724672784572776) - Simple explainer of how based rollups work.
 - [We're All Building the Same Thing](https://dba.xyz/were-all-building-the-same-thing/) - Detailed perspective on based rollups + other subjects.
 - [Based Rollups and Decentralized Sequencing (Twitter Spaces wrap-up](https://community.taiko.xyz/t/based-rollups-and-decentralized-sequencing-twitter-spaces-wrap-up/1220) - Summary of a twitter spaces with the EF, Nethermind / Flashbots, Espresso, and Taiko.
-- [A Based Thesis](https://hackmd.io/@sacha/based-rollup-thesis) - Early thesis outlining why based rollups are the future and important for Ethereum. 
+- [A Based Thesis](https://hackmd.io/@sacha/based-rollup-thesis) - Early thesis outlining why based rollups are the future and important for Ethereum.
+- [Surge Documentation](https://docs.surge.wtf/docs/intro) - Documentation on a based rollup effort from Nethermind.
 
 ## Presentations
 - [Ethereum Sequencing and Preconf calls](https://www.youtube.com/playlist?list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR)
