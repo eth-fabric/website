@@ -10,25 +10,36 @@ permalink: /
 
 ## Background
 
-The Ethereum rollup ecosystem has experienced remarkable growth, with multiple L2s driving scalability, innovation, and adoption. Years of progress have provided the community with valuable insights into design trade-offs and opportunities for collaboration. Over the past year, based rollup research and development contributions and efforts have progressed significantly with the goal of offering an alternative way to sequence rollups that aims to inherit as much of Ethereum’s core properties—liveness, decentralization, and censorship resistance—as possible, while helping address fragmentation within the L2 ecosystem, improving UX, and enabling new forms of composability with the L1.
+The Ethereum rollup ecosystem has experienced remarkable growth, with multiple L2s driving scalability, innovation, and adoption. Years of progress have provided the community with valuable insights into design trade-offs and opportunities for collaboration.
 
-With based rollups now live in production and several preconfirmation (preconf) protocols in development/testing on Holesky, we believe based rollups have matured to a point where the community has a clearer understanding of design trade-offs and a path forward. To support this vision, teams across Ethereum propose “Fabric” (Fabric to Accelerate Based Rollup Infrastructure & Connectivity)—a community effort to continue accelerating coordination and to collectively agree on standards to help drive the based rollup ecosystem forward. Fabric in practice will be a minimal collection of common components required by based rollups and aims to become a Schelling point for rollup developers to build on and build towards.
+Over the past year, based rollup research and development has advanced significantly, aiming to offer an alternative sequencing mechanism that preserves as much of Ethereum’s core properties—liveness, decentralization, and censorship resistance—as possible. Additionally, based rollups seek to address fragmentation within the L2 ecosystem, improve user experience, and enable new forms of L1 composability.
 
-This initiative is stitching together work started last year by Justin Drake and other contributors across the Ethereum ecosystem and it will not progress without their continued collective efforts. 
+With based rollups now live in production and multiple preconfirmation (preconf) protocols in development and testing on Holesky, we believe the community now has a clearer understanding of design trade-offs and a path forward.
 
-## Fabric to Accelerate Based Rollup Infrastructure & Connectivity
-A community effort to continue accelerating coordination and to collectively agree on standards to help drive the based rollup ecosystem forward. Fabric in practice will be a minimal collection of common components required by based rollups and aims to become a Schelling point for rollup developers to build on and build towards. This initiative is stitching together work started last year by Justin Drake and other contributors across the Ethereum ecosystem and it will not progress without their continued collective efforts. 
+## Introducing Fabric: A Community-Driven Initiative
+To support this vision, teams across Ethereum propose Fabric (Fabric to Accelerate Based Rollup Infrastructure & Connectivity)—a community-led initiative designed to enhance coordination and establish shared standards for the based rollup ecosystem.
 
-## North Stars
-The goal is to coordinate, help build, shepherd adoption, and then sustain a collection of common standards and components that anyone can use or develop towards in their own based or non-based rollup stack. The specific focus areas are to the following:
-- Align on minimal standards that the community can agree they will collectively adopt.
-- Ship a minimal viable reference implementation of a based rollup stack that prioritizes simplicity, legibility, and trustlessness.
-- Collaborate with existing rollup stacks to support these standards.
+In practice, Fabric will provide a minimal yet essential set of common components for based rollups, serving as a Schelling point for rollup developers to build on and build towards. This initiative stitches together work started last year by Justin Drake and other contributors across the Ethereum ecosystem—and will only progress through continued collaborative efforts.
 
-## Design Principles
-- Open-source/Open Development: Everything will be developed in the open and released under open-source licenses (MIT/Apache-2.0).
-- Limit Stack Lock-In: We aim to develop the minimal components necessary to integrate with a variety of existing rollups ensuring they are not purpose-built for any single stack.
-- Modularity: Fabric will establish a minimal set of standards that rollup developers can adopt to expedite the creation of based rollups while leaving room for competition, such as developers creating custom stacks or SDKs.
-- Governance Minimized: This effort will not be venture-backed, and there are no plans to launch a token or monetize. It is a public good and will involve contributions from teams across the Ethereum ecosystem
+## Fabric: Accelerating Based Rollup Infrastructure & Connectivity
 
-More details on Fabric can be found in the repo and broader documetnation! Any and all feedback is welcome.
+### Mission
+Fabric is a community-driven effort to accelerate coordination and establish common standards for the based rollup ecosystem. It provides a minimal set of shared components that any rollup can adopt, helping streamline development while maintaining flexibility and decentralization.
+
+This initiative builds on past contributions from Justin Drake and others across the Ethereum ecosystem and relies on ongoing collaboration to drive meaningful progress.
+
+### North Stars
+The goal of Fabric is to coordinate, develop, and sustain a set of common standards and components that can be adopted by both based and non-based rollup stacks. The initiative focuses on:
+
+- Aligning on Minimal Standards – Establishing widely accepted baseline standards for the community to collectively adopt.
+- Shipping a Minimal Viable Reference Implementation – Delivering a simple, transparent, and trustless reference implementation of a based rollup stack.
+- Collaborating with Existing Rollup Stacks – Working alongside current rollup ecosystems to support these standards and improve interoperability.
+
+### Design Principles
+Fabric is built on core design principles that ensure openness, modularity, and inclusivity within the Ethereum rollup ecosystem:
+- Open-Source & Open Development – Everything will be developed in the open and released under MIT/Apache-2.0 licenses.
+- Minimal Stack Lock-In – Fabric’s components will be stack-agnostic, ensuring they can integrate seamlessly with various rollups rather than being designed for a specific stack.
+- Modularity – Fabric will define a minimal set of standards that accelerate based rollup development while still allowing competition and customization (e.g., custom stacks or SDKs).
+- Governance Minimization – Fabric will not be venture-backed, nor will it launch a token or seek monetization. It is a public good, sustained by contributions from the broader Ethereum community.
+
+More details on Fabric can be found in the repo and documentation. Any and all feedback is welcome! 
