@@ -7,7 +7,7 @@ permalink: /education/awesome-based-rollups
 ---
 # Awesome Based Rollups [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-A curated list of resources, research, and implementations related to based rollups in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. During aggregation we also want to thank the Spire and mteam for also working on similar types of collections. 
+A curated list of resources, research, and implementations related to based rollups in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. During aggregation we also want to thank the Spire and [mteam](https://x.com/mteamisloading) for also working on similar types of collections. 
 
 ## Introduction
 Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconfirmations calls [here](https://www.youtube.com/watch?v=jrm4ZUoj9xY&list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR).
