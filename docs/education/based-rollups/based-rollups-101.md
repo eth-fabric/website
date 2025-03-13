@@ -9,12 +9,12 @@ permalink: /education/based-rollups/based-rollups-101
 
 ## A Brief History of Based Rollups
 
-The concept of based rollups was formally introduced in an ETH Research post in early 2023 by Justin Drake (previously this conceptually had been introduced by Vitalik in 2021). Based rollups have continued to be pursed by teams across the Ethereum community due to the following features based rollups provide:
+The concept of based rollups was formally introduced in an ETH Research post by Justin Drake in early 2023 (though Vitalik first introduced the idea conceptually in 2021). Since then, based rollups have continued to gain traction within the Ethereum community due to the following advantages they offer:
 
-- **Inherited Characteristics of Ethereum:** Because based rollups use Ethereum validators for sequencing transactions, they inherit some of the decentralization characteristics of Ethereum.
-- **Enhanced Interoperability:** Based rollups are a solution that when combined with standardization efforts will make Ethereum and all of the rollups feel like one chain.
-- **Rollup Bootstrapping:** Based rollups can leverage infrastructure and liquidity in other based rollups and Ethereum. For instance, USDC on Ethereum can be used for a trade executed on a based rollup (i.e., the rollup does not need to do BD to get USDC to be issued on its rollup).
-- **Benefits for App Developers:** Developers can create customized rollups for their users while maintaining connectivity with other based rollups and Ethereum L1, reducing existing friction
+- Inherited Characteristics of Ethereum: Because based rollups use Ethereum validators for sequencing transactions, they inherit key decentralization properties from Ethereum.
+- Enhanced Interoperability: When combined with standardization efforts, based rollups help Ethereum and its rollups function more like a unified chain.
+- Rollup Bootstrapping: Based rollups can leverage existing infrastructure and liquidity from both Ethereum and other based rollups. For example, USDC on Ethereum can be used for a trade executed on a based rollup, eliminating the need for the rollup to establish separate partnerships to get USDC issued natively.
+- Benefits for App Developers: Developers can create customized rollups tailored to their users while maintaining seamless connectivity with Ethereum L1 and other based rollups, reducing friction in the ecosystem.
 
 ## What Is a Based Rollup?
 
@@ -36,7 +36,9 @@ Preconfirmations, in the context of based sequencing, were first discussed in an
 
 ## What Is a Preconfirmation?
 
-A preconfirmation is a reliable and timely commitment from one party to another ahead of settlement. This is similar to what happens today when you swipe a credit card in a store, the credit card company issues a preconfirmation to the company accepting the credit card that the company will get paid even though it takes a few days for the actual money paid to move across accounts. Preconfirmations in the context of based rollups function similarly where by the L1 validator offers a near-instant confirmation before the transaction is actually included in a block. This confirmation is backed by economic and social capital. While not all based rollups require preconfirmations, most will find them beneficial and until Ethereum achieves faster slot times, preconfirmations serve as a mechanism to provide users with quick transaction confirmations while still benefiting from the advantages of based rollups.
+A preconfirmation is a reliable and timely commitment from one party to another ahead of settlement. This is similar to what happens when you swipe a credit card in a store—the credit card company provides a preconfirmation to the merchant, assuring them that they will get paid, even though the actual funds take a few days to transfer.
+
+In the context of based rollups, preconfirmations work similarly. An L1 validator offers a near-instant confirmation before a transaction is officially included in a block. This confirmation is backed by both economic and social capital. While not all based rollups require preconfirmations, most will find them beneficial. Until Ethereum achieves faster slot times, preconfirmations provide users with quick transaction confirmations while still leveraging the advantages of based rollups.
 
 ## How Does a Based Rollup with Preconfirmations Work?
 
@@ -57,23 +59,24 @@ Important items to note:
 
 Based rollups are one tool to help improve composability across Ethereum and lower the barrier to launching a rollup. To really see the benefits of composability we also need social consensus around things like shared cross-chain standards, proof aggregation, shared bridging and many other technological developments.
 
-## What Else Is Potentially Needed
+One of Ethereum’s biggest challenges today is that rollups don’t always work well together. Each rollup operates like an isolated island, making movement between them slow and cumbersome. Based rollups help solve this by making rollups feel like they’re part of the same system rather than disconnected chains.
 
-One of the biggest challenges in Ethereum today is that rollups don’t always **work well together**. Each rollup is like its own island, and moving between them can be slow and clunky. Based rollups help  **fix this by making rollups feel like they’re part of the same system**, rather than disconnected chains.
+How? They allow Ethereum itself to handle transaction ordering. Normally, rollups have their own systems for determining transaction sequencing. But with based rollups, Ethereum’s validators take on this role, ensuring that rollups using based sequencing naturally synchronize with one another—like two apps running on the same operating system rather than separate devices.
 
-How? They let Ethereum itself handle transaction ordering. Normally, rollups have their own systems for deciding which transactions go first. But with based rollups, Ethereum’s validators do this job instead. This means that rollups using based sequencing can naturally **sync up with each other**—like two apps running on the same phone instead of separate devices.
+This significantly improves composability—a fancy way of saying that apps and transactions can interact across rollups more easily. Instead of relying on complex coordination mechanisms between different chains, everything just works. Whether it’s transferring assets or seamlessly combining DeFi Legos across different rollups, the experience becomes as smooth as if they were all on the same chain.
 
-This **supercharges composability**, which is just a fancy way of saying that apps and transactions can interact across rollups more easily. Instead of needing complicated systems to coordinate things across different chains, everything just works—whether it’s transferring assets or seamlessly combining **DeFi Legos** across different rollups, just like they were on the same chain.
+## What’s Still Needed
+However, based sequencing alone isn’t enough. For Ethereum’s rollup ecosystem to truly function as a single unified chain, several key improvements are required. Based sequencing is a foundational piece, but without additional infrastructure, rollups will remain asynchronous—fast in some cases but prone to delays, complexity, and failure points that hinder seamless cross-rollup interactions.
 
-However, **based sequencing alone isn’t enough**. For Ethereum’s rollup ecosystem to truly feel like a single unified chain, a lot of work still needs to be done. But based sequencing is a requirement—without it, rollups will always be asynchronous, which can still feel fast in some cases but **introduces delays, added complexity, and potential failure points** that make cross-rollup interactions less seamless and more fragile. Here’s what else is needed:
+Here’s what else is needed:
+- Cross-Rollup Standards – Currently, rollups are built using different architectures, making interoperability difficult. Establishing common standards for smart contract calls and messaging will allow rollups to communicate more easily, just as internet applications follow common protocols.
+- Shared Bridging – Many rollup bridges create separate versions of the same asset, leading to fragmentation and liquidity issues. A shared bridge would ensure that rollups rely on the same source of truth for assets, preventing fungibility problems and making cross-rollup transfers as seamless as moving funds within a single chain.
+- Shared Blobs – Until Ethereum has abundant blob space, rollups need a way to efficiently share a single blob to reduce costs. This also helps validators maintain a unified transaction history for the based rollups they sequence, improving composability.
+- Proof Aggregation – Each rollup has its own proof system to ensure user funds are secure. By aggregating multiple rollup proofs, costs can be reduced while ensuring that all rollups settle simultaneously, further improving composability.
+- Low-Latency Verification – For rollups to behave as a single chain, they need fast and reliable state verification. Advances in cryptography, such as zero-knowledge proofs and trusted execution environments, can help rollups verify each other in near real-time.
 
-- **Cross-Rollup Standards** – Right now, rollups are built in different ways, making it harder for them to interact. **Common standards** for things like smart contract calls and messaging will allow rollups to communicate more easily, just like apps on the internet follow common protocols.
-- **Shared Bridging** – Today, bridges between rollups often create separate versions of the same asset, leading to **fragmentation and liquidity issues**. A shared bridge ensures that rollups use the same source of truth for assets, preventing **fungibility problems** and making transfers between rollups as seamless as moving funds within a single chain.
-- **Shared Blobs** - Until there are abundant blobs, rollups need a way to share a single blob efficiently to reduce transaction costs. This also helps validators create a single global history for the based rollups they sequence, helping with composability.
-- **Proof Aggregation** – Every rollup has a proof system in place to guarantee their users funds are safe. By **aggregating proofs**, we can bundle multiple rollups’ proofs together, reducing costs. Also, ensuring they settle at the same time helps with composability.
-- **Low-Latency Verification** – For rollups to act like one chain, they need **fast and reliable verification** of each other’s state. Advances in cryptography, like zero-knowledge proofs and trusted execution environments, can help rollups verify each other in near real-time.
-
-Based sequencing is the foundation for all of this. It ensures that rollups naturally align with Ethereum’s timeline, **setting the stage for a future where rollups feel like a single, unified Ethereum experience**.
+## The Role of Based Sequencing
+Based sequencing is the foundation for all of these improvements. It ensures that rollups align naturally with Ethereum’s timeline, laying the groundwork for a future where rollups operate as a seamless, unified Ethereum experience.
 
 ## Who Is Working On Based Rollups
 
