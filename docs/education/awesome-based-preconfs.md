@@ -8,7 +8,7 @@ permalink: /education/awesome-based-preconfs
 
 # Awesome Based Preconfirmations [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-A curated list of resources, research, and implementations related to preconfirmations in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. During aggregation we also want to thank the Spire and mteam for also working on similar types of collections. 
+A curated list of resources, research, and implementations related to preconfirmations in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. During aggregation we also want to thank the Spire and [mteam](https://x.com/mteamisloading) for also working on similar types of collections. 
 
 ## Introduction
 Preconfirmations are a mechanism that allows block proposers to commit to a block's contents before it is included in the blockchain. Follow the Ethereum Sequencing and Preconfirmations calls [here](https://www.youtube.com/watch?v=jrm4ZUoj9xY&list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR).
