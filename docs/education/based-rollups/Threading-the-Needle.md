@@ -8,10 +8,10 @@ permalink: /education/based-rollups/Threading-the-Needle
 
 ## Tying It All Together
 
-By now we assume you have ready Based Rollup 101 and Based Rollup 201. Below is an attempt to tie this all together. The reader should keep in mind there are still a variety of ways to implement based rollups where the details vary by team / approach. We would highly encourage visiting the [awesome based rollup](/website/education/awesome-based-rollups) and [preconfs](/website/education/awesome-based-preconfs) pages for an exhustive list of articles, stacks, presentations and podcasts. Further, if you are not familer with traditional rollup design we would encourage teams to learn more here (INSERT LINK TO BEST PLACE TO LEARN)
+By now we assume you have read [Based Rollup 101](https://eth-fabric.github.io/website/education/based-rollups/based-rollups-101) and [Based Rollup Components](https://eth-fabric.github.io/website/education/based-rollups/Based-Rollups-Componets). Below is an attempt to tie this all together. The reader should keep in mind there are still a variety of ways to implement based rollups where the details vary by team / approach. We would highly encourage visiting the [awesome based rollup](/website/education/awesome-based-rollups) and [preconfs](/website/education/awesome-based-preconfs) pages for an exhustive list of articles, stacks, presentations and podcasts. 
 
 ### Many Boxes and Arrows
-Below is a detailed diagram of a based rollup tying all the components and sub-components together. We note that while this picture may appear complex, many of the parts are actually part of current L2 stacks.
+Below is a detailed diagram of a based rollup tying all the components and sub-components together. We note that while this picture may appear complex, some of the parts just the traditional L2 stack. We also want to again note that this is just one way to view based rollups and as teams work through research and implementations we may see shifts in this view.
 
 ![Fabric Overview with Dido](/website/assets/images/dido-overview.png)
 
@@ -38,6 +38,5 @@ Below is a detailed diagram of a based rollup tying all the components and sub-c
 - **Shared Bridge:** A bridge multiple L2s share to facilitate safer interoperability.
 
 #### Notes on the Diagram
-
 - The RPC Router and L2 Public Mempool are not required but can help with censorship resistance for non-contentious transactions. In practice there will likely be a mix of public mempool and private orderflow.
 - To reduce Gateway sophistication in this design, L2 Builders can horizontally scale to service as many L2s as needed but the Gateway only acts as a clearing house that issues preconfs to the auction winner.

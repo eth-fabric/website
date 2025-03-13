@@ -16,25 +16,25 @@ permalink: /development/l1-components/sidecar
 
 ---
 # Validator Sidecars
-The following will highlight sidecars that can be leveraged for Ethereum L1 proposers to issue preconfs for based rollups. A sidecar is an extra piece of software that validators run, in current instances, alongside their consensus client. This enables them to have additional functionality or features. The longest standing example of a sidecar is [MEV-boost]( https://github.com/flashbots/mev-boost).
+The following will highlight sidecars that Ethereum L1 proposers can leverage to issue preconfs for based rollups. A sidecar is an additional piece of software that validators run—typically alongside their consensus client—to enable additional functionality or features. The longest-standing example of a sidecar is [MEV-boost]( https://github.com/flashbots/mev-boost).
 
 # Commit-Boost
 
 ![Commit-Boost](/website/assets/images/Commit-Boost-Logo.png)
 
-Due to the risks developing for Ethereum, core development, and its validators set, a group of teams / individuals are working on developing a public good called Commit-Boost. [Commit-Boost](https://x.com/Commit_Boost) is an open-source public good that is fully compatible with MEV-Boost, but acts as a light-weight validator platform to safely make commitments. Specifically, Commit-Boost is a new Ethereum validator sidecar focused on standardizing the last mile of communication between validators and third-party protocols. It's being developed in Rust from scratch, and has been designed with safety and modularity at its core, with the goal of not limiting the market downstream including stakeholders, flows, proposer commitments, enforcement mechanisms, etc. Some of its features include:
+Due to the risks developing for Ethereum, its core development, and its validator set, a group of teams and individuals are working on a public good called Commit-Boost. [Commit-Boost](https://x.com/Commit_Boost) is an open-source public good that is fully compatible with MEV-Boost but acts as a lightweight validator platform to safely make commitments. Specifically, Commit-Boost is a new Ethereum validator sidecar focused on standardizing the last mile of communication between validators and third-party protocols. It is being developed in Rust from scratch and has been designed with safety and modularity at its core, ensuring it does not limit the downstream market, including stakeholders, flows, proposer commitments, enforcement mechanisms, and more. Some of its features include:
 
-- Unification: Core devs will be able to interact and work with one standard during Ethereum forks / upgrades / when and if things go wrong
-- Backward compatibility + more: Commit-Boost is not only backward compatible with MEV-Boost, but will improve the life of validators who only run MEV-Boost through increased reporting, telemetry / other off-the-shelf tools validators can employ
-- Opt-in without running more sidecars: Commit-Boost will allow proposers who want to opt into other commitments do so without having to run multiple sidecars
-- Robust support: Commit-Boost the software is supported by a not-for-profit entity. This team will also be focused on testing and adjustments needed during hard forks and have a team to interact with to help during adoption, improvements, and sustainment
-- Not VC-backed public good: This team and effort will not be VC-backed. There is no monetization plan and no token. The entity will not be able to sell itself and will not start any monetizable side businesses. 
+- Unification: Core developers will be able to interact with and work under one standard during Ethereum forks, upgrades, or when unexpected issues arise.
+- Backward compatibility and more: Commit-Boost is not only backward compatible with MEV-Boost but also improves the experience for validators running MEV-Boost through enhanced reporting, telemetry, and other off-the-shelf tools.
+- Opt-in without running additional sidecars: Commit-Boost allows proposers who want to opt into other commitments to do so without the need to run multiple sidecars.
+- Robust support: Commit-Boost is supported by a not-for-profit entity. This team will focus on testing and necessary adjustments during hard forks and provide assistance with adoption, improvements, and long-term sustainability.
+- A non-VC-backed public good: This initiative is not backed by venture capital. There is no monetization plan and no token. The entity cannot be sold and will not launch any monetizable side businesses.
 
 ## How Validators Can Run Commit-Boost
 More details can be found in the Commit-Boost [documentation](https://commit-boost.github.io/commit-boost-client/category/running).
 
 ## How Can I Build A Preconf Protoocl or Other Proposer Commitment
-More details can be found in the Commit-Boost [documentation]([https://commit-boost.github.io/commit-boost-client/category/running](https://commit-boost.github.io/commit-boost-client/category/developing).
+More details can be found in the Commit-Boost documentation [here]([https://commit-boost.github.io/commit-boost-client/category/running) and [here](https://commit-boost.github.io/commit-boost-client/category/developing).
 
 ## Resources
 Below are resources to learn about Commnit-Boost:
