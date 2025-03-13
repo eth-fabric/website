@@ -87,6 +87,7 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Beam Me Up!](https://www.youtube.com/watch?v=3ve8H54VFb8)
 - [Ethereum Sequencing and Preconf calls](https://www.youtube.com/playlist?list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR)
 - [Fixing Fragmentation](https://www.youtube.com/watch?v=MnsjUZo7RRI)
+- [Justin Drake & Federico Carrone on Ethereum’s Native Rollup Roadmap](https://www.youtube.com/watch?v=lutSYwknNjQ)
 - [Next Generation Based Rollups: A Practical Approach to Unifying Ethereum](https://www.youtube.com/watch?v=Ier_f5V4_ow)
 - [Open based sequencing protocol](https://www.youtube.com/watch?v=2IiScdmXO6Q&list=PLCjVy6JjB1u7dL6cGJgs3RZH4rDgJdGW9&index=20)
 - [Scaling Ethereum With Based Rollups](https://www.youtube.com/watch?v=uI2KSEXhtZc)
