@@ -11,13 +11,14 @@ A curated list of resources, research, and implementations related to based roll
 
 ## Table of Contents
 - [Introduction](#introduction)
-- Inbox / Withdraws
-- Composability
-- Blobs
-- Economics
-- Stacks-and-Implmentations
-- Articles
-- Presentations
+- [Research and Discussion](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#research-and-discussion)
+- [Inbox / Withdraws](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#inbox--withdraws)
+- [Composability](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#composability)
+- [Blobs](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#blobs)
+- [Economics](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#economics)
+- [Stacks-and-Implmentations](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#stacks-and-implmentations-alphabetically)
+- [Articles](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#articles)
+- [Presentations](https://github.com/eth-fabric/website/blob/awesome-based/docs/education/awesome-based-rollups.md#presentations)
 
 ## Introduction
 Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconfirmations calls [here](https://www.youtube.com/watch?v=jrm4ZUoj9xY&list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR).
