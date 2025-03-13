@@ -2,7 +2,7 @@
 title: Based Rollups 101
 nav_order: 3.1
 layout: default
-parent: based-rollups
+parent: Based Rollup Series
 permalink: /education/based-rollups/based-rollups-101
 ---
 

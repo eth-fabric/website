@@ -1,5 +1,5 @@
 ---
-title: Based Rollups Series
+title: Based Rollup Series
 nav_order: 3
 layout: default
 parent: Education

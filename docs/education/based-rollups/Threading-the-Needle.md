@@ -2,7 +2,7 @@
 title: Based Rollups Threading the Needle
 nav_order: 3.3
 layout: default
-parent: based-rollups
+parent: Based Rollup Series
 permalink: /education/based-rollups/Threading-the-Needle
 ---
 
