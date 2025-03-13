@@ -1,5 +1,5 @@
 ---
-title: Based-Rollups-Componets
+title: Based-Rollups-Components
 nav_order: 3.2
 layout: default
 parent: Based Rollup Series
@@ -7,7 +7,7 @@ permalink: /education/based-rollups/Based-Rollups-Componets
 ---
 
 
-## Details Around Componenents and Sub-Componenets of Based Rollups from Fabric's POV
+## Details Around Componenents and Sub-Components of Based Rollups from Fabric's POV
 
 Building on Based Rollup 101, this provides context for the key components and sub-components of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack.
 
@@ -15,7 +15,7 @@ Building on Based Rollup 101, this provides context for the key components and s
 
 ---
 ## L1 Components
-Below are sub-componenets that are focused on smart contract and API changes required around L1 infrastructure / to be built on top of Ethereum. 
+Below are sub-components that are focused on smart contract and API changes required around L1 infrastructure / to be built on top of Ethereum. 
 
 ### Commit-Boost
 
@@ -65,7 +65,7 @@ Below are sub-componenets that are focused on smart contract and API changes req
 
 ---
 ## L2 Components
-Below are sub-componenets that are focused on ...
+Below are sub-components that are focused on ...
 
 ### Lookahead Window 
 
