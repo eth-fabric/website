@@ -8,32 +8,36 @@ permalink: /education/based-rollups/Threading-the-Needle
 
 ## Tying It All Together
 
-By now we assume you have ready Based Rollup 101 and Based Rollup 201. Below is an attempt to tie this all together. The reader should keep in mind there are still a variety of ways to implement based rollups where the details vary by team / approach. We would highly ecourage visiting awesome based rollup (NEED TO ADD LINK) and [preconfs](https://github.com/eth-fabric/awesome-based-preconfs) for an exhustive list of articles, stacks, presentations and podcasts. Further, if you are not familer with traditional rollup design we would encourage teams to learn more here (INSERT LINK TO BEST PLACE TO LEARN)
+By now we assume you have ready Based Rollup 101 and Based Rollup 201. Below is an attempt to tie this all together. The reader should keep in mind there are still a variety of ways to implement based rollups where the details vary by team / approach. We would highly encourage visiting the [awesome based rollup](/website/education/awesome-based-rollups) and [preconfs](/website/education/awesome-based-preconfs) pages for an exhustive list of articles, stacks, presentations and podcasts. Further, if you are not familer with traditional rollup design we would encourage teams to learn more here (INSERT LINK TO BEST PLACE TO LEARN)
 
 ### Many Boxes and Arrows
-Below is a detailed diagram of a based rollup tying all the componenetns and sub-components together. We note that while this picture may appear complex, many of the parts are actually part of current L2 stacks. .
+Below is a detailed diagram of a based rollup tying all the components and sub-components together. We note that while this picture may appear complex, many of the parts are actually part of current L2 stacks.
 
 ![Fabric Overview with Dido](/website/assets/images/dido-overview.png)
 
 ### Definitions
-- User: Party requesting a preconf for a transaction/data in a based rollup or a party submitting a transaction/data. 
-- RPC Router:
-- L2 Public Mempool: This is a generalized description of a mempool where transactions from L2s will be submitted to be preconfed or sequenced by the L1 validator. 
-- L2 Full Node: Exactly as the name suggest, a full node tracking the state of the rollup. 
-- L2 Builder A - C:
-- Gateway: The entity responsible for issuing preconfirmations and sequencing the L2. This can be a L1 validator directly or a party they delegate certain rights to.
-- Relay: Role most are familar with in the PBS pipeline, "relays are a doubly-trusted data-availability layer and communication interface between builders and validators." [Source](https://docs.flashbots.net/flashbots-mev-boost/relay#:~:text=mev%2Dboost%20is%20effectively%20just,might%20connect%20to%20many%20relays.)
-- L1 Builder: 
-- L1 Searcher:
-- Wallets: 
-- URC Indexer: 
-- Universal Registry Contract ("URC"): A minimal smart contract that enables registrations and slashing to enhance the credibility of generic proposer commitments.
-- Derivation Contract:
-- Lookahead Window: A smart contract that provides an on-chain view of the beacon chain lookahead. This is essential for most based rollups to move beyond “total anarchy mode” by granting sequencing rights ahead-of-time—such as for enforcing state locks for L2 execution preconfs.
-- L1 Prpopser: Proposer that is part of Ethereum's validator set.
-- batchIbox Address:
-- L2 Derivation:
-- Execution Layer:
-- L2 State:
-- Settlement Layer:
-- Shared Bridge:
+- **User:** An L2 user trying to submit transactions to one or more based rollups.
+- **RPC Router:** A service that aggregates requests from users and makes them available to the L2 builders 
+- **L2 Public Mempool:** A mempool for pending transactions across multiple based rollups.
+- **L2 Full Node:** A standard full node to track the state of the L2.
+- **L2 Builder A - C:** A group of rollup builders that build cross-rollup bundles.
+- **Gateway:** The entity responsible for issuing preconfirmations. This can be an L1 validator directly or a party they delegate to.
+- **Relay:** A trusted party from the PBS pipeline: "relays are a doubly-trusted data-availability layer and communication interface between builders and validators." [Source](https://docs.flashbots.net/flashbots-mev-boost/relay#:~:text=mev%2Dboost%20is%20effectively%20just,might%20connect%20to%20many%20relays.)
+- **L1 Builder:** A party that builds L1 blocks on behalf of the L1 validator.
+- **L1 Searcher:** A party that searches for transactions on behalf of the L1 builder.
+- **Universal Registry Contract ("URC"):** A minimal smart contract that enables registrations and slashing to enhance the credibility of generic proposer commitments.
+- **URC Indexer:** An indexer that tracks the state of the URC off-chain.
+- **DerivationHelper Contract:** A smart contract that assists the L2 full node when deriving the L2 state (see [Dido](/website/research//Dido)).
+- **Lookahead Window:** A smart contract that provides an on-chain view of the beacon chain lookahead to track the slots the validators will be proposing at.
+- **L1 Proposer:** L1 block proposer AKA an Ethereum validator.
+- **batchInbox Address:** The address that rollup blobs are sent to.
+- **L2 Derivation:** The process of deriving the L2 state from the L1 state.
+- **Execution Layer:** The virtual machine that executes transactions to determine state.
+- **L2 State:** The current state of the L2.
+- **Settlement Layer:** The proof system and L1 contracts that allow the L1 to update it's view on the L2's state.
+- **Shared Bridge:** A bridge multiple L2s share to facilitate safer interoperability.
+
+#### Notes on the Diagram
+
+- The RPC Router and L2 Public Mempool are not required but can help with censorship resistance for non-contentious transactions. In practice there will likely be a mix of public mempool and private orderflow.
+- To reduce Gateway sophistication in this design, L2 Builders can horizontally scale to service as many L2s as needed but the Gateway only acts as a clearing house that issues preconfs to the auction winner.
