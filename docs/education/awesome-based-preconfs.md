@@ -133,7 +133,6 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 ## Related Concepts
 - [Proposer-Builder Separation (PBS)](https://github.com/ethereum/builder-specs) - A related concept that separates the roles of proposers and builders in the Ethereum consensus layer.
 - [MEV-Boost](https://boost.flashbots.net/) - A middleware that outsources block building to a network of builders, enabling proposer commitments.
-- Embedded Rollups, [Part 1](https://ethresear.ch/t/embedded-rollups-part-1-introduction/21460) and [Part 2](https://ethresear.ch/t/embedded-rollups-part-2-shared-bridging/21461) - Posts exploring fast and efficient cross-chain interoperability by implementing an embedded shared-bridge rollup.
 
 ## Contributing
 Contributions to this awesome list are welcome! Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
