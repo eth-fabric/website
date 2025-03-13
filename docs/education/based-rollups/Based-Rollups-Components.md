@@ -9,7 +9,11 @@ permalink: /education/based-rollups/Based-Rollups-Componets
 
 ## Details Around Componenents and Sub-Components of Based Rollups from Fabric's POV
 
-Building on [Based Rollup 101](/website/education/based-rollups/based-rollups-101), this document provides context on the key components and sub-components of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack. If you want to learn more about each component we would encourage teams visit those sections of the Fabric repo where more documentation can or will be able to be found. Please note not all components are fully researched, agreed on, built and fully documented. Below also only focuses on the green boxes / non-strech goal componenets. 
+Building on [Based Rollup 101](/website/education/based-rollups/based-rollups-101), this document provides context on the key components and subcomponents of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack.
+
+If you want to learn more about each component, we encourage teams to visit the relevant sections of the Fabric repo, where more documentation can be found or will become available.
+
+Please note that not all components have been fully researched, agreed upon, built, or documented. Additionally, the following focuses only on the green boxes and non-stretch goal components.
 
 ![Fabric Overview](/website/assets/images/fabric-overview.png)
 
