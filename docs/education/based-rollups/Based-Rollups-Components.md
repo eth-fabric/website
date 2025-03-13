@@ -9,25 +9,27 @@ permalink: /education/based-rollups/Based-Rollups-Componets
 
 ## Details Around Componenents and Sub-Components of Based Rollups from Fabric's POV
 
-Building on Based Rollup 101, this provides context for the key components and sub-components of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack.
+Building on [Based Rollup 101](/website/education/based-rollups/based-rollups-101), this document provides context on the key components and sub-components of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack.
 
 ![Fabric Overview](/website/assets/images/fabric-overview.png)
 
 ---
 ## L1 Components
-Below are sub-components that are focused on smart contract and API changes required around L1 infrastructure / to be built on top of Ethereum. 
+Changes to L1 infrastructure are required to support block building for based rollups. Below are sub-components that are focused on smart contract and API changes.
 
 ### Commit-Boost
 
 - **What is it**
-    - Commit-Boost is a Ethereum validator sidecar focused on standardizing the communication between validators and third-party protocols (i.e., preconfs).
+    - Commit-Boost is an Ethereum validator sidecar focused on standardizing the communication between validators and third-party protocols (i.e., preconfs).
     - Enables validators to run a single sidecar while easily making multiple commitments without additional devops overhead.
     - Provides tools to streamline the development of off-chain proposer commitment protocols (e.g., standardizing validator signature requests).
-    - Allows proposers to make a commitment to issue a preconf.
+    - Allows proposers to make a commitment to issue a preconf or future types of commitments.
 - **Resources:**
     - [repo](https://github.com/Commit-Boost/commit-boost-client)
     - [intro post](https://ethresear.ch/t/commit-boost-proposer-platform-to-safely-make-commitments/20107)
     - [docs](https://commit-boost.github.io/commit-boost-client/)
+
+---
 
 ### Constraints API
 
@@ -39,6 +41,8 @@ Below are sub-components that are focused on smart contract and API changes requ
     - [OpenAPI](https://eth-fabric.github.io/constraints-specs/)
     - [annotated API](https://github.com/eth-fabric/constraints-specs/blob/main/specs/constraints-api.md)
     - [Proposer / Gateway / Builder specs](https://github.com/eth-fabric/constraints-specs/pull/22)
+
+---
 
 ### Commitments API 
 
@@ -55,6 +59,8 @@ Below are sub-components that are focused on smart contract and API changes requ
 - **Resources**
     - [repo](https://github.com/ethereum-commitments/commitments-specs)
 
+---
+
 ### URC
 
 - **What is it**
@@ -64,8 +70,9 @@ Below are sub-components that are focused on smart contract and API changes requ
     - [repo](https://github.com/ethereum-commitments/urc)
 
 ---
+
 ## L2 Components
-Below are sub-components that are focused on ...
+For a rollup to adopt based sequencing, it needs to make changes to its L2 infrastructure. Below are sub-components that help with this.
 
 ### Lookahead Window 
 
@@ -76,11 +83,14 @@ Below are sub-components that are focused on ...
 - **Considerations**
     - A generic lookahead contract would report on-chain *all* upcoming BLS keys for the epoch. To grant state locks ahead-of-time, rollup inbox contracts still need to know which of the validators are preconfers for their rollups.
     - A lookahead is just one way to assign sequencing rights in a based rollup and ideally protocols do not have to tightly couple a lookahead with their inbox contracts, but can instead optionally tap into one.
+    - The lookahead can be determined off-chain during L2 derivation which avoids the need for an on-chain lookahead contract at all - see [Dido](/website/research/dido).
 - **Discussion**
     - Should we push for an EIP instead for medium to long-term and rollups will use their own on-chain implementations in the short-term?
     - An EIP for an on-chain view of the lookahead should be compatible with the beam chain if we use proposer indices instead of public keys
 - **Resources**
     - [Nethermind/Taiko implementation](https://github.com/NethermindEth/Taiko-Preconf-AVS/blob/9cb5f467c0065cb84d152f9b217d819b294b8d5d/SmartContracts/src/avs/PreconfTaskManager.sol#L316)
+
+---
 
 ### Inbox Contracts
 
@@ -102,8 +112,8 @@ Below are sub-components that are focused on ...
         - Non-based rollups also benefit from a standardized inbox because they can share the same messaging format.
         - But there will be headwinds convincing incumbent rollups to modify their inboxes as it **affects their derivation rules**, especially if they have to adopt a competitor’s inbox format.
         - But real-time proving could be a forcing function for change - if you want shared settlement each slot the shared bridging / blob sharing / inbox all start to collapse.
-- **Resources**
-    - ‣
+
+--- 
 
 ### Blob Sharing
 
@@ -112,20 +122,40 @@ Below are sub-components that are focused on ...
     - Blob sharing helps to:
         - Increase competition – Lowers the barrier for smaller rollups that can’t efficiently fill a full blob.
         - Improve based rollup efficiency – Based rollups post blobs more frequently than classical rollups, preventing long amortization periods. Based rollups can improve efficiency by amortizing blob costs across multiple rollups (this also helps classical rollups)
-        - Helps with shared real-time settlement -If you can guarantee that rollup A and rollup B share a blob then their data is either posted together or not at all.
+        - Enables [atomic inclusion](/website/education/composability/atomic-inclusion) - If you can guarantee that rollup A and rollup B share a blob then their data is either posted together or not at all.
 - **Considerations**
     - Shared L1 transactions – Instead of multiple based L2s each paying 21,000 gas for separate L1 transactions, they can share a single transaction to amortize costs.
     - Streaming Compression – Compress → Pack to allow for parallelization.
-    - Shared calldata packin**g** – Support multi-rollup calldata aggregation for when it’s economical to use.
+    - Shared calldata packing – Support multi-rollup calldata aggregation for when it’s economical to use.
     - Nethermind has received an EF grant to work on blob sharing 🔥
 - **Discussion**
     - Should we prioritize transactions, state diffs, or both?
         - Transactions are more intuitive for based sequencing, but real-time proving could make state diffs more viable.
 - **Resources**
-    - https://hackmd.io/@linoscope/blob-sharing-for-based-rollups
-    - https://x.com/Spire_Labs/status/1892030335212454308
+    - [Lin's blog post](https://hackmd.io/@linoscope/blob-sharing-for-based-rollups)
+    - [Spire's demo](https://x.com/Spire_Labs/status/1892030335212454308)
+
+---
 
 ### Sequencer Resolution
 
+- **What is it?**
+    - Rollups need to determine if a blob was submitted by a valid sequencer to consider it when calculating their L2 state.
+    - Classical rollups like the OP stack will verify the designated sequencer's signature on the blob.
+    - Based sequencing implies that there will be multiple valid sequencers for a given rollup so rules are required to determine which sequencer is allowed and when.
+    - These "sequencer resolution" rules will be necessary to expand rollup sequencer sets, but there are different approaches to how this can be done.
+- **Considerations**
+    - Can be done **on-chain** at the inbox level - see [Nethermind/Taiko PoC](https://github.com/NethermindEth/Taiko-Preconf-AVS/tree/9cb5f467c0065cb84d152f9b217d819b294b8d5d/SmartContracts)
+    - Can be done **off-chain** during L2 derivation - see [Dido](/website/research/dido).
+
+---
+
 ### Sequencer Shared Blob Parsing
 
+- **What is it?**
+    - If rollups agree to share blob space then they are opting into a shared encoding scheme.
+    - For the rollups to derive their correct L2 state, they need to be able to decode the shared blob.
+    - This is a new step in a rollup's derivation process that requires changes.
+- **Considerations**
+    - The decoding naturally follows the blob sharing implementation / standard.
+    - If rollups want to modify the shared encoding scheme, it is ideally straightforward to modify the shared blob parsing step **without** hard-forking the rollup node software.

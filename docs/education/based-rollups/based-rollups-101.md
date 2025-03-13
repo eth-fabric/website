@@ -51,9 +51,9 @@ Below is a more detailed picture of how based rollups receive and sequence based
 
 Important items to note:
 - The based transaction pool is used as a generic term of where transactions are entering a mempool
-- Similar to the market structure of Ethereum today, where validators delegate block stuffing to a sophisticated entity, we expect validators to remain "dumb pipes" and not sophisticated, delegating / leveraging another party to perform the actual sequencing of transactions and block stuffing
+- Similar to the market structure of Ethereum today, where validators delegate block building to a sophisticated entity, we expect validators to remain "dumb pipes" and not sophisticated, delegating / leveraging another party to perform the actual sequencing of transactions and block building.
 
-## Based Rollups Solve Everything
+## Do Based Rollups Solve Everything?
 
 Based rollups are one tool to help improve composability across Ethereum and lower the barrier to launching a rollup. To really see the benefits of composability we also need social consensus around things like shared cross-chain standards, proof aggregation, shared bridging and many other technological developments.
 
