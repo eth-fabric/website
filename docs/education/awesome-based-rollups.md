@@ -11,7 +11,13 @@ A curated list of resources, research, and implementations related to based roll
 
 ## Table of Contents
 - [Introduction](#introduction)
-
+- Inbox / Withdraws
+- Composability
+- Blobs
+- Economics
+- Stacks-and-Implmentations
+- Articles
+- Presentations
 
 ## Introduction
 Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconfirmations calls [here](https://www.youtube.com/watch?v=jrm4ZUoj9xY&list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR).
@@ -24,8 +30,9 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Fabric - Fabric to Accelerate Based Rollup Infrastructure & Connectivity](https://ethresear.ch/t/fabric-fabric-to-accelerate-based-rollup-infrastructure-connectivity/21640) - Propsal for a coordination and development effort to establish standards for based rollups.
 - [Becoming Based: A Path towards Decentralised Sequencing](https://ethresear.ch/t/becoming-based-a-path-towards-decentralised-sequencing/21733) - A proposal to work with current L2s that progresses towards based sequencing.
 - [Transaction Submission on Based Rollups](https://ethresear.ch/t/transaction-submission-on-based-rollups/18631) - This post explores the trade-offs between different ways to submit transactions to the rollup.
+- [Unified Endgame Rollup Requirements](https://ethresear.ch/t/unified-endgame-rollup-requirements/18733) - The list is created with the proposed milestones for rollup decentralization.
+- [Based Rollups with Stronger Finality & Revenue Share (WIP)](https://hackmd.io/2HHg2t-gSbyJX3M170Nigw) - Describes a version of Ethereum shared sequencing for "based rollups" that retains the benefits of vanilla based sequencing (liveness, censorship resistance, L1 security and composability etc) while offering rollups stronger finality and a share of sequencing revenue.
 
-  
 ## Inbox / Withdraws
 - [Same-Slot L1→L2 Message Passing](https://ethresear.ch/t/same-slot-l1-l2-message-passing/21186) - Post introduces a protocol that enables the L2 proposer to selectively inject L1 messages emitted in the same slot directly into L2.
 - [Fast (and Slow) L2→L1 Withdrawals](https://ethresear.ch/t/fast-and-slow-l2-l1-withdrawals/21161) - Introduces a new fast path for L2 withdrawals to L1 within the same L1 slot, enabled by solvers.
@@ -48,6 +55,7 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [MEV for “Based Rollup”](https://ethresear.ch/t/mev-for-based-rollup/15636) - Article exploring how MEV can work with based rollups.
 - [Based Rollup Economics](https://taiko.mirror.xyz/PhlvGdIaY3-ZQ1DqI9uM5LxrWGWLAzLI84rkxhvPKmM) - Post that summarizes the current economic landscape of rollups, and explore based rollups economy.
 - [Based Rollups can reward Proposers first come first serve](https://ethresear.ch/t/based-rollups-can-reward-proposers-first-come-first-serve/18317) - Articles explores how a simple FCFS system should be sufficient for Based Rollups.
+- [Based Ticketing Rollup](https://hackmd.io/LRQPSItESPuMhUSwrB71rQ) - Presents a “Based Ticketing Rollup” that starts from the concept of a Based rollup and adds Execution Tickets to address its weak points.
 
 ## Stacks-and-Implmentations (alphabetically)
 - [Facet Based Stack](https://github.com/0xFacet)
@@ -60,7 +68,6 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Taiko Based Stack](https://github.com/taikoxyz/taiko-mono)
 - [Taiko's Gwyneth Based Stack](https://github.com/taikoxyz/gwyneth) 
 
-
 ## Articles
 - [Linea as a based rollup - a theoretical architecture](https://community.linea.build/t/linea-as-a-based-rollup-a-theoretical-architecture/9882) - Linea explores what it might take to go based.
 - [Unpacking The Next Generation Of Ethereum L2s (I): Based Rollups](https://x.com/2077Research/status/1879976056750502327) - Explainer of based rollups and some background / history.
@@ -70,10 +77,29 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Gwyneth Technical Design](https://capricious-firefly-0c5.notion.site/Gwyneth-Technical-Design-86a8d1a151954f559f8124301bed1d46) - Early document outlining how Gwyneth works.
 - [Booster rollups - scaling L1 directly](https://ethresear.ch/t/booster-rollups-scaling-l1-directly/17125) - Outlines an approach where the L2 directly extends the blockspace of the L1 for all applications deployed on L1 by sharding the execution of transactions and the storage.
 - [Taiko Protocol Overview](https://taiko.mirror.xyz/y_47kIOL5kavvBmG0zVujD2TRztMZt-xgM5d4oqp4_Y) - Early article outlining how Taiko worked.
+- [Spire Light Paper](https://github.com/spire-labs/litepaper) - As the name implies.
+- [Facet: An Ethereum Rollup Built for Hard Times](https://facet.org/whitepaper) - Facet whitepaper.
+- [How do based rollups actually work?](https://x.com/Spire_Labs/status/1869724672784572776) - Simple explainer of how based rollups work.
+- [We're All Building the Same Thing](https://dba.xyz/were-all-building-the-same-thing/) - Detailed perspective on based rollups + other subjects.
+- [Based Rollups and Decentralized Sequencing (Twitter Spaces wrap-up](https://community.taiko.xyz/t/based-rollups-and-decentralized-sequencing-twitter-spaces-wrap-up/1220) - Summary of a twitter spaces with the EF, Nethermind / Flashbots, Espresso, and Taiko.
+- [A Based Thesis](https://hackmd.io/@sacha/based-rollup-thesis) - Early thesis outlining why based rollups are the future and important for Ethereum. 
 
 ## Presentations
-
-
+- [Ethereum Sequencing and Preconf calls](https://www.youtube.com/playlist?list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR)
+- [Based Rollups w/ M-Team from Spire labs](https://www.youtube.com/watch?v=ZiG24GlsdDk)
+- [Beam Me Up!](https://www.youtube.com/watch?v=3ve8H54VFb8)
+- [The Future of Rollups is Based](https://x.com/BanklessHQ/status/1859237063008174248)
+- [Fixing Fragmentation](https://www.youtube.com/watch?v=MnsjUZo7RRI)
+- [Wtf are based rollups and preconfs?](https://www.youtube.com/watch?v=WiKPlNGrUzU)
+- [Scaling Ethereum With Based Rollups](https://www.youtube.com/watch?v=uI2KSEXhtZc)
+- [Why Based Rollups Are Ethereum's Best Bet](https://www.youtube.com/watch?v=UfoG4cRk9Z0)
+- [Are Based Rollups Really Based](https://podcasts.apple.com/us/podcast/are-based-rollups-really-based/id1523220564?i=1000671822720&l=pt-BR)
+- [Next Generation Based Rollups: A Practical Approach to Unifying Ethereum](https://www.youtube.com/watch?v=Ier_f5V4_ow)
+- [A Revenue Model for Based Rollups](https://www.youtube.com/watch?v=JFCfnhFL9Mc&t=1s)
+- [Based: Sequencing, Preconfs, Ideology](https://www.youtube.com/watch?v=0_51Pqt39Rs)
+- [Open based sequencing protocol](https://www.youtube.com/watch?v=2IiScdmXO6Q&list=PLCjVy6JjB1u7dL6cGJgs3RZH4rDgJdGW9&index=19)
+- [npacking based rollups with Taiko and Fabric](https://www.youtube.com/watch?v=G4D7yavSgg0)
+- [You’re Not Bullish Enough on Based Rollups!](https://www.youtube.com/watch?v=_iee7LkcUeQ)
 
 ## Contributing
 Contributions to this awesome list are welcome! Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
