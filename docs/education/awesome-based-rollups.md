@@ -32,7 +32,8 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 ## Composability
 - [Generalized Synchronous Composability](https://capricious-firefly-0c5.notion.site/Generalized-Synchronous-Composability-132d07a3da30809aa801e26077a49b60) - Aims to sketch out a way to make it possible to do synchronous composability between L1 and all L2s in an efficient way.
 - [The Open Intents Framework: Intents As A Public Good](https://www.openintents.xyz) - Important effort that can benefit based rollup composability.
-- [ULTRA TX - Programmable blocks: One transaction is all you need for a unified and extendable Ethereum](https://ethresear.ch/t/ultra-tx-programmable-blocks-one-transaction-is-all-you-need-for-a-unified-and-extendable-ethereum/21673) - This post focuses on a novel mechanism to bring programmable L1 blocks and what this means for L2s and the interoperability between L1 and L2s,
+- [ULTRA TX - Programmable blocks: One transaction is all you need for a unified and extendable Ethereum](https://ethresear.ch/t/ultra-tx-programmable-blocks-one-transaction-is-all-you-need-for-a-unified-and-extendable-ethereum/21673) - This post focuses on a novel mechanism to bring programmable L1 blocks and what this means for L2s and the interoperability between L1 and L2s.
+- Embedded Rollups, [Part 1](https://ethresear.ch/t/embedded-rollups-part-1-introduction/21460) and [Part 2](https://ethresear.ch/t/embedded-rollups-part-2-shared-bridging/21461) - Posts exploring fast and efficient cross-chain interoperability by implementing an embedded shared-bridge rollup.
 
 ## Blobs
 - [Blob Aggregation - Step Towards More Efficient Blobs](https://ethresear.ch/t/blob-aggregation-step-towards-more-efficient-blobs/21624) - Article explores efficiency gains for blob sharing.
