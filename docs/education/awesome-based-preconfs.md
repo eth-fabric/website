@@ -10,48 +10,23 @@ permalink: /education/awesome-based-preconfs
 
 A curated list of resources, research, and implementations related to preconfirmations in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. During aggregation we also want to thank the Spire and mteam for also working on similar types of collections. 
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Research and Discussion](#research-and-discussion)
-- [Fair Exchange](https://github.com/eth-fabric/awesome-based-preconfs/edit/main/README.md#fair-exchange)
-- [Sidecars](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#sidecars)
-- [Validators](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#validators)
-- [Universal-Registry-for-Commitments](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#universal-registry-for-commitments)
-- [Pricing-and-Incentive-Mechanisms](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#pricing-and-incentive-mechanisms)
-- [Gateways-and-Delegation](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#gateways-and-delegation)
-- [Stacks-and-Implmentations](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#stacks-and-implmentations)
-- [Articles](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#articles)
-- [Presentations](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#presentations)
-- [Full-Day-Events](https://github.com/eth-fabric/awesome-based-preconfs/blob/main/README.md#full-day-events)
-- [Related Concepts](#related-concepts)
-- [Contributing](#contributing)
-
 ## Introduction
 Preconfirmations are a mechanism that allows block proposers to commit to a block's contents before it is included in the blockchain. Follow the Ethereum Sequencing and Preconfirmations calls [here](https://www.youtube.com/watch?v=jrm4ZUoj9xY&list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR).
 
 ## Research and Discussion
 - [Based Preconfirmations](https://ethresear.ch/t/based-preconfirmations/17353) - The original post introduces the concept of based preconfirmations.
 - [Strawmanning Based Preconfirmations](https://ethresear.ch/t/strawmanning-based-preconfirmations/19695) - Analysis of a simple “strawman” preconfirmation setup.
-- [Leaderless and Leader-Based Preconfirmations](https://ethresear.ch/t/leaderless-and-leader-based-preconfirmations) - Discussion on leader-based and leaderless preconfs.
-- [Analyzing BFT & Proposer-Promised Preconfirmations](https://ethresear.ch/t/analyzing-bft-proposer-promised-preconfirmations/17963) - Analysis of BFT preconfirmations and proposer-promised preconfirmations.
-- [Rollup-Centric Considerations of Based Preconfimations](https://ethresear.ch/t/rollup-centric-considerations-of-based-preconfimations)- Explores how implementations of preconfirmations can configure blocktime and more efficient data publishing
-- [Integrating Account Abstraction and Inclusion Preconfirmations](https://research.chainbound.io/integrating-account-abstraction-and-inclusion-preconfirmations) - Proposal to directly leverage EIP-7702 for adoption of preconfs benefiting from batching, gas sponsorship, and secure delegations.
 - [Preconfirmations for Vanilla Based Rollups](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/preconfirmations-for-vanilla-based-rollups.md) - Document outlines the design and mechanics to support preconfirmations in Vanilla Based Rollups.
+- [Rollup-Centric Considerations of Based Preconfimations](https://ethresear.ch/t/rollup-centric-considerations-of-based-preconfimations) - Explores how implementations of preconfirmations can configure blocktime and more efficient data publishing
 - [Blob Preconfirmations with Inclusion Lists to Mitigate Blob Contention and Censorship](https://ethresear.ch/t/blob-preconfirmations-with-inclusion-lists-to-mitigate-blob-contention-and-censorship/19150)
-- [RFC Preconfirmations Flow Exploration](https://limechain.notion.site/RFC-Preconfirmations-Flow-Exploration-30fe218a0ea0443fb6bc213da969a47d) - Early exploration of preconfirmations flows.
-
-  
-## Fair-Exchange
-- [Preconfirmation Fair Exchange](https://ethresear.ch/t/preconfirmation-fair-exchange/21891) - Framework for analyzing protocols that seek to enforce timely-fair exchange of preconfirmations.
-- [Solutions to the Preconf Fair Exchange Problem](https://ethresear.ch/t/solutions-to-the-preconf-fair-exchange-problem/19779) - Solutions for dealing with the fair exchange problem in leader-based preconfirmation setups.
 
 ## Sidecars
 - [A simple, small, mev-boost compatible preconfirmation idea](https://ethresear.ch/t/a-simple-small-mev-boost-compatible-preconfirmation-idea/19800) - Adjusting MEV-Boost to handle preconfs.
 - [Based Preconfirmations with Multi-round MEV-Boost](https://ethresear.ch/t/based-preconfirmations-with-multi-round-mev-boost/20091) - Propose multi-round MEV-Boost, a modification of MEV-Boost that enables based preconfirmations by running multiple rounds of MEV-Boost auctions within a single slot.
 - [Commit-Boost: Proposer Platform to Safely Make Commitments](https://ethresear.ch/t/commit-boost-proposer-platform-to-safely-make-commitments/20107) - New sidecar that allows proposers to make commitments to preconf protocols.
 - [Based proposer commitments - Ethereum’s marketplace for proposer commitments](https://ethresear.ch/t/based-proposer-commitments-ethereum-s-marketplace-for-proposer-commitments) - New sidecar that allows proposers to make commitments to preconf protocols.
-- [Block Building Pipelines for Vanilla Based Rollups](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/pipelines.md)
-- [Commit-Boost Community Calls](https://github.com/Commit-Boost/pm/tree/main/Community_Calls)
+- [Block Building Pipelines for Vanilla Based Rollups](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/pipelines.md) - Proposal for GMEV, a drop and replace for MEV-Boost.
+- [Commit-Boost Community Calls](https://github.com/Commit-Boost/pm/tree/main/Community_Calls) - Community calls on Commit-Boost.
 
 ## Validators
 - [Delegation in Bolt: Outsourcing Sophistication While Preserving Decentralization](https://research.chainbound.io/delegation-in-bolt-outsourcing-sophistication-while-preserving-decentralization) - Article explores various “levels” of delegation from proposers for preconfs. 
@@ -62,6 +37,24 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Based Sequencer Selection](https://ethresear.ch/t/based-sequencer-selection/19747) - Exploratory proposal for a method of deterministically identifying sequencers on L2s to route transactions to.
 - [Sequencer Opt-In, Discovery and Communication](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/optin-mechanics.md) - Inital exploration for validators to register / opt in to based sequecning.
 - [Universial Registry Contract](https://github.com/eth-fabric/urc) - Developed by over a dozen teams and currently being used by multiple preconf teams. Documents can be found in the Github.
+
+## Preconf Transaction Flow
+- [RFC Preconfirmations Flow Exploration](https://limechain.notion.site/RFC-Preconfirmations-Flow-Exploration-30fe218a0ea0443fb6bc213da969a47d) - Early exploration of preconfirmations flows.
+- [Integrating Account Abstraction and Inclusion Preconfirmations](https://research.chainbound.io/integrating-account-abstraction-and-inclusion-preconfirmations) - Proposal to directly leverage EIP-7702 for adoption of preconfs benefiting from batching, gas sponsorship, and secure delegations.
+- [ZuBerlin Workshop on Preconf flow](https://right-knife-e11.notion.site/Preconfirmations-POC-858c36b8f2d446b38f696bd2bced57fd) - Worked on by multiple teams at zuBerlin for starting the Commitments API.
+- [Conditions API - Block Conditions Extension to the Builder API](https://hackmd.io/@Perseverance/H1d95Jf4C) - Early idea around APIs to enable commitments / preconfs.
+
+## Gateways-and-Delegation / Leader Elections
+- [The Preconfirmation Gateway ~ Unlocking Preconfirmations: From User to Preconfer](https://ethresear.ch/t/the-preconfirmation-gateway-unlocking-preconfirmations-from-user-to-preconfer/18812) - Introduces The Preconfirmation Gateway to completely abstract preconfirmations from users.
+- [Ahead-of-Time Block Auctions To Enable Execution Preconfirmations](https://ethresear.ch/t/ahead-of-time-block-auctions-to-enable-execution-preconfirmations/21345) - Article analyzing a gateway as an unsophisticated entity and the other as a sophisticated builder.
+- [Proposer Commitments - A Validator’s Case For Delegation](https://mirror.xyz/ladislaus.eth/aZWM5O_gjqj56w0lvCGhRMwYfoAF_jVdMuHWO3cq-JE) - Outlines perspective on gateways and the current market structure of Ethereum. 
+- [Based Ultrachain](https://x.com/sam_battenally/status/1889247872035754321) - Outlines approaches to gateways and delegation and why be based.
+- [Leaderless and Leader-Based Preconfirmations](https://ethresear.ch/t/leaderless-and-leader-based-preconfirmations) - Discussion on leader-based and leaderless preconfs.
+- [Analyzing BFT & Proposer-Promised Preconfirmations](https://ethresear.ch/t/analyzing-bft-proposer-promised-preconfirmations/17963) - Analysis of BFT preconfirmations and proposer-promised preconfirmations.
+
+## Fair-Exchange
+- [Preconfirmation Fair Exchange](https://ethresear.ch/t/preconfirmation-fair-exchange/21891) - Framework for analyzing protocols that seek to enforce timely-fair exchange of preconfirmations.
+- [Solutions to the Preconf Fair Exchange Problem](https://ethresear.ch/t/solutions-to-the-preconf-fair-exchange-problem/19779) - Solutions for dealing with the fair exchange problem in leader-based preconfirmation setups.
 
 ## Pricing-and-Incentive-Mechanisms
 - [Avoiding Accidental Liveness Faults for Based Preconfs](https://ethresear.ch/t/avoiding-accidental-liveness-faults-for-based-preconfs) - Proposal to solve accidental liveness slashing for proposers offering preconfs.
@@ -74,12 +67,6 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Pricing Future Blockspace: A Data-driven Approach](https://www.luban.wtf/taiyi-pricing-1) - Introduce a pricing model developed for hedged preconfirmations with a focus on preserving underwriter funds and generating steady yields.
 - [Analysing Expected Proposer Revenue from Preconfirmations](https://research.lido.fi/t/analysing-expected-proposer-revenue-from-preconfirmations/8954) - Article exploring expected revenue from preconfirmations vs the current MEV-Boost acution.
 - [Value-Capturing Based Rollups with Based Preconfirmations](https://collective.flashbots.net/t/value-capturing-based-rollups-with-based-preconfirmations/2884) - Outlines a protocol which allows for based preconfirmations, while ensuring the based rollup captures much of the value generated from block building.
-
-## Gateways-and-Delegation
-- [The Preconfirmation Gateway ~ Unlocking Preconfirmations: From User to Preconfer](https://ethresear.ch/t/the-preconfirmation-gateway-unlocking-preconfirmations-from-user-to-preconfer/18812) - Introduces The Preconfirmation Gateway to completely abstract preconfirmations from users.
-- [Ahead-of-Time Block Auctions To Enable Execution Preconfirmations](https://ethresear.ch/t/ahead-of-time-block-auctions-to-enable-execution-preconfirmations/21345) - Article analyzing a gateway as an unsophisticated entity and the other as a sophisticated builder.
-- [Proposer Commitments - A Validator’s Case For Delegation](https://mirror.xyz/ladislaus.eth/aZWM5O_gjqj56w0lvCGhRMwYfoAF_jVdMuHWO3cq-JE) - Outlines perspective on gateways and the current market structure of Ethereum. 
-- [Based Ultrachain](https://x.com/sam_battenally/status/1889247872035754321) - Outlines approaches to gateways and delegation and why be based.
 
 ## Stacks-and-Implmentations
 - [Bolt](https://chainbound.github.io/bolt-docs/) - Bolt enables Ethereum block proposers to provide credible commitments about the contents of their blocks.
@@ -99,13 +86,12 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Preconfirmations: The Fulfillment-Delivery Paradigm](https://mirror.xyz/preconf.eth/sgcuSbd1jgaRXj9odSJW-_OlWIg6jcDREw1hUJnXtgI) - Proposes a formal definition for a preconfirmation, outlined how they’re relevant in the context of decentralized systems and mev, and analyzed considerations to enable them efficiently.
 - [Preconfirmations: Explained](https://www.luganodes.com/blog/preconfirmations-explained/) - Preconfs 101.
 - [Preconfirmations: On splitting the block, mev-boost compatibility and relays](https://ethresear.ch/t/preconfirmations-on-splitting-the-block-mev-boost-compatibility-and-relays/19837) - Article discussing XGA style preconfs.
-- [Proposal: Onboard Bolt to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-bolt-to-the-lido-alliance/7724) - Proposal for Bolt (preconfs protocol) to join Lido Alliance.
-- [Introducing ETHGas and Realtime Proposer Commitments to the Lido Community](https://research.lido.fi/t/introducing-ethgas-and-realtime-proposer-commitments-to-the-lido-community/9018) - ETHGas introduction to Lido Community.
+- [Proposal: Onboard Bolt to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-bolt-to-the-lido-alliance/7724) - Proposal for Bolt (preconfs protocol) to join Lido Alliance with flows and key details around preconfs from Bolt.
+- [Introducing ETHGas and Realtime Proposer Commitments to the Lido Community](https://research.lido.fi/t/introducing-ethgas-and-realtime-proposer-commitments-to-the-lido-community/9018) - ETHGas introduction to Lido Community with details on ETHGas flows.
 - [The Preconfirmation Sauna](https://ethresear.ch/t/the-preconfirmation-sauna/19762) - Outlines Switchboard’s vision for how this preconfirmation competition should play out.
-- [Grounded Relay: Superpowers from Relay Coordination](https://ethresear.ch/t/grounded-relay-superpowers-from-relay-coordination/18601) - Using the relay as a coordinator for various services.
+- [Grounded Relay: Superpowers from Relay Coordination](https://ethresear.ch/t/grounded-relay-superpowers-from-relay-coordination/18601) - Explores using the relay as a coordinator for various services.
 - [State Lock Auctions: Towards Collaborative Block Building](https://ethresear.ch/t/state-lock-auctions-towards-collaborative-block-building/18558) - Idea on how to implement state locks on Ethereum.
 - [Preconfirmations Glossary & Requirements](https://hackmd.io/@Perseverance/Sy4a_BX2p) - Early work to define terms around preconfs flows.
-- [Conditions API - Block Conditions Extension to the Builder API](https://hackmd.io/@Perseverance/H1d95Jf4C) - Early idea around APIs to enable commitments / preconfs.
 - [Road to Real-time: Preconfirmation Shreds](https://blog.riselabs.xyz/incremental-block-construction/) - This article proposes an approach to achieving faster transaction (pre)confirmations in Layer 2 blockchain networks through incremental block construction.
 - [Proposer-Commitment Infrastructure in Ethereum](https://simbro.medium.com/proposer-commitment-infrastructure-in-ethereum-61ad3b31f05f) - Describes the out-of-protocol solutions that are in development, and explore what sort of solution space they open up for different types of Ethereum users.
 - [Uncrowdable Inclusion Lists: The Tension between Chain Neutrality, Preconfirmations and Proposer Commitments](https://ethresear.ch/t/uncrowdable-inclusion-lists-the-tension-between-chain-neutrality-preconfirmations-and-proposer-commitments/19372) - Discussion to not crowd in protocol inclusion lists with preconfs / other commitments.
