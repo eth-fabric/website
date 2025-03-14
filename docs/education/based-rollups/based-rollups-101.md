@@ -18,7 +18,7 @@ The concept of based rollups was formally introduced in an ETH Research post by 
 
 ## What Is a Based Rollup?
 
-A based rollup is a rollup that relies on Ethereum’s validator set for sequencing its blocks.
+A based rollup is a rollup that relies on Ethereum’s validator set for sequencing and inclusion in the Ethereum L1 block (i.e., Ethereum blockspace and where a block proposal for the based rollup is represented as a L1 transaction and the canonical sequence of the based rollup is derived from these L1 transactions).
 
 ## How Does a Based Rollup Function?
 
@@ -49,11 +49,14 @@ A based rollup with preconfirmations introduces additional complexity but also e
 ## More Details Around Based Rollups and L1 Block Construction
 Below is a more detailed picture of how based rollups receive and sequence based rollup transactions and L1 transactions. 
 
-![Based Rollup With Preconfs](/website/assets/images/Based-rollup-blocks.png)
+### Today's Block Construction
+Today, over 90% of blocks in Ethereum are built via validators running an extra piece of software called MEV-Boost. This software allows validators to tap into the proposer builder separation protocol (“PBS”). Putting aside technical details / specifics of how PBS works, this opt-in protocol essentially lets validators outsource block construction. Put another way, with the PBS protocol, instead of validators packing the block themselves, they ask another actor to pack it for them (i.e., block builders). 
 
-Important items to note:
-- The based transaction pool is used as a generic term of where transactions are entering a mempool
-- Similar to the market structure of Ethereum today, where validators delegate block building to a sophisticated entity, we expect validators to remain "dumb pipes" and not sophisticated, delegating / leveraging another party to perform the actual sequencing of transactions and block building.
+![Based Rollup With Preconfs](/website/assets/images/Ethereum-Blocks.png)
+
+### So How Is This Going to Work With Based Rollups?
+
+![Based Rollup With Preconfs](/website/assets/images/Based-rollup-blocks.png)
 
 ## Do Based Rollups Solve Everything?
 
@@ -86,3 +89,4 @@ The latest for this image can be found [here](https://docs.google.com/presentati
 
 This was just a based rollup 101, for more technical details please see the [Based Rollups 201](/website/education/Based-Rollups-201) document.
 
+Special thank you to [Rex](https://x.com/LogarithmicRex) for your feedback on writing this and broader education around Etheruem!
