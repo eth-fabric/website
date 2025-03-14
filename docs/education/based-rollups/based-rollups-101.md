@@ -16,9 +16,11 @@ The concept of based rollups was formally introduced in an ETH Research post by 
 - Rollup Bootstrapping: Based rollups can leverage existing infrastructure and liquidity from both Ethereum and other based rollups. For example, USDC on Ethereum can be used for a trade executed on a based rollup, eliminating the need for the rollup to establish separate partnerships to get USDC issued natively.
 - Benefits for App Developers: Developers can create customized rollups tailored to their users while maintaining seamless connectivity with Ethereum L1 and other based rollups, reducing friction in the ecosystem.
 
+A rollup team called Taiko developed the first version of a based rollup protocol with this [commit](https://github.com/taikoxyz/taiko-mono/commit/a0e58b840089fe84a475f3bbc43d06777d366224) on July 30, 2022, and launched Taiko on May 27, 2024.
+
 ## What Is a Based Rollup?
 
-A based rollup is a rollup that relies on Ethereum’s validator set for sequencing and inclusion in the Ethereum L1 block (i.e., Ethereum blockspace and where a block proposal for the based rollup is represented as a L1 transaction and the canonical sequence of the based rollup is derived from these L1 transactions).
+A based rollup is a rollup that relies on Ethereum’s validator set for sequencing and inclusion in the Ethereum L1 block (i.e., Ethereum blockspace and where a block proposal for the based rollup is represented as a L1 transaction and the canonical sequence of the based rollup is derived from these L1 transactions). For more details on a long discussion on definitions, see [here](https://x.com/mteamisloading/status/1887575011311095824).
 
 ## How Does a Based Rollup Function?
 
