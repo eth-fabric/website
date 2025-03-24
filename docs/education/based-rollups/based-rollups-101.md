@@ -89,6 +89,6 @@ Based sequencing is the foundation for all of these improvements. It ensures tha
 
 The latest for this image can be found [here](https://docs.google.com/presentation/d/1YckjQ1LEGs9E8lhSO3-qFvpdLAefEAzgx5018CL7O-M/edit#slide=id.g2e3075303b5_0_204)
 
-This was just a based rollup 101, for more technical details please see the [Based Rollups 201](/website/education/Based-Rollups-201) document.
+This was just a based rollup 101, for more technical details please see the [Based Rollups 201](https://eth-fabric.github.io/website/education/based-rollups/Based-Rollups-Componets) document.
 
 Special thank you to [Rex](https://x.com/LogarithmicRex) for your feedback on writing this and broader education around Etheruem!
