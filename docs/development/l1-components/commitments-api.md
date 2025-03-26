@@ -17,4 +17,6 @@ permalink: /development/l1-components/commitments-api
 ---
 
 # Commitments API
+This is currently a WIP, but the idea behind the Commitments API is to standardize how "users" request a commitments from a proposer. We'll keep updating this as we progress.
+
 
