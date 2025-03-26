@@ -19,4 +19,11 @@ permalink: /development/l1-components/commitments-api
 # Commitments API
 This is currently a WIP, but the idea behind the Commitments API is to standardize how "users" request a commitments from a proposer. We'll keep updating this as we progress.
 
+### Nice to haves
+- Support both L1 and L2 commitments
+- Support generic proposer commitments rather than just preconfs
+- Simple wallet integration
+- A way for users to get fee information
+- A way for users to query gateway capabilities
+
 
