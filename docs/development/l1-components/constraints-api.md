@@ -6,18 +6,8 @@ parent: L1 Components
 permalink: /development/l1-components/constraints-api
 ---
 
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
-
 # Constraints Spec
-Neutral API specification for proposer commitments on Ethereum. This was developed via collaboration and contribution from teams across the Ethereum ecosystem who were interested in helping develop and enable proposer commitments on Ethereum. These efforts started at zuBerlin, continued through Edge City Sequencing Week, and have progresed through community calls (recordings can be found in the pm repo).
+Neutral API specification for proposer commitments on Ethereum. This was developed via collaboration and contribution from teams across the Ethereum ecosystem who were interested in helping develop and enable proposer commitments on Ethereum. These efforts started at zuBerlin, continued through Edge City Sequencing Week, and have progresed through community calls (recordings can be found in the [pm](https://github.com/eth-fabric/pm) repo).
 
 In summary the Constraints API is:
 - A minimal set of endpoints extending the existing PBS architecture for proposers to add constraints during block building. This unlocks proposer commitments, particularly for unsophisticated proposers who delegate block building responsibilities.
@@ -35,8 +25,8 @@ In summary the Constraints API is:
 - any interaction between third parties (Users, Wallets, etc) and the Gateway.
 - commitments from Gateways to third parties
 
-### Boxes and Arrows
+### Flow
 
-![Flow of Constraints-API](https://github.com/eth-fabric/constraints-specs/blob/main/img/constraints-api-diagram.png)
+![Flow of Constraints-API](/website/assets/images/Constraints-API.png)
 
 More details on the API definitions and specs can be found [here](https://github.com/eth-fabric/constraints-specs/blob/main/specs/constraints-api.md).

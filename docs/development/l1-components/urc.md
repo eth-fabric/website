@@ -6,18 +6,8 @@ parent: L1 Components
 permalink: /development/l1-components/urc
 ---
 
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
-
 # Universal Registry Contract
-On the back of a proposal by Justin Drake and a [post](https://ethresear.ch/t/credibly-neutral-preconfirmation-collateral-the-preconfirmation-registry/19634) by mteam teams started to work on a universal registry contract. The point of the contract is to have a unified registry so we can have standardized registration for preconfs (or other commitments) from proposers and have a unified registry L2s and others could leverage to understand who has opted in to provide sequencing / preconfs for based rollups. Below are some of the key design principles teams used: 
+On the back of a proposal by Justin Drake and a [post](https://ethresear.ch/t/credibly-neutral-preconfirmation-collateral-the-preconfirmation-registry/19634) by mteam, teams started to work on a universal registry contract. The point of the contract is to have a standardized registration process for preconfs (or other commitments) from proposers and have a unified registry that L2s and others could leverage to understand who has opted in to provide sequencing / preconfs for based rollups. Below are some of the key design principles teams used: 
 
 - The contract is super simple and short (ideally ~100 lines).
 - Only ETH for deposits.
