@@ -5,7 +5,15 @@ layout: default
 parent: Based Rollup Series
 permalink: /education/based-rollups/Threading-the-Needle
 ---
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 ## Tying It All Together
 
 By now we assume you have read [Based Rollup 101](https://eth-fabric.github.io/website/education/based-rollups/based-rollups-101) and [Based Rollup Components](https://eth-fabric.github.io/website/education/based-rollups/Based-Rollups-Componets). Below is an attempt to tie this all together. The reader should keep in mind there are still a variety of ways to implement based rollups where the details vary by team / approach. We would highly encourage visiting the [awesome based rollup](/website/education/awesome-based-rollups) and [preconfs](/website/education/awesome-based-preconfs) pages for an exhustive list of articles, stacks, presentations and podcasts. 

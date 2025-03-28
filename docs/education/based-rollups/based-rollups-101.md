@@ -5,7 +5,15 @@ layout: default
 parent: Based Rollup Series
 permalink: /education/based-rollups/based-rollups-101
 ---
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## A Brief History of Based Rollups
 

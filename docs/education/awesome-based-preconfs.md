@@ -5,7 +5,15 @@ layout: default
 parent: Education
 permalink: /education/awesome-based-preconfs
 ---
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 # Awesome Based Preconfirmations [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 A curated list of resources, research, and implementations related to preconfirmations in the Ethereum ecosystem. Special thanks to [Swapnil](https://x.com/swp0x0) of Nethermind for starting this months ago. During aggregation we also want to thank the Spire and [mteam](https://x.com/mteamisloading) for also working on similar types of collections. 

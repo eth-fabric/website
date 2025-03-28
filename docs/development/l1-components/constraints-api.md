@@ -5,7 +5,15 @@ layout: default
 parent: L1 Components
 permalink: /development/l1-components/constraints-api
 ---
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 # Constraints Spec
 Neutral API specification for proposer commitments on Ethereum. This was developed via collaboration and contribution from teams across the Ethereum ecosystem who were interested in helping develop and enable proposer commitments on Ethereum. These efforts started at zuBerlin, continued through Edge City Sequencing Week, and have progresed through community calls (recordings can be found in the [pm](https://github.com/eth-fabric/pm) repo).
 

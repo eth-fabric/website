@@ -5,7 +5,15 @@ layout: default
 parent: Research
 permalink: /research/dido
 ---
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 ![DIDO](/website/assets/images/ditto.png)
 
 The working name of this approach is  DIDO, which stands for “Dumb Inboxes, Derivation Only” and like the [pokemon](https://bulbapedia.bulbagarden.net/wiki/Ditto_(Pok%C3%A9mon)) can transform to work with any rollup.
