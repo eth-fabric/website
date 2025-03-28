@@ -1,7 +1,7 @@
 ---
 title: Composability
 nav_order: 4
-layout: default
+layout: katex
 parent: Education
 permalink: /education/composability
 ---
@@ -13,4 +13,3 @@ The goal of this series is to clarify the concept of composability, enabling a d
 Note: Much of the terminology used is influenced by the writings of [Jon Charbonneau](https://dba.xyz/were-all-building-the-same-thing/#cross-chain-unbundling) and [James Prestwich](https://prestwich.substack.com/p/the-definitive-guide-to-sequencing).
 
 # Terminology
-todo
