@@ -57,6 +57,7 @@ For example, $$TX_A$$ could revert due to the user spending all their tokens in 
 
 The issue is that when executing $$TX_B$$, $$R_B$$ is not aware of the state of $$R_A$$ to know if $$TX_A$$ had succeeded or not. For this to be safe, the contract on $$R_B$$ [needs assurances](https://x.com/sreeramkannan/status/1774907906275848617) to either guarantee the state of $$R_A$$ is correct (cryptographic safety) or disincentivize bad behavior from the shared sequencer (cryptoeconomic safety).
 
+In the next section we'll learn about *atomic execution* and how it addresses this issue.
 <span class="fs-8">
 [> Step 2 - Atomic Execution](/website/education/composability/atomic-execution){: .btn }
 </span>
