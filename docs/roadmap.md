@@ -4,6 +4,15 @@ nav_order: 1.1
 layout: default
 permalink: /roadmap
 ---
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 # Fabric Roadmap
 
 This page provides an overview of how Fabric priorites and timeline for working across componenents / sub-components. The ordering of the components and focus is based on our current priorities in collaboration with the community. This approach has been shaped by countless conversations with teams and community members. We welcome feedback and input and will continue to refine our approach as we research, engage with others, and fully develop the specifications.

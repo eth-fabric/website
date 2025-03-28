@@ -5,7 +5,15 @@ layout: default
 parent: L1 Components
 permalink: /development/l1-components/sidecar
 ---
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 # Validator Sidecars
 The following will highlight sidecars that Ethereum L1 proposers can leverage to issue preconfs for based rollups. A sidecar is an additional piece of software that validators run—typically alongside their consensus client—to enable additional functionality or features. The longest-standing example of a sidecar is [MEV-boost]( https://github.com/flashbots/mev-boost).
 

@@ -5,7 +5,15 @@ layout: default
 parent: Based Rollup Series
 permalink: /education/based-rollups/Based-Rollups-Componets
 ---
+{: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## Details Around Componenents and Sub-Components of Based Rollups from Fabric's POV
 
