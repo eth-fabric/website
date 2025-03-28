@@ -80,6 +80,6 @@ The table below summarizes the requirements for synchrony. In the following sect
 Note that a shared L2 sequencer includes your non-based interoperability solutions e.g., Espresso or the Superchain. Additionally, a shared L3 sequencer could be a shared L2 sequencer or more simply a centralized L2 sequencer (see Spire’s post).
 
 <span class="fs-8">
-[Atomic Inclusion](/website/education/composability/atomic-execution){: .btn }
+[> Step 1 - Atomic Inclusion](/website/education/composability/atomic-inclusion){: .btn }
 </span>
 
