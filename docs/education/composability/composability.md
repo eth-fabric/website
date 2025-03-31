@@ -1,5 +1,5 @@
 ---
-title: Composability
+title: Composability 101
 nav_order: 4
 layout: katex
 parent: Education

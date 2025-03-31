@@ -2,7 +2,7 @@
 title: Step 2 - Atomic Execution
 nav_order: 4.2
 layout: default
-parent: Composability
+parent: Composability 101
 permalink: /education/composability/atomic-execution
 ---
 {: .no_toc }

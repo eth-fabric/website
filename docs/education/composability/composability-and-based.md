@@ -1,8 +1,8 @@
 ---
-title: Composability and Based Rollups
+title: Step 4 - Based Rollups
 nav_order: 4.4
 layout: default
-parent: Composability
+parent: Composability 101
 permalink: /education/composability/composability-and-based
 ---
 {: .no_toc }

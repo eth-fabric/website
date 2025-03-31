@@ -2,7 +2,7 @@
 title: Step 1 - Atomic Inclusion
 nav_order: 4.1
 layout: default
-parent: Composability
+parent: Composability 101
 permalink: /education/composability/atomic-inclusion
 ---
 {: .no_toc }
