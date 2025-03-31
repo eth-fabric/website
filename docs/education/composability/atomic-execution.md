@@ -80,7 +80,7 @@ The filler shields users and token supplies from risk but takes on risk of their
 
 ### OIF 🤝 atomic inclusion
 
-Filler risk arises from the fact that they cannot guarantee atomic execution. If fillers were always guaranteed that $$TX_{R_B}$$ only executes iff $$TX_{R_A}$$ executes successfully, the result could be a more efficient system that drives down cross-chain transfer prices (users just pay for the cost of capital).
+Filler risk arises from the fact that they cannot guarantee atomic execution. If fillers were always guaranteed that $$TX_{R_B}$$ only executes if $$TX_{R_A}$$ executes successfully, the result could be a more efficient system that drives down cross-chain transfer prices (users just pay for the cost of capital).
 
 Now to the elephant in the room - if we could guarantee atomic execution, there really isn’t a need for fillers as the burn and mint model would be as safe and more capital efficient! But as we’ll see, cryptographically-safe atomic execution isn’t exactly easy, so what is a more pragmatic solution?
 
