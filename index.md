@@ -4,6 +4,15 @@ layout: home
 nav_order: 1
 permalink: /
 ---
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 # Overview of Fabric
 
 ![Fabric](/website/assets/images/Fabric.png)
