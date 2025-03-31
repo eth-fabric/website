@@ -74,7 +74,7 @@ Interestingly, with real-time proving there is less of a need for AggLayer-like 
 
 **The state of real-time proving**
 
-There are various efforts pushing the boundaries of ZK proving latency.
+There are various efforts pushing the boundaries of ZK proving latency (can learn more [here](https://ethproofs.org/))
 
 Real-time proving is not yet production ready so various teams are exploring shorter term solutions such as using multiple TEEs to attest to the correctness of a rollup’s state transition function, allowing real-time synchronous composability today.
 
