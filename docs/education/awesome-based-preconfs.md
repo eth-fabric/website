@@ -50,7 +50,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 
 ## Lookahead
 - [Fabric Call 1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214) - Presentation from Lin of Nethermind on lookahead research.
-- [Fabric Call 2](https://www.youtube.com/watch?v=qJU7ZtR8xcQ)
+- [Fabric Call 2](https://www.youtube.com/watch?v=qJU7ZtR8xcQ) - Deep dive on the lookahead and EIP 7917.
 - [Lookahead Background](https://hackmd.io/@linoscope/preconf-lookahead) - Document going through the background on the lookahead and potential solutions.
 - [EIP-7917](https://eips.ethereum.org/EIPS/eip-7917) and ETH Magicians [post](https://ethereum-magicians.org/t/eip-7917-deterministic-proposer-lookahead/23259) - EIP to make the lookahead on the L1 deterministic which has implications on preconfs.
 
