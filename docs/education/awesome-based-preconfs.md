@@ -48,6 +48,12 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Sequencer Opt-In, Discovery and Communication](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/optin-mechanics.md) - Inital exploration for validators to register / opt in to based sequecning.
 - [Universial Registry Contract](https://github.com/eth-fabric/urc) - Developed by over a dozen teams and currently being used by multiple preconf teams. Documents can be found in the Github.
 
+## Lookahead
+- [Fabric Call 1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214) - Presentation from Lin of Nethermind on lookahead research.
+- [Fabric Call 2](https://www.youtube.com/watch?v=qJU7ZtR8xcQ)
+- [Lookahead Background](https://hackmd.io/@linoscope/preconf-lookahead) - Document going through the background on the lookahead and potential solutions.
+- [EIP-7917](https://eips.ethereum.org/EIPS/eip-7917) and ETH Magicians [post](https://ethereum-magicians.org/t/eip-7917-deterministic-proposer-lookahead/23259) - EIP to make the lookahead on the L1 deterministic which has implications on preconfs.
+
 ## Preconf Transaction Flow
 - [Conditions API - Block Conditions Extension to the Builder API](https://hackmd.io/@Perseverance/H1d95Jf4C) - Early idea around APIs to enable commitments / preconfs.
 - [Integrating Account Abstraction and Inclusion Preconfirmations](https://research.chainbound.io/integrating-account-abstraction-and-inclusion-preconfirmations) - Proposal to directly leverage EIP-7702 for adoption of preconfs benefiting from batching, gas sponsorship, and secure delegations.
