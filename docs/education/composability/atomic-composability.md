@@ -70,11 +70,11 @@ Step 4 demonstrates $$R_B$$ composing with $$R_A$$ to perform a cross-chain read
 
 The biggest blocker for synchronous composability is proving latency. Crucially, for the previous example to execute within a single slot, it requires steps 6 and 7 to be proven in less than 12 seconds. Compared with asynchronous composability where it could take on the order of minutes to hours for your cross-chain transaction to settle, achieving instant settlement is no easy feat. 
 
-Interestingly, with real-time proving there is less of a need for AggLayer-like solutions to provide safety. If rollups can verify the state of other rollups, then they can do the work of a pessimistic proof during their state transition functions. For example, $$C_{R_B}$$ can make its cross-chain call using $$State_{R_A}$$ conditional on $$\pi_A$$ being verified in its contract logic (i.e., verify then use). However, having a shared bridge and protocol like AggLayer makes it easier for rollups to abstract away composability. 
+Interestingly, real-time proving allows for composability without AggLayer-like solutions; however, AggLayer is still extremely useful for safety (i.e., pessimistic proofs can protect you from soundness errors in individual chains' proof systems) and it abstracts away the complexities of composability from rollup developers.
 
 **The state of real-time proving**
 
-There are various efforts pushing the boundaries of ZK proving latency (can learn more [here](https://ethproofs.org/))
+There are various efforts pushing the boundaries of ZK proving latency (can learn more [here](https://ethproofs.org/)).
 
 Real-time proving is not yet production ready so various teams are exploring shorter term solutions such as using multiple TEEs to attest to the correctness of a rollup’s state transition function, allowing real-time synchronous composability today.
 
