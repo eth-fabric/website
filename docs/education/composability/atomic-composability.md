@@ -79,3 +79,11 @@ There are various efforts pushing the boundaries of ZK proving latency (can lear
 Real-time proving is not yet production ready so various teams are exploring shorter term solutions such as using multiple TEEs to attest to the correctness of a rollup’s state transition function, allowing real-time synchronous composability today.
 
 In the same line of thinking it is possible to create pessimistic proofs using TEEs as well to achieve the same safety guarantees as AggLayer, albeit relying on the trust assumptions of TEEs rather than ZKPs.
+
+---
+
+Now for what we've all been waiting for - how does this relate to based rollups?
+
+<span class="fs-8">
+[> Step 4 - Based-Rollups](/website/education/composability/composability-and-based){: .btn }
+</span>
