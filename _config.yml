@@ -25,3 +25,8 @@ aux_links:
   
 
 math: katex
+
+callouts:
+  important:
+    title: Important
+    color: blue

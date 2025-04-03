@@ -129,7 +129,7 @@ If done correctly, shared bridging has desirable properties:
 
 How does AggLayer [achieve safety](https://mirror.xyz/0xfa892B19c72c2D2C6B10dFce8Ff8E7a955b58A61/TXMyZhhRFa-bjr7YHwmJpKBwt2-_ysirbh_VpNy3qZY)? It’s this additional proof system which they call [pessimistic proofs](https://polygon.technology/blog/introducing-the-pessimistic-proof-for-the-agglayer-zk-security-for-cross-chain-interoperability?utm_source=twitter&utm_medium=social&utm_campaign=AggLayer). 
 
-Rollups will prove their own state normally (i.e., with validity proofs), then AggLayer aggregates all of the proofs and create a pessimistic proof. This involves recursively proving that the validity proofs were valid, their contingencies were satisfied, and the bridge's accounting is correct. The shared bridge contract will only accept the rollups’ state roots if it can verify the pessimistic proof.
+Rollups will prove their own state normally (i.e., with validity proofs), then AggLayer aggregates all of the proofs and creates a pessimistic proof. This involves recursively proving that the validity proofs were valid, their contingencies were satisfied, and the bridge's accounting is correct. The shared bridge contract will only accept the rollups’ state roots if it can verify the pessimistic proof.
 
 > With the pessimistic proof, one chain’s issues definitionally cannot contaminate the rest of the chains on the unified bridge. - [Polygon Labs](https://polygon.technology/blog/introducing-the-pessimistic-proof-for-the-agglayer-zk-security-for-cross-chain-interoperability?utm_source=twitter&utm_medium=social&utm_campaign=AggLayer)
 > 
