@@ -90,6 +90,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [ETHGas](https://docs.ethgas.com) - preconf protocol.
 - [Interstate](https://docs.interstate.so/intro) - preconf protocol.
 - [Luban Taiyi](https://docs.luban.wtf/taiyi_overview) - preconf protocol.
+- [Luban Preconfs for Blobs](https://docs.luban.wtf/send_your_first_preconfirmation) - Luban's launch of preconfs for blobs. 
 - [mev-commit](https://docs.primev.xyz/) - A credible commitment network used for preconfirmations & more.
 - [UniFi](https://docs.puffer.fi/unifi-avs-intro/) - preconf protocol.
 - XGA [here](https://docs.xga.com) and [here](https://research.lido.fi/t/xga-extensible-gas-auctions-for-enabling-preconfirmations-without-restaking-or-epbs/7584) - L2 Gas Auction platform.
