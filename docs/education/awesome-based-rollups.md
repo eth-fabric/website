@@ -48,6 +48,7 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Blob Aggregation - Step Towards More Efficient Blobs](https://ethresear.ch/t/blob-aggregation-step-towards-more-efficient-blobs/21624) - Article explores efficiency gains for blob sharing.
 - [Blob Sharing for Based Rollups](https://hackmd.io/@linoscope/blob-sharing-for-based-rollups) - Introduces a protocol for based rollups to share blobs with each other so they can fill the blobs more efficiently and reduce L1 gas cost.
 - [Blob sharing protocol](https://hackmd.io/@dapplion/blob_sharing) - Details idea for blob sharing across various rollup stacks.
+- [Nethermind Blob Sharing POC](https://github.com/NethermindEth/blob-sharing-poc) and [Blobs Sharing Presentation on Fabric Call](https://docs.google.com/presentation/d/1uPvwOYvuoAQAXg38pa0OT_qzVxsecCow0bve0gsZsDE/edit#slide=id.p)
 - [Potential impact of blob sharing for rollups](https://ethresear.ch/t/potential-impact-of-blob-sharing-for-rollups/20619) - Explores the impact of blob sharing by rollups.
 - [Shared Blob Compression](https://paragraph.xyz/@spire/shared-blob-compression) - Explores an implementation to help with the increasing need for chains to opt-into having their blobs aggregated and compressed with blobs from other appchains.
 - [Will Blob Sharing Solve Dilemma for Small Rollups](https://arxiv.org/abs/2410.04111) - This paper examines the effectiveness of blob sharing based on real-world data collected approximately six months after the implementation of EIP-4844.
@@ -57,6 +58,9 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Based Rollups can reward Proposers first come first serve](https://ethresear.ch/t/based-rollups-can-reward-proposers-first-come-first-serve/18317) - Articles explores how a simple FCFS system should be sufficient for Based Rollups.
 - [Based Ticketing Rollup](https://hackmd.io/LRQPSItESPuMhUSwrB71rQ) - Presents a “Based Ticketing Rollup” that starts from the concept of a Based rollup and adds Execution Tickets to address its weak points.
 - [MEV for “Based Rollup”](https://ethresear.ch/t/mev-for-based-rollup/15636) - Article exploring how MEV can work with based rollups.
+
+## Provers
+- [Prover Incentives](https://github.com/OpenZeppelin/minimal-rollup/blob/main/documentation/prover-incentives.md), [reference implmeentation](https://github.com/OpenZeppelin/minimal-rollup/blob/main/src/protocol/taiko_alethia/ProverManager.sol), and [presentation on prover incentives](https://docs.google.com/presentation/d/1QCPtfh057ikO1iqJFf5lFny5VZ9LduV2bzZ1wBIbjnQ/edit#slide=id.p)- OZ research on prover incentive 
 
 ## Stacks-and-Implmentations
 - [Facet Based Stack](https://github.com/0xFacet)
