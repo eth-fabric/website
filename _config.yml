@@ -30,3 +30,5 @@ callouts:
   important:
     title: Important
     color: blue
+  
+favicon_ico: "/assets/images/favicon.ico"
