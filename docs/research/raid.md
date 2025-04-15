@@ -23,15 +23,20 @@ permalink: /research/raid
 > This is the latest iteration of research based on recent developments and conversations. For more context readers are encouraged to read original [Dido post](/website/research/Dido).
 
 # TL;DR
-- inbox contracts check the URC at blob submission time, ensuring preconditions are satisfied
-- blob proposers need to submit a beacon state proof that the blob they're building on came from the right proposer 
-- at least one slot after the blob submission, L2 nodes can verify if the proof via EIP-4788
-- each subsequent proposer chains these beacon proofs so L2 nodes can determine the canonical chain
-- this approach removes the need for an on-chain lookahead or to calculate it during L2 derivation
-- inboxes are less "dumb" in this design Dido $$\rightarrow$$ Raid which stands for "Retroactive Attestation of Inbox Data"
+- Raid = "Retroactive Attestation of Inbox Data"
+- Inbox contracts do filtering at blob publication time:
+    1. the `blobProposer` must prove they're an allowed preconfer using the [URC](https://github.com/eth-fabric/urc)
+    2. then they either 
+        - prove they're building on a valid `unsafeHead`, which promotes the last `unsafeHead` to the `safeHead` and then inserts their publication as the new `unsafeHead`. 
+        - prove that the current `unsafeHead` is invalid and replace it with their own (`safeHead` is unmoved). This case only happens if a preconfer proposed during someone else's slot.
+- Valid means that the `blobProposer` proposed during their correct L1 slot and this is proved via EIP-4788 validator proofs at least one slot *after* an `unsafeHead` is published (hence the "retroactive" part)
+- Rollup nodes only use the historical `safeHeads` to derive the rollup's state
+
+![Raid State Transitions](/website/assets/images/raid-state-transitions.png)
+In the ideal scenario where preconfers only submit during their slots, the state transitions pictured above would be a line with a slope of one.
 
 # Context
-During [Fabric Call #1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214), [Lin Oshitani](https://x.com/linoscope) raised an important issue where the upcoming MaxEB ([EIP-7251](https://eips.ethereum.org/EIPS/eip-7251)) upgrade in Pectra exacerbates an existing problem that makes the beacon chain lookahead window non-deterministic between epochs. This issue motivated [new designs](https://youtu.be/UngTQPjy4UA?si=g_0Zy4fU-eC3kmhh&t=3094) as well as [EIP-7917](https://ethereum-magicians.org/t/eip-7917-deterministic-proposer-lookahead/23259) to make the lookahead deterministic, while also making it easier to prove on-chain. By combinining these with the Dido approach, we can arrive at a vastly simpler design which we call *Raid*, but before that some context.
+During [Fabric Call #1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214), [Lin Oshitani](https://x.com/linoscope) raised an important issue where the upcoming MaxEB ([EIP-7251](https://eips.ethereum.org/EIPS/eip-7251)) upgrade in Pectra exacerbates an existing problem that makes the beacon chain lookahead window non-deterministic between epochs. This issue motivated [new designs](https://youtu.be/UngTQPjy4UA?si=g_0Zy4fU-eC3kmhh&t=3094) as well as [EIP-7917](https://ethereum-magicians.org/t/eip-7917-deterministic-proposer-lookahead/23259) to make the lookahead deterministic, while also making it easier to prove on-chain. By combinining these with lessons from the Dido approach, we can arrive at a vastly simpler design which we call *Raid*, but before that some context.
 
 ## Lookahead non-determinism
 
@@ -40,7 +45,7 @@ During [Fabric Call #1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214)
 For those unfamiliar, [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) exposes the beacon block root to the execution layer. This allows smart contracts to access up to the last 8091 beacon block roots and use them to prove things about the consensus layer (e.g., validator 10 was the proposer and had 31.99 ETH at this slot). 
 
 ![Beacon Block Header](/website/assets/images/beacon-block-header.png)
-Pictured above is the `BeaconBlockHeader` schema and the `beacon_block_root` is the Merkle root obtained by hashing the fields of the header as shown. Since the root is accessible on-chain, you can make claims about the state of the beacon chain and verify via smart contract.
+Pictured above is the `BeaconBlockHeader` schema and the `beacon_block_root` is the Merkle root obtained by hashing the fields of the header as shown. Since the root is accessible on-chain, you can make claims about the state of the beacon chain that can be verified via smart contract.
 
 To prove who the proposer was at a specific slot you can supply a contract with the `slot`, `proposer_index`, `state_root`, and `body_root`. The contract's logic would Merklize everything and compare the result with the `beacon_block_root` fetched via EIP-4788. Note we don't need to supply the `parent_root` as it is simply the `beacon_block_root` from the previous slot and can also be fetched via EIP-4788. To make more complicated claims about the beacon chain's state, you can similarly prove against the `state_root` or `body_root`, and then connect it back to the `beacon_block_root` as just described.
 
@@ -252,37 +257,198 @@ Clearly the pros of BIC are extremely compelling to simplify the ideas from Dido
 # Proposed V2 design
 Raid incorporates the ideas of BIC and Dido with a focus on pragmatism to achieve based sequencing today. Despite not being compatible with real-time settlement, we are yet to see real-time proving in production, so aiming for BIC in the short term is a way to significantly reduce based rollup complexity before the tradeoff becomes apparent. Once EIP-7917 is live, inboxes can switch to proving the lookahead on-chain via EIP-4788 to be compatible with real-time settlement. 
 
-## High Level Overview
-Raid assumes two L1 contracts, the `Inbox` and `PublicationFeed`. We refer readers to OpenZeppelin's implementation of their [`PublicationFeed`](https://github.com/OpenZeppelin/minimal-rollup/blob/main/src/protocol/PublicationFeed.sol) contract as we believe this approach is aligned with the design goals of minimizing the L1 footprint. 
+## Reference Implementation
+Readers are encouraged to checkout this [PoC of Raid](https://github.com/OpenZeppelin/minimal-rollup/pull/104) that builds on OpenZeppelin's minimal-rollup implementation. The following section will describe the design in more depth.  
 
-When a `blobProposer` submits a blob transaction to build off of the *unverified* head of the chain, they must include all necessary proof data for L2 nodes to verify the validity of the *previous* `blobProposer`. They are incentivized to provide valid data, as L2 nodes will ignore their submission if the proof is invalid, wasting their slot.
+Raid assumes two L1 contracts, the `FabricInbox` and OpenZeppelin's [`PublicationFeed`](https://github.com/OpenZeppelin/minimal-rollup/blob/main/src/protocol/PublicationFeed.sol). We refer to the entity who publishes blobs via the `FabricInbox.publish()` function as the `blobProposer`. We assume that the `blobProposer` is an EOA that the L1 proposer delegated to because BLS keys cannot sign transactions. Note that this means the `blobProposer` can either be owned by the L1 proposer or a delegate key - Raid makes no assumptions about it.
 
-![V2](/website/assets/images/branching-inbox.png)
+When a `blobProposer` attempts to `publish()` their blob, they are required to include metadata that proves they are building off of a correct rollup head. The exact contents of the metadata are implementation-specific and come with their own trade-offs. For the purposes of this post we'll deep-dive into the fully-onchain version. `blobProposers` are incentivized to provide valid metadata regardless of the implementation, otherwise either `publish()` will revert, or it will succeed but get pruned away by future publications. 
 
-- Anyone can permissionlessly submit $$TX_{blob}$$ to the `Inbox` contract.
-- $$TX_{blob}$$ must include as input a reference to a previous publication $$pub_{prev}$$ and two proofs $$\pi_{beacon}$$ and $$\pi_{urc}$$.
-    - $$\pi_{urc}$$ is used to prove statements against the URC such as "the proposer with BLS key `0xabcd...` was opted into preconf protocol `0x1234...` with at least 1 Ether collateral." These are simple Merkle proofs to prove that the validator key was registered before (since URC does not store them on-chain). The `Inbox` will save a commitment of the validator's public key.
-    - $$\pi_{beacon}$$ contains an EIP-4788 Merkle proof pertaining to the previous `blobProposer's` blob that they're building off of, proving the proposer's public key for the slot (see [Tony's ethresearch post on how](https://ethresear.ch/t/slashing-proofoor-on-chain-slashed-validator-proofs/19421)). The `Inbox` contract does not process these proofs on-chain, rather they are used by L2 nodes later.
-- `Inbox` publishes to the `PublicationFeed`, which stores a hash that is used in the future for proving (this becomes a future `blobProposer's` $$pub_{prev}$$).
-- Upon receiving the publication event, an L2 node fetches the blob data and decodes $$\pi_{beacon}$$. 
-- The L2 node uses EIP-4788 to fetch the `beacon_block_root` for the given slot and uses it to verify $$\pi_{beacon}$$.
-- If the proposer's public key matches what was committed by the `Inbox`, then the L2 node is assured that:
-    - $$TX_{blob}$$ was submitted during a slot where the proposer was opted into the URC
-    - the `blobProposer` address was delegated to by the proposer (necessary since BLS keys cannot sign transactions!)
-    - the proposer satisfied all preconditions, e.g., they had enough collateral in the URC 
-    - the L2 node can continue by executing the transactions in the blob to derive the L2’s new state
-- Else the blob is treated as a no-op and ignored.
+### Step 1 - verify the `blobProposer` is allowed
+
+
+    function publish(
+            uint256 nBlobs,
+            uint64 anchorBlockId,
+            RegistrationProof calldata registrationProof,
+            ValidatorProof calldata validatorProof,
+            bool replaceUnsafeHead
+        ) external payable;
+
+- It is permissionless to call `FabricInbox.publish()`, but it contains logic to filter for valid submissions.
+- `registrationProof` contains a Merkle proof that proves a specific BLS public key was registered to the URC. The following snippet demonstrates how the URC can be queried to ensure the `blobProposer` satisfied the rollup's preconditions. This allows a `blobProposer` to prove statements like "the proposer with BLS key `0xabcd...` was opted into preconf protocol `0x1234...` with at least 1 Ether collateral and delegated blob submission rights to my EOA with address `0x5678...`."
+
+        modifier isAllowedProposer(
+            IRegistry.RegistrationProof calldata registrationProof
+        ) {
+            // Get the URC's config
+            IRegistry.Config memory config = registry.getConfig();
+
+            // Get the data of the operator from the URC
+            // This will revert if the proof is invalid
+            IRegistry.OperatorData memory operator = registry
+                .getVerifiedOperatorData(registrationProof);
+
+            // Perform sanity checks on the operator's data
+            require(
+                operator.collateralWei >= requiredCollateralWei,
+                "Insufficient collateral"
+            );
+
+            require(operator.slashedAt == 0, "Operator has been slashed");
+
+            // Verify operator has not unregistered
+            if (operator.unregisteredAt != type(uint48).max) {
+                require(
+                    block.number <
+                        operator.unregisteredAt + config.unregistrationDelay,
+                    "Operator unregistered"
+                );
+            }
+
+            // Get information about the operator's commitment to the rollup's specified slasher
+            IRegistry.SlasherCommitment memory slasherCommitment = registry
+                .getSlasherCommitment(registrationProof.registrationRoot, slasher);
+
+            // Perform sanity checks on the slasher commitment
+            require(
+                slasherCommitment.optedOutAt < slasherCommitment.optedInAt,
+                "Not opted into slasher"
+            );
+
+            require(slasherCommitment.slashed == false, "Operator has been slashed");
+
+            require(
+                slasherCommitment.committer == msg.sender,
+                "Wrong blob submitter address"
+            );
+
+            require(
+                block.number >
+                    slasherCommitment.optedInAt + config.optInDelay,
+                "Too early to make commitments"
+            );
+
+            // Enter any other pre-condition checks here
+            // ... 
+
+            _;
+        }
+
+
+### Step 2 - verify the proposal happened during the correct slot
+The `isAllowedProposer` modifier allows the `FabricInbox` to filter for valid `blobPoposers` but there's still an issue - the `blobProposer` can call `publish()` at *any* slot by supplying a valid `registrationProof`. To ensure that `blobProposers` get a write-lock on the rollup to allow for execution preconfs, we need to enforce publications are only successful if published during their L1 proposer's slot.
+
+However, as we covered earlier, without a view of the lookahead or EIP-7917, we cannot know the *current* L1 proposer during the execution of `publish()`. Instead, we require the `blobProposer` to prove that the head they are building off is valid, i.e., the parent `blobProposer` published during their slot and not someone else's.
+
+`validatorProof` is a Merkle proof for beacon chain data that does just this (see [Tony's ethresearch post on how they're generated](https://ethresear.ch/t/slashing-proofoor-on-chain-slashed-validator-proofs/19421)). It proves which validator public key was used during the slot of the parent `blobProposer's` call to `publish()`. By checking this against the validator public key that the parent `blobProposer` committed to, we can retroactively verify that their publication was valid.
+
+    function isValidBeaconProof(uint256 parentBlockNum, ValiatorProof calldata validatorProof) {
+        // Fetch the beaconBlockRoot from the parent blobProposer's slot via EIP-4788
+        bytes32 beaconBlockRoot = getBeaconBlockRootFromTimestamp(timestamps[parentBlockNum]);
+
+        // Check that the merkle proof is valid for this slot and recover the validator public key for that slot
+        BLSG1Point validatorPubkey = verifyValidatorProof(beaconBlockRoot, validatorProof);
+
+        // Check that the key matches what was committed by the parent blobProposer
+        require(keccak256(abi.encode(validatorPubkey)) == validatorKeyCommitments[parentBlockNum]);
+
+        _;
+    }
+
+### Step 3 - updating the safe head
+So far we have the following execution paths:
+
+
+```mermaid
+stateDiagram-v2
+    state if_state <<choice>>
+    state if_state2 <<choice>>
+    state if_state3 <<choice>>
+
+    blobProposer --> FabricInbox: publish()
+    FabricInbox --> if_state
+        if_state --> if_state2 : isValidProposer() == true
+            if_state2 --> PublicationFeed.publish() : isValidBeaconProof() == true
+                PublicationFeed.publish() --> if_state3
+                    if_state3 --> happy_case : was blobProposer's slot
+                    if_state3 --> unhappy_case : wasn't blobProposer's slot
+                        happy_case --> nextBlobProposer: publication will be built on
+                        unhappy_case --> nextBlobProposer: publication should be pruned
+            if_state2 --> revert(): isValidBeaconProof() == false
+        if_state --> revert(): isValidProposer() == false
+``` 
+
+We see that by successfully executing `isValidProposer()` and `isValidBeaconProof()` we are assured that the `blobProposer` was allowed to publish (i.e., was an opted-in preconfer) and their proposal builds off of a valid parent proposal. However, at the time of execution, the inbox doesn't know if it was the `blobProposer's` slot, which allows us to fall into this *unhappy case*. Their publication will succeed but we need assurances that it won't be used to build the rollup's state.
+
+Imagine $$B_N$$ is published followed by $$B_{N+1}$$ in the subsequent slot. If $$B_{N+1}$$ falls under the *unhappy case* and the next `blobProposer` is trying to submit $$B_{N+2}$$, they are not incentivized to build on $$B_{N+1}$$ and in fact `isValidBeaconProof()` will prevent them from trying. Instead they *should* build on $$B_N$$, but allowing this behavior unchecked can cause unwanted forks, e.g., instead of building on $$B_N$$ the `blobProposer` set their parent far in the past to $$B_{N-i}$$. 
+
+To address this issue we'll start by adopting terminology from the [OP Stack](https://docs.optimism.io/stack/rollup/derivation-pipeline#key-functions-of-the-derivation-pipeline). We'll introduce two variables to the `FabricInbox`: 
+- `unsafeHead`: a reference to a publication that is yet to promoted to the safe head or replaced by a different `unsafeHead`
+- `safeHead`: a previously `unsafeHead` publication that has been promoted and will be part of the rollup's canonical state
+
+The idea is that `publish()` can do one of two things:
+1. replace an `unsafeHead` with a new `unsafeHead`
+2. promote the previous `unsafeHead` to the `safeHead` and insert a new `unsafeHead`
+
+The **fork-choice** rule becomes simple: the rollup's state is derived by iterating over all `safeHeads`.
+
+
+We just need to add logic for a `blobProposer` to replace the current `unsafeHead` if it was submitted during the wrong slot. This requires minimal changes to `isValidBeaconProof()`. 
+### Putting it all together
+
+![Raid Flow](/website/assets/images/raid-flow.png)
+
+Let's step through this flow:
+
+**Slot N** 
+- We assume the rollup starts in it's genesis state
+- $$blobProposer_0$$ is a valid preconfer that publishes $$B_0$$ with `replaceUnsafeHead = true`
+- $$B_0$$ is published to the `PublicationFeed` contract and returns a $$publicationId_{B_0}$$
+- Since `replaceUnsafeHead` is true and there is no previous `unsafeHead`, $$publicationId_{B_0}$$ becomes the new `unsafeHead`
+- Rollup nodes don't update their state as there's no new `safeHead`
+
+**Slot N+1** 
+- $$blobProposer_1$$ is an invalid preconfer so publishing $$B_1$$ reverts
+- $$blobProposer_2$$ is a valid preconfer that publishes $$B_2$$ with `replaceUnsafeHead = false`
+- Since `replaceUnsafeHead` is false, $$blobProposer_2$$'s `validatorProof` proves that $$publicationId_{B_0}$$ was indeed submitted during $$blobProposer_0$$'s slot
+- Assuming `validatorProof` is valid, $$publicationId_{B_0}$$ is promoted to the `safeHead`, and $$publicationId_{B_2}$$ becomes the new `unsafeHead`
+- Rollup nodes receive a `NewSafeHead` event and process $$B_0$$ to update their local L2 state
+
+**Slot N+2** 
+- $$blobProposer_3$$ is a valid preconfer that publishes $$B_3$$ with `replaceUnsafeHead = true`
+- Since `replaceUnsafeHead` is true, $$blobProposer_3$$'s `validatorProof` proves that it was not $$blobProposer_2$$'s slot when they published $$B_2$$
+- Assuming `validatorProof` is valid, $$publicationId_{B_2}$$ is replaced by $$publicationId_{B_3}$$ as the `unsafeHead`
+- Rollup nodes don't update their state as there's no new `safeHead`
+
+**Slot N+3** 
+- $$blobProposer_4$$ is a valid preconfer that publishes $$B_4$$ with `replaceUnsafeHead = false`
+- Since `replaceUnsafeHead` is false, $$blobProposer_4$$'s `validatorProof` proves that $$publicationId_{B_3}$$ was indeed submitted during $$blobProposer_3$$'s slot
+- Assuming `validatorProof` is valid, $$publicationId_{B_3}$$ is promoted to the `safeHead`, and $$publicationId_{B_4}$$ becomes the new `unsafeHead`
+- Rollup nodes receive a `NewSafeHead` event and process $$B_3$$ to update their local L2 state
 
 ### Assumptions
-- If multiple valid $$TX_{blob}$$ transactions are submitted in a single slot, L2 nodes should only consider the first. This helps reduce branching paths and is reasonable given a based sequencer has a write-lock on the L1 and can ensure only their $$TX_{blob}$$ lands.
+- `publish()` can only successfully execute once per block to ensure that `unsafeHeads` can be pruned.
 - Since EIP-4788 only stores the last 8091 beacon block roots, valid blob publications must happen at least daily to ensure consecutive proposals can access the required roots.
-- `blobProposers` are incentivized to provide valid proof data, as L2 nodes will ignore their submission if the proof is invalid, wasting their slot.
-- When proving L2 state, EIP-4788 is just a [smart contract](https://etherscan.io/address/0x000F3df6D732807Ef1319fB7B8bB8522d0Beac02), so the prover can be supplied with storage proofs.
+- `blobProposers` are incentivized to provide valid `registrationProofs` and `validatorProofs`, or else the contract will revert or the next `blobProposer` will replace their `unsafeHead`.
 
 ### Design choices
-- While it is possible to also check against the URC during L2 derivation, it adds complexity with little gains - hence the approach has abandoned the idea of completely "dumb inboxes" and changed them name from Dido to Raid.
-- Requiring subsequent `blobProposers` to submit $$\pi_{beacon}$$ means that L2 follower nodes are *not* required to run a beacon node. Rather, only the `blobProposer` is which is already assumed for based sequencers. 
+- Requiring `blobProposers` to submit the `validatorProof` means that L2 follower nodes are *not* required to run a beacon node. Rather, only the `blobProposer` is which is already assumed for based sequencers. 
+- Doing everything on-chain simplifies things but is not the only approach:
+    - **hybrid on-chain**: The original Raid design verified `validatorProofs` during L2 derivation but this complicates fork-choice rules as there is no on-chain notion of the `safeHead`.
+    - **fully off-chain**: In the spirit of the Dido design, it is possible to verify `registrationProofs` and `validatorProofs` during L2 derivation to reduce on-chain gas costs; however, like the hybrid on-chain approach it complicates the fork-choice rule.
 
 ### Remaining considerations
-Until we have EIP-7917 there is still the problem of lookahead instability between epoch boundaries due to changes in validators’ expected balances. At the cost of increased complexity, it is possible to add additional derivation logic that assigns a fallback “Epoch Bridge Proposer” [as described by Lin](https://youtu.be/UngTQPjy4UA?si=ODnqHoMS4qjAMh3v&t=2673) to ensure consistent preconf uptime between epoch boundaries.
+Until we have EIP-7917 there is still the problem of lookahead instability between epoch boundaries due to changes in validators’ expected balances. At the cost of increased complexity, it is possible to enshrine the notion of a fallback “Epoch Bridge Proposer” into the `FabricInbox` [as described by Lin](https://youtu.be/UngTQPjy4UA?si=ODnqHoMS4qjAMh3v&t=2673). The EBP would have authority to write `safeHeads` without it being their slot to ensure consistent preconf uptime between epoch boundaries.
 
+### Summary
+The `FabricInbox` serves as a filtration system that ensures the rollup nodes only process valid blobs. By valid we mean:
+1. `isValidProposer()` filtered out `blobProposers` that weren't registered to the rollup's specified preconf protocol
+2. `isValidBeaconProof()` filtered out blobs that were submitted during the wrong slots
+3. `updateHead()` filtered out `unsafeHeads` from `safeHeads`
+![Raid Filteration](/website/assets/images/raid-filtration.png)
+Picture Adapted from [here](https://prestwich.substack.com/p/the-definitive-guide-to-sequencing) and [here](https://unsplash.com/@nate_dumlao?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+
+## How does Raid fit into a stack?
+A potential end-to-end based rollup flow utilizing Raid:
+![Raid Overview](/website/assets/images/raid-overview.png)

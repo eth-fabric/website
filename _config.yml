@@ -8,7 +8,7 @@ baseurl: /website
 mermaid:
   # Version of mermaid library
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
-  version: "9.1.3"
+  version: "9.1.6"
 
 nav_enabled: true
 
