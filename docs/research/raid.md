@@ -431,6 +431,7 @@ Let's step through this flow:
 - `publish()` can only successfully execute once per block to ensure that `unsafeHeads` can be pruned.
 - Since EIP-4788 only stores the last 8091 beacon block roots, valid blob publications must happen at least daily to ensure consecutive proposals can access the required roots.
 - `blobProposers` are incentivized to provide valid `registrationProofs` and `validatorProofs`, or else the contract will revert or the next `blobProposer` will replace their `unsafeHead`.
+- `blobProposers` will only build L1 blocks that contain their `publish()` transaction to prevent others from consuming their slot.
 
 ### Design choices
 - Requiring `blobProposers` to submit the `validatorProof` means that L2 follower nodes are *not* required to run a beacon node. Rather, only the `blobProposer` is which is already assumed for based sequencers. 
