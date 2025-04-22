@@ -22,45 +22,48 @@ A curated list of resources, research, and implementations related to based roll
 Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconfirmations calls [here](https://www.youtube.com/watch?v=jrm4ZUoj9xY&list=PLJqWcTqh_zKHDFarAcF29QfdMlUpReZrR).
 
 ## Research and Discussion
-- [Based rollups—superpowers from L1 sequencing](https://ethresear.ch/t/based-rollups-superpowers-from-l1-sequencing/15016) - Justin Drake's post formalzing the based sequencing concept
-- [Vanilla Based Sequencing](https://ethresear.ch/t/vanilla-based-sequencing/19379) - Early exploration around a "vanilla" implementation of based rollups.
-- [Alternate PBS: A PBS Proposal for Based Rollups](https://collective.flashbots.net/t/alternate-pbs-a-pbs-proposal-for-based-rollups/2672) - This article introduces Alternate PBS, a new PBS proposal for based rollups.
-- [Fabric - Fabric to Accelerate Based Rollup Infrastructure & Connectivity](https://ethresear.ch/t/fabric-fabric-to-accelerate-based-rollup-infrastructure-connectivity/21640) - Propsal for a coordination and development effort to establish standards for based rollups.
-- [Becoming Based: A Path towards Decentralised Sequencing](https://ethresear.ch/t/becoming-based-a-path-towards-decentralised-sequencing/21733) - A proposal to work with current L2s that progresses towards based sequencing.
-- [Understanding Based Rollups: PGA Challenges, Total Anarchy, and Potential Solutions](https://ethresear.ch/t/understanding-based-rollups-pga-challenges-total-anarchy-and-potential-solutions/21320) - Paper analyzes the economics of based rollups using total anarchy as a method of sequencing blocks.
-- [Based Rollups with Stronger Finality & Revenue Share (WIP)](https://hackmd.io/2HHg2t-gSbyJX3M170Nigw) - Describes a version of Ethereum shared sequencing for "based rollups" that retains the benefits of vanilla based sequencing (liveness, censorship resistance, L1 security and composability etc) while offering rollups stronger finality and a share of sequencing revenue.
+- [Based rollups—superpowers from L1 sequencing](https://ethresear.ch/t/based-rollups-superpowers-from-l1-sequencing/15016) - Justin Drake's post formalzing the based sequencing concept (March 2023).
+- [Alternate PBS: A PBS Proposal for Based Rollups](https://collective.flashbots.net/t/alternate-pbs-a-pbs-proposal-for-based-rollups/2672) - This article introduces Alternate PBS, a new PBS proposal for based rollups (November 2023).
+- [Vanilla Based Sequencing](https://ethresear.ch/t/vanilla-based-sequencing/19379) - Early exploration around a "vanilla" implementation of based rollups (April 2024).
+- [Based Rollups with Stronger Finality & Revenue Share (WIP)](https://hackmd.io/2HHg2t-gSbyJX3M170Nigw) - Describes a version of Ethereum shared sequencing for "based rollups" that retains the benefits of vanilla based sequencing (liveness, censorship resistance, L1 security and composability etc) while offering rollups stronger finality and a share of sequencing revenue (2024).
+- [Understanding Based Rollups: PGA Challenges, Total Anarchy, and Potential Solutions](https://ethresear.ch/t/understanding-based-rollups-pga-challenges-total-anarchy-and-potential-solutions/21320) - Paper analyzes the economics of based rollups using total anarchy as a method of sequencing blocks (December 2024).
+- [Becoming Based: A Path towards Decentralised Sequencing](https://ethresear.ch/t/becoming-based-a-path-towards-decentralised-sequencing/21733) - A proposal to work with current L2s that progresses towards based sequencing (March 2025).
+- [Fabric - Fabric to Accelerate Based Rollup Infrastructure & Connectivity](https://ethresear.ch/t/fabric-fabric-to-accelerate-based-rollup-infrastructure-connectivity/21640) - Propsal for a coordination and development effort to establish standards for based rollups (January 2025).
 
 ## Transaction Flow
-- [Transaction Submission on Based Rollups](https://ethresear.ch/t/transaction-submission-on-based-rollups/18631) - This post explores the trade-offs between different ways to submit transactions to the rollup.
+- [Transaction Submission on Based Rollups](https://ethresear.ch/t/transaction-submission-on-based-rollups/18631) - This post explores the trade-offs between different ways to submit transactions to the rollup (February 2024).
 
 ## Inbox / Withdraws
-- [Custard - Improving UX for Super TXs](https://ethresear.ch/t/custard-improving-ux-for-super-txs/21273) - Proposes a technique for enabling atomically composable super transactions on based rollups through state management.
-- [Fast (and Slow) L2→L1 Withdrawals](https://ethresear.ch/t/fast-and-slow-l2-l1-withdrawals/21161) - Introduces a new fast path for L2 withdrawals to L1 within the same L1 slot, enabled by solvers.
-- [Same-Slot L1→L2 Message Passing](https://ethresear.ch/t/same-slot-l1-l2-message-passing/21186) - Post introduces a protocol that enables the L2 proposer to selectively inject L1 messages emitted in the same slot directly into L2.
+- [Custard - Improving UX for Super TXs](https://ethresear.ch/t/custard-improving-ux-for-super-txs/21273) - Proposes a technique for enabling atomically composable super transactions on based rollups through state management (December 2024).
+- [Fast (and Slow) L2→L1 Withdrawals](https://ethresear.ch/t/fast-and-slow-l2-l1-withdrawals/21161) - Introduces a new fast path for L2 withdrawals to L1 within the same L1 slot, enabled by solvers (December 2024).
+- [Same-Slot L1→L2 Message Passing](https://ethresear.ch/t/same-slot-l1-l2-message-passing/21186) - Post introduces a protocol that enables the L2 proposer to selectively inject L1 messages emitted in the same slot directly into L2 (December 2024).
 
 ## Composability
+- [The Open Intents Framework: Intents As A Public Good](https://www.openintents.xyz) - Important effort that can benefit based rollup composability (2025).
+- Embedded Rollups, [Part 1](https://ethresear.ch/t/embedded-rollups-part-1-introduction/21460) and [Part 2](https://ethresear.ch/t/embedded-rollups-part-2-shared-bridging/21461) - Posts exploring fast and efficient cross-chain interoperability by implementing an embedded shared-bridge rollup (January 2025).
+- [ULTRA TX - Programmable blocks: One transaction is all you need for a unified and extendable Ethereum](https://ethresear.ch/t/ultra-tx-programmable-blocks-one-transaction-is-all-you-need-for-a-unified-and-extendable-ethereum/21673) - This post focuses on a novel mechanism to bring programmable L1 blocks and what this means for L2s and the interoperability between L1 and L2s (February 2025).
 - [Generalized Synchronous Composability](https://capricious-firefly-0c5.notion.site/Generalized-Synchronous-Composability-132d07a3da30809aa801e26077a49b60) - Aims to sketch out a way to make it possible to do synchronous composability between L1 and all L2s in an efficient way.
-- [The Open Intents Framework: Intents As A Public Good](https://www.openintents.xyz) - Important effort that can benefit based rollup composability.
-- [ULTRA TX - Programmable blocks: One transaction is all you need for a unified and extendable Ethereum](https://ethresear.ch/t/ultra-tx-programmable-blocks-one-transaction-is-all-you-need-for-a-unified-and-extendable-ethereum/21673) - This post focuses on a novel mechanism to bring programmable L1 blocks and what this means for L2s and the interoperability between L1 and L2s.
-- Embedded Rollups, [Part 1](https://ethresear.ch/t/embedded-rollups-part-1-introduction/21460) and [Part 2](https://ethresear.ch/t/embedded-rollups-part-2-shared-bridging/21461) - Posts exploring fast and efficient cross-chain interoperability by implementing an embedded shared-bridge rollup.
 
 ## Blobs
-- [Blob Aggregation - Step Towards More Efficient Blobs](https://ethresear.ch/t/blob-aggregation-step-towards-more-efficient-blobs/21624) - Article explores efficiency gains for blob sharing.
-- [Blob Sharing for Based Rollups](https://hackmd.io/@linoscope/blob-sharing-for-based-rollups) - Introduces a protocol for based rollups to share blobs with each other so they can fill the blobs more efficiently and reduce L1 gas cost.
-- [Blob sharing protocol](https://hackmd.io/@dapplion/blob_sharing) - Details idea for blob sharing across various rollup stacks.
-- [Nethermind Blob Sharing POC](https://github.com/NethermindEth/blob-sharing-poc) and [Blobs Sharing Presentation on Fabric Call](https://docs.google.com/presentation/d/1uPvwOYvuoAQAXg38pa0OT_qzVxsecCow0bve0gsZsDE/edit#slide=id.p)
-- [Potential impact of blob sharing for rollups](https://ethresear.ch/t/potential-impact-of-blob-sharing-for-rollups/20619) - Explores the impact of blob sharing by rollups.
-- [Shared Blob Compression](https://paragraph.xyz/@spire/shared-blob-compression) - Explores an implementation to help with the increasing need for chains to opt-into having their blobs aggregated and compressed with blobs from other appchains.
-- [Will Blob Sharing Solve Dilemma for Small Rollups](https://arxiv.org/abs/2410.04111) - This paper examines the effectiveness of blob sharing based on real-world data collected approximately six months after the implementation of EIP-4844.
+- [Blob sharing protocol](https://hackmd.io/@dapplion/blob_sharing) - Details idea for blob sharing across various rollup stacks (December 2023).
+- [Will Blob Sharing Solve Dilemma for Small Rollups](https://arxiv.org/abs/2410.04111) - This paper examines the effectiveness of blob sharing based on real-world data collected approximately six months after the implementation of EIP-4844 (October 2024).
+- [Potential impact of blob sharing for rollups](https://ethresear.ch/t/potential-impact-of-blob-sharing-for-rollups/20619) - Explores the impact of blob sharing by rollups (October 2024).
+- [Shared Blob Compression](https://paragraph.xyz/@spire/shared-blob-compression) - Explores an implementation to help with the increasing need for chains to opt-into having their blobs aggregated and compressed with blobs from other appchains (December 2024).
+- [Blob Aggregation - Step Towards More Efficient Blobs](https://ethresear.ch/t/blob-aggregation-step-towards-more-efficient-blobs/21624) - Article explores efficiency gains for blob sharing (January 2025).
+- [Blob Sharing for Based Rollups](https://hackmd.io/@linoscope/blob-sharing-for-based-rollups) - Introduces a protocol for based rollups to share blobs with each other so they can fill the blobs more efficiently and reduce L1 gas cost (February 2025).
+- [Nethermind Blob Sharing POC](https://github.com/NethermindEth/blob-sharing-poc) and [Blobs Sharing Presentation on Fabric Call](https://docs.google.com/presentation/d/1uPvwOYvuoAQAXg38pa0OT_qzVxsecCow0bve0gsZsDE/edit#slide=id.p) (2025)
+- [Blobsy Blob Aggregator](https://github.com/Blobsy-xyz/blobsy-aggregator) - Service designed to aggregate blob segments and post them on the Ethereum blockchain as blob-carrying transactions (March 2025).
+- [Blob pricing and aggregation](https://x.com/Spire_Labs/status/1911849800850620588) - Thread and article by Spire on blob pricing for aggregation (April 2025).
 
 ## Economics
- [Based Rollup Economics](https://taiko.mirror.xyz/PhlvGdIaY3-ZQ1DqI9uM5LxrWGWLAzLI84rkxhvPKmM) - Post that summarizes the current economic landscape of rollups, and explore based rollups economy.
-- [Based Rollups can reward Proposers first come first serve](https://ethresear.ch/t/based-rollups-can-reward-proposers-first-come-first-serve/18317) - Articles explores how a simple FCFS system should be sufficient for Based Rollups.
-- [Based Ticketing Rollup](https://hackmd.io/LRQPSItESPuMhUSwrB71rQ) - Presents a “Based Ticketing Rollup” that starts from the concept of a Based rollup and adds Execution Tickets to address its weak points.
-- [MEV for “Based Rollup”](https://ethresear.ch/t/mev-for-based-rollup/15636) - Article exploring how MEV can work with based rollups.
+- [MEV for “Based Rollup”](https://ethresear.ch/t/mev-for-based-rollup/15636) - Article exploring how MEV can work with based rollups (May 2023).
+- [Based Rollups can reward Proposers first come first serve](https://ethresear.ch/t/based-rollups-can-reward-proposers-first-come-first-serve/18317) - Articles explores how a simple FCFS system should be sufficient for Based Rollups (January 2024).
+- [Based Rollup Economics](https://taiko.mirror.xyz/PhlvGdIaY3-ZQ1DqI9uM5LxrWGWLAzLI84rkxhvPKmM) - Post that summarizes the current economic landscape of rollups, and explore based rollups economy (October 2024).
+- [Based Ticketing Rollup](https://hackmd.io/LRQPSItESPuMhUSwrB71rQ) - Presents a “Based Ticketing Rollup” that starts from the concept of a Based rollup and adds Execution Tickets to address its weak points (2024).
+
 
 ## Provers
-- [Prover Incentives](https://github.com/OpenZeppelin/minimal-rollup/blob/main/documentation/prover-incentives.md), [reference implmeentation](https://github.com/OpenZeppelin/minimal-rollup/blob/main/src/protocol/taiko_alethia/ProverManager.sol), and [presentation on prover incentives](https://docs.google.com/presentation/d/1QCPtfh057ikO1iqJFf5lFny5VZ9LduV2bzZ1wBIbjnQ/edit#slide=id.p)- OZ research on prover incentive 
+- [Prover Incentives](https://github.com/OpenZeppelin/minimal-rollup/blob/main/documentation/prover-incentives.md), [reference implmeentation](https://github.com/OpenZeppelin/minimal-rollup/blob/main/src/protocol/taiko_alethia/ProverManager.sol), and [presentation on prover incentives](https://docs.google.com/presentation/d/1QCPtfh057ikO1iqJFf5lFny5VZ9LduV2bzZ1wBIbjnQ/edit#slide=id.p)- OZ research on prover incentive (March 2025). 
 
 ## Stacks-and-Implmentations
 - [Facet Based Stack](https://github.com/0xFacet)
@@ -73,24 +76,24 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Taiko's Gwyneth Based Stack](https://github.com/taikoxyz/gwyneth) 
 
 ## Articles
-- [A Based Thesis](https://hackmd.io/@sacha/based-rollup-thesis) - Early thesis outlining why based rollups are the future and important for Ethereum.
-- [Based Rollups and Decentralized Sequencing (Twitter Spaces wrap-up](https://community.taiko.xyz/t/based-rollups-and-decentralized-sequencing-twitter-spaces-wrap-up/1220) - Summary of a twitter spaces with the EF, Nethermind / Flashbots, Espresso, and Taiko.
-- [Based Booster Rollup (BBR): A new major milestone in Taiko’s roadmap](https://taiko.mirror.xyz/anPjF35Mrc_xzYgOTbUmfjr_MlhE3L8ZBZIxqmz9GZ8)
-- [Examining the Based Sequencing Spectrum](https://research.chainbound.io/examining-the-based-sequencing-spectrum) - Explores the spectrum of based sequencing.
-- [Based Rollup FAQ](https://taiko.mirror.xyz/7dfMydX1FqEx9_sOvhRt3V8hJksKSIWjzhCVu7FyMZU) - FAQ for based rollups.
-- [Booster rollups - scaling L1 directly](https://ethresear.ch/t/booster-rollups-scaling-l1-directly/17125) - Outlines an approach where the L2 directly extends the blockspace of the L1 for all applications deployed on L1 by sharding the execution of transactions and the storage.
-- [Facet: An Ethereum Rollup Built for Hard Times](https://facet.org/whitepaper) - Facet whitepaper.
-- [Gwyneth Technical Design](https://capricious-firefly-0c5.notion.site/Gwyneth-Technical-Design-86a8d1a151954f559f8124301bed1d46) - Early document outlining how Gwyneth works.
-- [How do based rollups actually work?](https://x.com/Spire_Labs/status/1869724672784572776) - Simple explainer of how based rollups work.
-- [Linea as a based rollup - a theoretical architecture](https://community.linea.build/t/linea-as-a-based-rollup-a-theoretical-architecture/9882) - Linea explores what it might take to go based.
-- [Puffer Docs](https://docs-unifi.puffer.fi/)
-- [Spectrum of Based Rollups](https://taiko.mirror.xyz/a2cfOjLTY0T9RwxKczP6xs0q1piQR0i9c9JuhH5iY4U) - Explores the spectrum of based rollups.
-- [Surge Documentation](https://docs.surge.wtf/docs/intro) - Documentation on a based rollup effort from Nethermind.
-- [Spire Light Paper](https://github.com/spire-labs/litepaper) - As the name implies.
-- [Taiko Protocol Overview](https://taiko.mirror.xyz/y_47kIOL5kavvBmG0zVujD2TRztMZt-xgM5d4oqp4_Y) - Early article outlining how Taiko worked.
-- [Unified Endgame Rollup Requirements](https://ethresear.ch/t/unified-endgame-rollup-requirements/18733) - The list is created with the proposed milestones for rollup decentralization.
-- [Unpacking The Next Generation Of Ethereum L2s (I): Based Rollups](https://x.com/2077Research/status/1879976056750502327) - Explainer of based rollups and some background / history.
-- [We're All Building the Same Thing](https://dba.xyz/were-all-building-the-same-thing/) - Detailed perspective on based rollups + other subjects.
+- [Taiko Protocol Overview](https://taiko.mirror.xyz/y_47kIOL5kavvBmG0zVujD2TRztMZt-xgM5d4oqp4_Y) - Early article outlining how Taiko worked (May 2023).
+- [Based Rollups and Decentralized Sequencing (Twitter Spaces wrap-up](https://community.taiko.xyz/t/based-rollups-and-decentralized-sequencing-twitter-spaces-wrap-up/1220) - Summary of a twitter spaces with the EF, Nethermind / Flashbots, Espresso, and Taiko (September 2023).
+- [Based Rollup FAQ](https://taiko.mirror.xyz/7dfMydX1FqEx9_sOvhRt3V8hJksKSIWjzhCVu7FyMZU) - FAQ for based rollups (October 2023).
+- [Booster rollups - scaling L1 directly](https://ethresear.ch/t/booster-rollups-scaling-l1-directly/17125) - Outlines an approach where the L2 directly extends the blockspace of the L1 for all applications deployed on L1 by sharding the execution of transactions and the storage (October 2023).
+- [A Based Thesis](https://hackmd.io/@sacha/based-rollup-thesis) - Early thesis outlining why based rollups are the future and important for Ethereum (November 2023).
+- [Based Booster Rollup (BBR): A new major milestone in Taiko’s roadmap](https://taiko.mirror.xyz/anPjF35Mrc_xzYgOTbUmfjr_MlhE3L8ZBZIxqmz9GZ8) (November 2023)
+- [Unified Endgame Rollup Requirements](https://ethresear.ch/t/unified-endgame-rollup-requirements/18733) - The list is created with the proposed milestones for rollup decentralization (February 2024).
+- [Examining the Based Sequencing Spectrum](https://research.chainbound.io/examining-the-based-sequencing-spectrum) - Explores the spectrum of based sequencing (May 2024).
+- [We're All Building the Same Thing](https://dba.xyz/were-all-building-the-same-thing/) - Detailed perspective on based rollups + other subjects (June 2024).
+- [Spire Light Paper](https://github.com/spire-labs/litepaper) - As the name implies (September 2024).
+- [Surge Documentation](https://docs.surge.wtf/docs/intro) - Documentation on a based rollup effort from Nethermind (November 2024).
+- [How do based rollups actually work?](https://x.com/Spire_Labs/status/1869724672784572776) - Simple explainer of how based rollups work (December 2024).
+- [Spectrum of Based Rollups](https://taiko.mirror.xyz/a2cfOjLTY0T9RwxKczP6xs0q1piQR0i9c9JuhH5iY4U) - Explores the spectrum of based rollups (December 2024).
+- [Gwyneth Technical Design](https://capricious-firefly-0c5.notion.site/Gwyneth-Technical-Design-86a8d1a151954f559f8124301bed1d46) - Early document outlining how Gwyneth works (2024).
+- [Facet: An Ethereum Rollup Built for Hard Times](https://facet.org/whitepaper) - Facet whitepaper (January 2025).
+- [Linea as a based rollup - a theoretical architecture](https://community.linea.build/t/linea-as-a-based-rollup-a-theoretical-architecture/9882) - Linea explores what it might take to go based (February 2025).
+- [Puffer Docs](https://docs-unifi.puffer.fi/) (2025)
+- [Unpacking The Next Generation Of Ethereum L2s (I): Based Rollups](https://x.com/2077Research/status/1879976056750502327) - Explainer of based rollups and some background / history (January 2025).
 
 ## Presentations
 - [A Revenue Model for Based Rollups](https://www.youtube.com/watch?v=JFCfnhFL9Mc&t=1s)
