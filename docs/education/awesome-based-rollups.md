@@ -37,6 +37,8 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Custard - Improving UX for Super TXs](https://ethresear.ch/t/custard-improving-ux-for-super-txs/21273) - Proposes a technique for enabling atomically composable super transactions on based rollups through state management (December 2024).
 - [Fast (and Slow) L2→L1 Withdrawals](https://ethresear.ch/t/fast-and-slow-l2-l1-withdrawals/21161) - Introduces a new fast path for L2 withdrawals to L1 within the same L1 slot, enabled by solvers (December 2024).
 - [Same-Slot L1→L2 Message Passing](https://ethresear.ch/t/same-slot-l1-l2-message-passing/21186) - Post introduces a protocol that enables the L2 proposer to selectively inject L1 messages emitted in the same slot directly into L2 (December 2024).
+- [Dido](https://eth-fabric.github.io/website/research/dido) - The working name of this approach is DIDO, which stands for “Dumb Inboxes, Derivation Only” and like the pokemon can transform to work with any rollup (March 2025). 
+- [Raid](https://eth-fabric.github.io/website/research/raid) - Retroactive Attestation of Inbox Data. A simple, pragmatic inbox design for rollups that want to adopt based sequencing (April 2025). 
 
 ## Composability
 - [The Open Intents Framework: Intents As A Public Good](https://www.openintents.xyz) - Important effort that can benefit based rollup composability (2025).
