@@ -20,3 +20,19 @@ jobs:
           cache-version: 0 # Increment this number if you need to re-download cached gems
       - name: Build with Jekyll
         run: bundle exec jekyll build
+  # Spell check
+  codespell:
+      name: Check for spelling errors
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+
+        - name: Codespell
+          uses: codespell-project/actions-codespell@v2.0
+          with:
+            check_hidden: true
+            check_filenames: true
