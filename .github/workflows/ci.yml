@@ -36,3 +36,4 @@ jobs:
           with:
             check_hidden: true
             check_filenames: true
+            args: ["--skip=*.lock"]

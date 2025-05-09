@@ -15,7 +15,7 @@ permalink: /education/based-rollups/Based-Rollups-Componets
 
 ---
 
-## Details Around Componenents and Sub-Components of Based Rollups from Fabric's POV
+## Details Around Components and Sub-Components of Based Rollups from Fabric's POV
 
 Building on [Based Rollup 101](/website/education/based-rollups/based-rollups-101), this document provides context on the key components and subcomponents of a based rollup stack. You'll find a visual representation of these elements, followed by a description of each and its role within the stack.
 

@@ -46,8 +46,8 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 ## Universal-Registry-for-Commitments
 - [Credibly Neutral Preconfirmation Collateral: The Preconfirmation Registry](https://ethresear.ch/t/credibly-neutral-preconfirmation-collateral-the-preconfirmation-registry/19634) - Introduces a design for a credibly neutral preconfirmations registry (May 2024).
 - [Based Sequencer Selection](https://ethresear.ch/t/based-sequencer-selection/19747) - Exploratory proposal for a method of deterministically identifying sequencers on L2s to route transactions to (June 2024).
-- [Sequencer Opt-In, Discovery and Communication](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/optin-mechanics.md) - Inital exploration for validators to register / opt in to based sequecning (July 2024).
-- [Universial Registry Contract](https://github.com/eth-fabric/urc) - Developed by over a dozen teams and currently being used by multiple preconf teams. Documents can be found in the Github.
+- [Sequencer Opt-In, Discovery and Communication](https://github.com/LimeChain/based-preconfirmations-research/blob/732cb92474554c2529aabc61e83b8f0934ce6adf/docs/optin-mechanics.md) - Initial exploration for validators to register / opt in to based sequecning (July 2024).
+- [Universal Registry Contract](https://github.com/eth-fabric/urc) - Developed by over a dozen teams and currently being used by multiple preconf teams. Documents can be found in the Github.
 
 ## Lookahead
 - [Fabric Call 1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214) - Presentation from Lin of Nethermind on lookahead research (February 2024).
@@ -65,7 +65,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Analyzing BFT & Proposer-Promised Preconfirmations](https://ethresear.ch/t/analyzing-bft-proposer-promised-preconfirmations/17963) - Analysis of BFT preconfirmations and proposer-promised preconfirmations (November 2023).
 - [The Preconfirmation Gateway ~ Unlocking Preconfirmations: From User to Preconfer](https://ethresear.ch/t/the-preconfirmation-gateway-unlocking-preconfirmations-from-user-to-preconfer/18812) - Introduces The Preconfirmation Gateway to completely abstract preconfirmations from users (January 2024).
 - [Leaderless and Leader-Based Preconfirmations](https://ethresear.ch/t/leaderless-and-leader-based-preconfirmations) - Discussion on leader-based and leaderless preconfs (April 2024).
-- [Proposer Commitments - A Validator’s Case For Delegation](https://mirror.xyz/ladislaus.eth/aZWM5O_gjqj56w0lvCGhRMwYfoAF_jVdMuHWO3cq-JE) - Outlines perspective on gateways and the current market structure of Ethereum (Febuary 2025).
+- [Proposer Commitments - A Validator’s Case For Delegation](https://mirror.xyz/ladislaus.eth/aZWM5O_gjqj56w0lvCGhRMwYfoAF_jVdMuHWO3cq-JE) - Outlines perspective on gateways and the current market structure of Ethereum (February 2025).
 - [Ahead-of-Time Block Auctions To Enable Execution Preconfirmations](https://ethresear.ch/t/ahead-of-time-block-auctions-to-enable-execution-preconfirmations/21345) - Article analyzing a gateway as an unsophisticated entity and the other as a sophisticated builder (April 2025).
 - [Based Ultrachain](https://x.com/sam_battenally/status/1889247872035754321) - Outlines approaches to gateways and delegation and why be based (April 2025).
 
@@ -83,7 +83,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Analysing Expected Proposer Revenue from Preconfirmations](https://research.lido.fi/t/analysing-expected-proposer-revenue-from-preconfirmations/8954) - Article exploring expected revenue from preconfirmations vs the current MEV-Boost acution (November 2024).
 - [A Pricing Model for Inclusion Preconfirmations](https://research.lido.fi/t/a-pricing-model-for-inclusion-preconfirmations/9136) - Article focuses on the pricing of inclusion preconfirmations (December 2024).
 - [Pricing Future Blockspace: A Data-driven Approach](https://www.luban.wtf/taiyi-pricing-1) - Introduce a pricing model developed for hedged preconfirmations with a focus on preserving underwriter funds and generating steady yields (December 2024).
-- [Pricing Transactions for Preconfirmation](https://ethresear.ch/t/pricing-transactions-for-preconfirmation/21802) - Proposes a framework for pricing preconfirmations but also to initiate a constructive discussion within the Ethereum community (Febuary 2025).
+- [Pricing Transactions for Preconfirmation](https://ethresear.ch/t/pricing-transactions-for-preconfirmation/21802) - Proposes a framework for pricing preconfirmations but also to initiate a constructive discussion within the Ethereum community (February 2025).
 
 ## Stacks-and-Implmentations
 - [Bolt](https://chainbound.github.io/bolt-docs/) - Bolt enables Ethereum block proposers to provide credible commitments about the contents of their blocks.
@@ -109,7 +109,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Preconfirmations: Explained](https://www.luganodes.com/blog/preconfirmations-explained/) - Preconfs 101 (July 2024).
 - [Proposer-Commitment Infrastructure in Ethereum](https://simbro.medium.com/proposer-commitment-infrastructure-in-ethereum-61ad3b31f05f) - Describes the out-of-protocol solutions that are in development, and explore what sort of solution space they open up for different types of Ethereum users (October 2024).
 - [Introducing ETHGas and Realtime Proposer Commitments to the Lido Community](https://research.lido.fi/t/introducing-ethgas-and-realtime-proposer-commitments-to-the-lido-community/9018) - ETHGas introduction to Lido Community with details on ETHGas flows (December 2024).
-- [Preconfirmation for the Average Joe](https://x.com/ceciliaz030/status/1875558701324759392) - Simple explnation on preconfs (January 2025).
+- [Preconfirmation for the Average Joe](https://x.com/ceciliaz030/status/1875558701324759392) - Simple explanation on preconfs (January 2025).
 - [What Based Rollups Need from the L1?](https://taiko.mirror.xyz/mg8H0IuGaG0S7aWHG1bPygYpaEDxqYmW-vyfmL9LeFY) - Article explaining why based rollups need faster block times (January 2025).
 - [Road to Real-time: Preconfirmation Shreds](https://blog.riselabs.xyz/incremental-block-construction/) - This article proposes an approach to achieving faster transaction (pre)confirmations in Layer 2 blockchain networks through incremental block construction (February 2025).
 
@@ -136,7 +136,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 ## Full-Day-Events
 - ZuBerlin - 2024
    - [Drew, Kubi, Lorenzo - Commit-Boost](https://streameth.org/zuberlin/watch?session=66681afef9b8e98b1ec95fdd) - Introducing the Commit-Boost effort, including a walkthrough of the code.
-   - [Daniel - LimeChain](https://streameth.org/zuberlin/watch?session=66684f7006eda795c8925909) - Dicusses how preconfirmations interact with the L1 PBS pipeline.
+   - [Daniel - LimeChain](https://streameth.org/zuberlin/watch?session=66684f7006eda795c8925909) - Discusses how preconfirmations interact with the L1 PBS pipeline.
    - [Conor - Switchboard](https://streameth.org/zuberlin/watch?session=66682e25f9b8e98b1ec98882) - Introduces Preconfirmations Sauna, a credibly neutral effort to standardise preconfirmations.
    - [Harry - Luban](https://streameth.org/zuberlin/watch?session=6668652806eda795c89291b2) - Shares a lottery mechanism for pricing preconfirmations.
    - [Jonas - Chainbound](https://streameth.org/zuberlin/watch?session=666828e8f9b8e98b1ec97e79) - Shares how Bolt enables L1 preconfirmations.
