@@ -278,7 +278,7 @@ When a `blobProposer` attempts to `publish()` their blob, they are required to i
 - It is permissionless to call `FabricInbox.publish()`, but it contains logic to filter for valid submissions.
 - `registrationProof` contains a Merkle proof that proves a specific BLS public key was registered to the URC. The following snippet demonstrates how the URC can be queried to ensure the `blobProposer` satisfied the rollup's preconditions. This allows a `blobProposer` to prove statements like "the proposer with BLS key `0xabcd...` was opted into preconf protocol `0x1234...` with at least 1 Ether collateral and delegated blob submission rights to my EOA with address `0x5678...`."
 
-        modifier isAllowedProposer(
+        modifier isValidProposer(
             IRegistry.RegistrationProof calldata registrationProof
         ) {
             // Get the URC's config
@@ -337,7 +337,7 @@ When a `blobProposer` attempts to `publish()` their blob, they are required to i
 
 
 ### Step 2 - verify the proposal happened during the correct slot
-The `isAllowedProposer` modifier allows the `FabricInbox` to filter for valid `blobPoposers` but there's still an issue - the `blobProposer` can call `publish()` at *any* slot by supplying a valid `registrationProof`. To ensure that `blobProposers` get a write-lock on the rollup to allow for execution preconfs, we need to enforce publications are only successful if published during their L1 proposer's slot.
+The `isValidProposer` modifier allows the `FabricInbox` to filter for valid `blobPoposers` but there's still an issue - the `blobProposer` can call `publish()` at *any* slot by supplying a valid `registrationProof`. To ensure that `blobProposers` get a write-lock on the rollup to allow for execution preconfs, we need to enforce publications are only successful if published during their L1 proposer's slot.
 
 However, as we covered earlier, without a view of the lookahead or EIP-7917, we cannot know the *current* L1 proposer during the execution of `publish()`. Instead, we require the `blobProposer` to prove that the head they are building off is valid, i.e., the parent `blobProposer` published during their slot and not someone else's.
 
