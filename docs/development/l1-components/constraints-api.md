@@ -15,7 +15,7 @@ permalink: /development/l1-components/constraints-api
 
 ---
 # Constraints Spec
-Neutral API specification for proposer commitments on Ethereum. This was developed via collaboration and contribution from teams across the Ethereum ecosystem who were interested in helping develop and enable proposer commitments on Ethereum. These efforts started at zuBerlin, continued through Edge City Sequencing Week, and have progresed through community calls (recordings can be found in the [pm](https://github.com/eth-fabric/pm) repo).
+Neutral API specification for proposer commitments on Ethereum. This was developed via collaboration and contribution from teams across the Ethereum ecosystem who were interested in helping develop and enable proposer commitments on Ethereum. These efforts started at zuBerlin, continued through Edge City Sequencing Week, and have progressed through community calls (recordings can be found in the [pm](https://github.com/eth-fabric/pm) repo).
 
 In summary the Constraints API is:
 - A minimal set of endpoints extending the existing PBS architecture for proposers to add constraints during block building. This unlocks proposer commitments, particularly for unsophisticated proposers who delegate block building responsibilities.
