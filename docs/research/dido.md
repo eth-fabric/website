@@ -41,7 +41,7 @@ A benefit of this approach is that it costs less gas to send a blob transaction 
 
 The problem we’re ultimately trying to solve is **blob provenance**: did this blob get submitted by the correct party?
 
-The observation is that the Taiko PoC moves all complexity on-chain which consequentially makes derivation simpler. More specifically, filtering for canonical blobs is done at the L1 rather than off-chain during derivation. Since doing anything on-chain introduces costs, it begs the question: what can we push into the derivation layer (where things are free) to minimize what’s done on-chain?
+The observation is that the Taiko PoC moves all complexity on-chain which consequently makes derivation simpler. More specifically, filtering for canonical blobs is done at the L1 rather than off-chain during derivation. Since doing anything on-chain introduces costs, it begs the question: what can we push into the derivation layer (where things are free) to minimize what’s done on-chain?
 
 ## Proposal
 

@@ -78,14 +78,14 @@ To extend atomicity to the L1, we simply need to bundle in sub-transactions as p
 
 For example, a blob transaction $$TX_{blob}$$ may contain the sub-transaction $$TX_{L1_{deposit}}$$, attempting to atomically deposit from the L1 to the L2 and then process it. You can see that having the write-lock across the L1 and L2s is the only way to *guarantee* this can happen synchronously. 
 
-While the contents of the blob needs to follow the same technique [described before](/website/education/composability/atomic-inclusion#preventing-unbundling) to prevent unbundling, it is simpler in the L1 case. If anyone attempted to extract out $$TX_{L1_{deposit}}$$, the standard L1 multicall contract would prevent unbundling because the transaction is nested in $$TX_{blob}$$ rather than being an individual transaction. This is like trying to observe someone’s public SAFE transaction and trying to extract and excute one sub-transaction from their batch - it's not possible or many things would break!
+While the contents of the blob needs to follow the same technique [described before](/website/education/composability/atomic-inclusion#preventing-unbundling) to prevent unbundling, it is simpler in the L1 case. If anyone attempted to extract out $$TX_{L1_{deposit}}$$, the standard L1 multicall contract would prevent unbundling because the transaction is nested in $$TX_{blob}$$ rather than being an individual transaction. This is like trying to observe someone’s public SAFE transaction and trying to extract and execute one sub-transaction from their batch - it's not possible or many things would break!
 
 # L1 🔁 L2 atomic execution
 Atomic execution follows naturally from atomic inclusion. To understand this case, we can look to the famous flashloan example that leverages AggLayer for cryptographically-safe atomic execution from the [previous section](/website/education/composability/atomic-execution#the-agglayer-approach-cryptographic-safety) and [real-time proving](/website/education/composability/atomic-composability#real-time-proving).
 
 ## Flashloan example
 
-Assume Alice wants to perform an L1 to L2 arbitrage that uses liquidity from the L1. The Gateway will help facilitate this via synchronous atomic execution. The following steps will be ordered *temporally* so bare with me - we'll revist them in a [more comfortable order later](/website/education/composability/composability-and-based#synchronous-composability-with-the-l1)! 
+Assume Alice wants to perform an L1 to L2 arbitrage that uses liquidity from the L1. The Gateway will help facilitate this via synchronous atomic execution. The following steps will be ordered *temporally* so bare with me - we'll revisit them in a [more comfortable order later](/website/education/composability/composability-and-based#synchronous-composability-with-the-l1)! 
 
 1. Gateway receives Alice's request
 2. Gateway simulates receiving a flashloan on L1 Aave contract ($$TX_{borrow}$$) and creates a deposit transaction ($$TX_{deposit_{L1}}$$) on AggLayer's shared bridge destined for $$R_A$$
@@ -135,7 +135,7 @@ Now to summarize at a high level in a more intuitive ordering:
 Synchronous composability allows rollups to cross boundaries and feel like one chain. Universal synchronous composability is when everything, L1 and L2s, feel like one chain. This is **only possible** with based sequencing, but getting there is not as simple as adding a based sequencer. 
 
 Throughout this series we covered the ingredients needed for USC. As a recap:
-- [*Atomic inclusion*](/website/education/composability/atomic-inclusion#atomic-inclusion) is a necessary prequisite that can be guaranteed by shared or based sequencers. Based rollups should [take measures](/website/education/composability/atomic-inclusion#preventing-unbundling) to prevent unbundling and strive to share blobs. However, atomic inclusion is not enough to guarantee *safe* cross-chain interoperability on its own. 
+- [*Atomic inclusion*](/website/education/composability/atomic-inclusion#atomic-inclusion) is a necessary prerequisite that can be guaranteed by shared or based sequencers. Based rollups should [take measures](/website/education/composability/atomic-inclusion#preventing-unbundling) to prevent unbundling and strive to share blobs. However, atomic inclusion is not enough to guarantee *safe* cross-chain interoperability on its own. 
 - The [*Open Intents Framework*](/website/education/composability/atomic-execution#an-aside----open-intents-framework-cryptoeconomic-safety) is a pragmatic way to achieve cross-chain interoperability that does not require shared sequencers or even rollup stacks to be aware of it (at the cost of capital efficiency). When [combined with shared or based sequencing](/website/education/composability/atomic-execution#oif--atomic-inclusion), it can improve efficiency.
 - [Atomic Execution](/website/education/composability/atomic-execution#atomic-execution) guarantees that cross-chain transactions either all succeed or do not execute at all. Protocols like [AggLayer](/website/education/composability/atomic-execution#the-agglayer-approach-cryptographic-safety) guarantee safety via cryptography. When combined with a shared or based sequencer, the execution can happen both synchronously and atomically. Based rollups should opt in to [shared bridges](/website/education/composability/atomic-execution#shared-bridging) and settle together to unlock atomic execution. 
 - [Composability](/website/education/composability/atomic-composability#composability) allows contracts to access state on other rollups. To do this synchronously, rollups need to prove their state is valid to other rollups in real time, motivating the need for [real-time provers](/website/education/composability/atomic-composability#real-time-proving).
@@ -145,7 +145,7 @@ Throughout this series we covered the ingredients needed for USC. As a recap:
 {: .important-title }
 > Goal
 >
-> Fabric's goal is help shepard the adoption of based rollups. We're using these learnings to motivate standards and public good infrastructure to help accelerate the based rollup ecosystem towards USC!
+> Fabric's goal is help shepherd the adoption of based rollups. We're using these learnings to motivate standards and public good infrastructure to help accelerate the based rollup ecosystem towards USC!
 
 ---
 

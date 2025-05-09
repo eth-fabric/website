@@ -15,9 +15,9 @@ permalink: /roadmap
 ---
 # Fabric Roadmap
 
-This page provides an overview of how Fabric priorites and timeline for working across componenents / sub-components. The ordering of the components and focus is based on our current priorities in collaboration with the community. This approach has been shaped by countless conversations with teams and community members. We welcome feedback and input and will continue to refine our approach as we research, engage with others, and fully develop the specifications.
+This page provides an overview of how Fabric priorities and timeline for working across ccomponents / sub-components. The ordering of the components and focus is based on our current priorities in collaboration with the community. This approach has been shaped by countless conversations with teams and community members. We welcome feedback and input and will continue to refine our approach as we research, engage with others, and fully develop the specifications.
 
-For more context on each componenet and sub component, please see [Based Rollup Components]([/website/education/based-rollups-201](https://eth-fabric.github.io/website/education/based-rollups/Based-Rollups-Componets)).
+For more context on each  and sub component, please see [Based Rollup Components]([/website/education/based-rollups-201](https://eth-fabric.github.io/website/education/based-rollups/Based-Rollups-Componets)).
 
 ## Visualization of Priorities
 ![Fabric Priorities](/website/assets/images/fabric-priorities.png)

@@ -32,4 +32,4 @@ Teams worked on an overview doc with details, this can be found [here](https://g
 
 During the design process there was quite a bit of iteration. More details on this can be found in some docs we maintained around [design decisions](https://github.com/eth-fabric/urc/blob/main/docs/decisions.md).
 
-The team also provided some [reference implemntations](https://github.com/eth-fabric/urc/tree/main/example) teams can use as starting points and to give more context around the URC. 
+The team also provided some [reference implementations](https://github.com/eth-fabric/urc/tree/main/example) teams can use as starting points and to give more context around the URC. 

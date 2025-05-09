@@ -36,7 +36,7 @@ permalink: /research/raid
 In the ideal scenario where preconfers only submit during their slots, the state transitions pictured above would be a line with a slope of one.
 
 # Context
-During [Fabric Call #1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214), [Lin Oshitani](https://x.com/linoscope) raised an important issue where the upcoming MaxEB ([EIP-7251](https://eips.ethereum.org/EIPS/eip-7251)) upgrade in Pectra exacerbates an existing problem that makes the beacon chain lookahead window non-deterministic between epochs. This issue motivated [new designs](https://youtu.be/UngTQPjy4UA?si=g_0Zy4fU-eC3kmhh&t=3094) as well as [EIP-7917](https://ethereum-magicians.org/t/eip-7917-deterministic-proposer-lookahead/23259) to make the lookahead deterministic, while also making it easier to prove on-chain. By combinining these with lessons from the Dido approach, we can arrive at a vastly simpler design which we call *Raid*, but before that some context.
+During [Fabric Call #1](https://youtu.be/UngTQPjy4UA?si=Y8puLV91Bjg1Iko6&t=2214), [Lin Oshitani](https://x.com/linoscope) raised an important issue where the upcoming MaxEB ([EIP-7251](https://eips.ethereum.org/EIPS/eip-7251)) upgrade in Pectra exacerbates an existing problem that makes the beacon chain lookahead window non-deterministic between epochs. This issue motivated [new designs](https://youtu.be/UngTQPjy4UA?si=g_0Zy4fU-eC3kmhh&t=3094) as well as [EIP-7917](https://ethereum-magicians.org/t/eip-7917-deterministic-proposer-lookahead/23259) to make the lookahead deterministic, while also making it easier to prove on-chain. By combining these with lessons from the Dido approach, we can arrive at a vastly simpler design which we call *Raid*, but before that some context.
 
 ## Lookahead non-determinism
 
@@ -152,14 +152,14 @@ def get_seed(state: BeaconState, epoch: Epoch, domain_type: DomainType) -> Bytes
 ```
 
 ### The epoch boundary
-While the lookahead is fixed intra-epoch, non-determinism arrises when attempting to calculate the lookahead for the next epoch before the epoch boundary. Since `process_epoch` updates the effective balances at the epoch boundary, it is possible that a pre-computed lookahead ends up incorrect if a validator's effective balance changed. 
+While the lookahead is fixed intra-epoch, non-determinism arises when attempting to calculate the lookahead for the next epoch before the epoch boundary. Since `process_epoch` updates the effective balances at the epoch boundary, it is possible that a pre-computed lookahead ends up incorrect if a validator's effective balance changed. 
 
 EIP-7251 introduces more opportunities for effective balances to change, i.e., if validators consolidate, which can increase the probability that the lookahead changes at the epoch boundary.
 
 ### Why this matters for preconf protocols
 Based rollups use preconfs to improve their UX. L2 users can send transactions directly to preconfers instead of waiting for them to get picked up from the mempool by a proposer (see [here](/website/education/composability/composability-and-based#sequencer-selection) for more context).
 
-Within an epoch it's possible to determistically calculate the lookahead so we're fine. Based rollups and wallets can use this to select preconfers and direct user transactions to them. However, between epochs, it's *impossible* to definitely know ahead-of-time what the lookahead will look like - there's always some possibility that the lookahead changes because of an effective balance change at the end of an epoch.
+Within an epoch it's possible to deterministically calculate the lookahead so we're fine. Based rollups and wallets can use this to select preconfers and direct user transactions to them. However, between epochs, it's *impossible* to definitely know ahead-of-time what the lookahead will look like - there's always some possibility that the lookahead changes because of an effective balance change at the end of an epoch.
 
 ![Lookahead Instability](/website/assets/images/lookahead-instability.png)
 
