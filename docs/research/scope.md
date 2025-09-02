@@ -1,6 +1,6 @@
 ---
 title: Scope
-nav_order: 5.4
+nav_order: 5.5
 layout: default
 parent: Research
 permalink: /research/scope
