@@ -45,6 +45,8 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - Embedded Rollups, [Part 1](https://ethresear.ch/t/embedded-rollups-part-1-introduction/21460) and [Part 2](https://ethresear.ch/t/embedded-rollups-part-2-shared-bridging/21461) - Posts exploring fast and efficient cross-chain interoperability by implementing an embedded shared-bridge rollup (January 2025).
 - [ULTRA TX - Programmable blocks: One transaction is all you need for a unified and extendable Ethereum](https://ethresear.ch/t/ultra-tx-programmable-blocks-one-transaction-is-all-you-need-for-a-unified-and-extendable-ethereum/21673) - This post focuses on a novel mechanism to bring programmable L1 blocks and what this means for L2s and the interoperability between L1 and L2s (February 2025).
 - [Generalized Synchronous Composability](https://capricious-firefly-0c5.notion.site/Generalized-Synchronous-Composability-132d07a3da30809aa801e26077a49b60) - Aims to sketch out a way to make it possible to do synchronous composability between L1 and all L2s in an efficient way.
+- [Signal-Boost](https://ethresear.ch/t/signal-boost-l1-interop-plugin-for-rollups/22354/1) L1 Interop Plugin for Rollups (May 2025)
+- [SCOPE](https://ethresear.ch/t/scope-synchronous-composability-protocol-for-ethereum/22978) - Synchronous Composability Protocol for Ethereum (July 2025)
 
 ## Blobs
 - [Blob sharing protocol](https://hackmd.io/@dapplion/blob_sharing) - Details idea for blob sharing across various rollup stacks (December 2023).
@@ -56,6 +58,7 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Nethermind Blob Sharing POC](https://github.com/NethermindEth/blob-sharing-poc) and [Blobs Sharing Presentation on Fabric Call](https://docs.google.com/presentation/d/1uPvwOYvuoAQAXg38pa0OT_qzVxsecCow0bve0gsZsDE/edit#slide=id.p) (2025)
 - [Blobsy Blob Aggregator](https://github.com/Blobsy-xyz/blobsy-aggregator) - Service designed to aggregate blob segments and post them on the Ethereum blockchain as blob-carrying transactions (March 2025).
 - [Blob pricing and aggregation](https://x.com/Spire_Labs/status/1911849800850620588) - Thread and article by Spire on blob pricing for aggregation (April 2025).
+- [Spire's DA Builder](https://x.com/Spire_Labs/status/1953505023759151148) - Blob aggregation protocol
 
 ## Economics
 - [MEV for “Based Rollup”](https://ethresear.ch/t/mev-for-based-rollup/15636) - Article exploring how MEV can work with based rollups (May 2023).
@@ -63,11 +66,10 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Based Rollup Economics](https://taiko.mirror.xyz/PhlvGdIaY3-ZQ1DqI9uM5LxrWGWLAzLI84rkxhvPKmM) - Post that summarizes the current economic landscape of rollups, and explore based rollups economy (October 2024).
 - [Based Ticketing Rollup](https://hackmd.io/LRQPSItESPuMhUSwrB71rQ) - Presents a “Based Ticketing Rollup” that starts from the concept of a Based rollup and adds Execution Tickets to address its weak points (2024).
 
-
 ## Provers
 - [Prover Incentives](https://github.com/OpenZeppelin/minimal-rollup/blob/main/documentation/prover-incentives.md), [reference implmeentation](https://github.com/OpenZeppelin/minimal-rollup/blob/main/src/protocol/taiko_alethia/ProverManager.sol), and [presentation on prover incentives](https://docs.google.com/presentation/d/1QCPtfh057ikO1iqJFf5lFny5VZ9LduV2bzZ1wBIbjnQ/edit#slide=id.p)- OZ research on prover incentive (March 2025). 
 
-## Stacks-and-Implmentations
+## Stacks-and-Implementations
 - [Facet Based Stack](https://github.com/0xFacet)
 - [Fabric Reference Implementation](https://github.com/eth-fabric)
 - [Nethermind's Surge](https://github.com/NethermindEth/surge-taiko-mono)
@@ -76,6 +78,7 @@ Based rollups the future of Ethereum. Follow the Ethereum Sequencing and Preconf
 - [Spire Based Stack](https://github.com/spire-labs/based-stack)
 - [Taiko Based Stack](https://github.com/taikoxyz/taiko-mono)
 - [Taiko's Gwyneth Based Stack](https://github.com/taikoxyz/gwyneth) 
+- [Spire's Pylon](https://x.com/Spire_Labs/status/1957804832276038080)
 
 ## Articles
 - [Taiko Protocol Overview](https://taiko.mirror.xyz/y_47kIOL5kavvBmG0zVujD2TRztMZt-xgM5d4oqp4_Y) - Early article outlining how Taiko worked (May 2023).

@@ -32,7 +32,7 @@ Due to the risks developing for Ethereum, its core development, and its validato
 ## How Validators Can Run Commit-Boost
 More details can be found in the Commit-Boost [documentation](https://commit-boost.github.io/commit-boost-client/category/running).
 
-## How Can I Build A Preconf Protoocl or Other Proposer Commitment
+## How Can I Build A Preconf Protocol or Other Proposer Commitment
 More details can be found in the Commit-Boost documentation [here]([https://commit-boost.github.io/commit-boost-client/category/running) and [here](https://commit-boost.github.io/commit-boost-client/category/developing).
 
 ## Resources
