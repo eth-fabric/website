@@ -22,9 +22,6 @@ For more context on each  and sub component, please see [Based Rollup Components
 ## Visualization of Priorities
 ![Fabric Priorities](/website/assets/images/fabric-priorities.png)
 
-## Timeline of Priorities
-![Fabric Timeline](/website/assets/images/fabric-timeline.png)
-
 ## Links to Effort
 
 ### L1 Components
@@ -34,10 +31,10 @@ For more context on each  and sub component, please see [Based Rollup Components
 - [Universal Registry Contract](https://github.com/eth-fabric/urc)
 
 ### L2 Components
-- Lookahead Window 
+- [Lookahead Window](https://eips.ethereum.org/EIPS/eip-7917)
 - [Universal Registry Contract](https://github.com/eth-fabric/urc)
-- Inbox Contract
-- Blob Sharing
+- [Inbox Contract](https://github.com/eth-fabric/rollup-composability)
+- [Blob Sharing](https://github.com/eth-fabric/rollup-composability)
 
 ### Derivation Layer
 - Sequencer Resolution
@@ -49,5 +46,4 @@ For more context on each  and sub component, please see [Based Rollup Components
 
 ### Stretch Goals
 - Transaction Fee Mechanism
-- Lookahead Window EIP
-- Shared Bridging
+- [Shared Bridging](https://github.com/eth-fabric/rollup-composability)
