@@ -29,6 +29,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Strawmanning Based Preconfirmations](https://ethresear.ch/t/strawmanning-based-preconfirmations/19695) - Analysis of a simple “strawman” preconfirmation setup (June 2024).
 - [Rollup-Centric Considerations of Based Preconfimations](https://ethresear.ch/t/rollup-centric-considerations-of-based-preconfimations) - Explores how implementations of preconfirmations can configure blocktime and more efficient data publishing (August 2024).
 - [Preconfirmations: The Fulfillment-Delivery Paradigm](https://mirror.xyz/preconf.eth/sgcuSbd1jgaRXj9odSJW-_OlWIg6jcDREw1hUJnXtgI) - Proposes a formal definition for a preconfirmation, outlined how they’re relevant in the context of decentralized systems and mev, and analyzed considerations to enable them efficiently (February 2025).
+- [Future-Proofing Preconfirmations](https://ethresear.ch/t/future-proofing-preconfirmations/22618) This article looks at some of the most impactful EIPs from preconfirmations’ perspective (June 2025)
 
 ## Validators
 - [Preconfirmations under the NO lens](https://ethresear.ch/t/preconfirmations-under-the-no-lens/19975) - Research analyzing preconfs from a validator's perspective (July 2024). 
@@ -85,7 +86,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Pricing Future Blockspace: A Data-driven Approach](https://www.luban.wtf/taiyi-pricing-1) - Introduce a pricing model developed for hedged preconfirmations with a focus on preserving underwriter funds and generating steady yields (December 2024).
 - [Pricing Transactions for Preconfirmation](https://ethresear.ch/t/pricing-transactions-for-preconfirmation/21802) - Proposes a framework for pricing preconfirmations but also to initiate a constructive discussion within the Ethereum community (February 2025).
 
-## Stacks-and-Implmentations
+## Stacks-and-Implementations
 - [Bolt](https://chainbound.github.io/bolt-docs/) - Bolt enables Ethereum block proposers to provide credible commitments about the contents of their blocks.
 - [Cairo](https://github.com/cairoeth/preconfirmations) - Early implementation, also ETHResearch post [here](https://ethresear.ch/t/towards-an-implementation-of-based-preconfirmations-leveraging-restaking/19211).
 - [ETHGas](https://docs.ethgas.com) - preconf protocol.
@@ -96,6 +97,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [UniFi](https://docs.puffer.fi/unifi-avs-intro/) - preconf protocol.
 - XGA [here](https://docs.xga.com) and [here](https://research.lido.fi/t/xga-extensible-gas-auctions-for-enabling-preconfirmations-without-restaking-or-epbs/7584) - L2 Gas Auction platform.
 - [ZuBerlin - Preconfs Devnet](https://twisty-wednesday-4be.notion.site/ZuBerlin-Preconfs-Devnet-b693047f41e7407cadac0170a6711dea) - Early devnets with various teams working on preconfs. 
+- [Catalsyt](https://x.com/NethermindEth/status/1957778624561418328?s=19) Preconfirmation software that does not rely on a centralized gateway.
 
 ## Articles
 - [Grounded Relay: Superpowers from Relay Coordination](https://ethresear.ch/t/grounded-relay-superpowers-from-relay-coordination/18601) - Explores using the relay as a coordinator for various services (November 2023).
@@ -132,6 +134,7 @@ Preconfirmations are a mechanism that allows block proposers to commit to a bloc
 - [Soft Confirmations and other builder services](https://docs.google.com/presentation/d/1sXJA9vCzJ3sT-3FyrH6CBrOnkjBERiWnvc8gQxilnoM/edit#slide=id.p) - Presentation from Alex Stokes on builder services.
 - [Supercharging Ethereum w/ Fast Preconfs & Decentralized Yield Distribution](https://www.youtube.com/watch?v=61qbQTbu5KM&list=PLCjVy6JjB1u7dL6cGJgs3RZH4rDgJdGW9&index=25)
 - [To Delay or Not Delay Preconfs](https://www.youtube.com/watch?v=e_49f42Cno0&list=PLCjVy6JjB1u7dL6cGJgs3RZH4rDgJdGW9&index=14)
+- [Same-Slot L1 / L2 Composability](https://www.youtube.com/live/LWMrLB2UmMw)
 
 ## Full-Day-Events
 - ZuBerlin - 2024
