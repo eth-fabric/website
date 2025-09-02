@@ -11,3 +11,7 @@ permalink: /development/l1-components
 The following pages document the L1 components that are being developed as part of the Fabric effort.
 
 ![L1 components](/website/assets/images/L1-Component.png)
+
+Together these components allow for the issuance and enforceability of based preconfirmations. 
+
+![L1 components](/website/assets/images/L1-Component-Flow.png)

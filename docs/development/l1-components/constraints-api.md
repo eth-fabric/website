@@ -14,6 +14,10 @@ permalink: /development/l1-components/constraints-api
 {:toc}
 
 ---
+### Resources
+- Annotated spec can be found [here](https://github.com/eth-fabric/constraints-specs/blob/main/specs/).
+- API can be found [here](https://eth-fabric.github.io/constraints-specs/)
+
 # Constraints Spec
 Neutral API specification for proposer commitments on Ethereum. This was developed via collaboration and contribution from teams across the Ethereum ecosystem who were interested in helping develop and enable proposer commitments on Ethereum. These efforts started at zuBerlin, continued through Edge City Sequencing Week, and have progressed through community calls (recordings can be found in the [pm](https://github.com/eth-fabric/pm) repo).
 
@@ -34,7 +38,4 @@ In summary the Constraints API is:
 - commitments from Gateways to third parties
 
 ### Flow
-
 ![Flow of Constraints-API](/website/assets/images/Constraints-API.png)
-
-More details on the API definitions and specs can be found [here](https://github.com/eth-fabric/constraints-specs/blob/main/specs/constraints-api.md).
