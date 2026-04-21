@@ -1,6 +1,6 @@
 ---
 title: SCOPE
-nav_order: 4.42
+nav_order: 4.6
 layout: katex
 parent: Composability 101
 permalink: /education/composability/scope
@@ -62,7 +62,7 @@ The core idea: the sequencer doesn't need the L1 write-lock *all* the time — j
 
 ## How it solves dual prestate
 
-Recall the [dual prestate problem](/website/education/composability/achieving-synchrony#the-dual-prestate-problem): a sequencer composing synchronously with L1 needs a stable view of both L1 and L2 state at execution time. The L2 prestate is trivially controlled (the sequencer has a monopoly). The L1 prestate is the hard part.
+Recall the [dual prestate problem](/website/education/composability/achieving-synchrony#ingredient-3-dual-prestate-control): a sequencer composing synchronously with L1 needs a stable view of both L1 and L2 state at execution time. The L2 prestate is trivially controlled (the sequencer has a monopoly). The L1 prestate is the hard part.
 
 SCOPE resolves this through **proposer coordination**:
 
@@ -72,6 +72,20 @@ SCOPE resolves this through **proposer coordination**:
 4. When composition isn't needed, users get the familiar dedicated-sequencer UX.
 
 This is why SCOPE is sometimes called a "push-based" protocol: the L2 sequencer pushes synchronous transactions up to L1 when demand arises.
+
+## The atomicity gadget: rolling hashes
+
+Dual prestate control is necessary but not sufficient — the composition also needs an [atomicity gadget](/website/education/composability/fully-based#l1--l2-atomic-execution) that guarantees the simulated values actually become the executed values, or the whole thing rolls back. SCOPE's gadget is a pair of **rolling hash accumulators**, one on each chain.
+
+At a high level, during the composing slot the sequencer holds a temporary dual state lock on both L1 and L2, letting it act as a shared sequencer across both chains for the duration of the composition. The flow:
+
+1. **Simulate the legs.** The sequencer simulates the full cross-chain interaction and pre-populates the read and write values for each chain — i.e., the function inputs consumed from one chain and the outputs written back to the other.
+2. **Execute against accumulators.** As each leg executes on its chain, cross-chain reads pull values from the simulated inputs and cross-chain writes push values into a local rolling-hash accumulator. Each chain's accumulator ingests everything its leg read from and wrote to the other side.
+3. **Check at settlement.** Settlement verifies the final accumulator hash on L1 matches the final accumulator hash on L2. If they match, the simulated values were honest and the composition commits. If any read or write was tampered with — or reality diverged from the simulation — the hashes disagree and the atomicity gadget forces the whole composition to revert.
+
+In other words: the rolling hashes turn the simulated values into an honest commitment, and the settlement-time check promotes them to real values *or* unwinds everything. This is what makes the optimistic path work — the sequencer can run ahead on assumed values because the gadget will catch any mismatch.
+
+The reversion path is exactly what motivates solving dual prestate. If the L1 prestate shifts underneath the simulation, the accumulators will disagree and the gadget will revert — functional, but wasteful. The dual state lock SCOPE obtains via proposer coordination is what keeps the reversion path rare rather than common.
 
 ## Comparison to fully based
 
@@ -100,5 +114,5 @@ SCOPE is a natural fit for rollups that:
 It's a lighter-weight commitment than going fully based, at the cost of added complexity during the compose path.
 
 <span class="fs-8">
-[> Slot-end Handoff](/website/education/composability/slot-end-handoff){: .btn }
+[< Back to Achieving Synchrony](/website/education/composability/achieving-synchrony){: .btn }
 </span>

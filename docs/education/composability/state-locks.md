@@ -1,6 +1,6 @@
 ---
 title: State Locks
-nav_order: 4.44
+nav_order: 4.8
 layout: katex
 parent: Composability 101
 permalink: /education/composability/state-locks
@@ -17,7 +17,7 @@ permalink: /education/composability/state-locks
 
 # Solving dual prestate ahead of time
 
-The first three approaches — [fully based](/website/education/composability/fully-based), [SCOPE](/website/education/composability/scope), and [slot-end handoff](/website/education/composability/slot-end-handoff) — all resolve the [dual prestate problem](/website/education/composability/achieving-synchrony#the-dual-prestate-problem) at execution time by involving the L1 proposer in some way. State locks take a different route: resolve it **ahead of time** at the contract level, so no proposer coordination is needed when the sync transaction actually runs.
+The first three approaches — [fully based](/website/education/composability/fully-based), [SCOPE](/website/education/composability/scope), and [slot-end handoff](/website/education/composability/slot-end-handoff) — all resolve the [dual prestate problem](/website/education/composability/achieving-synchrony#ingredient-3-dual-prestate-control) at execution time by involving the L1 proposer in some way. State locks take a different route: resolve it **ahead of time** at the contract level, so no proposer coordination is needed when the sync transaction actually runs.
 
 The intuition: if we can guarantee that a specific region of L1 state will only be modified by the L2 sequencer (or with enough notice that the sequencer can react), then the sequencer has a stable L1 prestate *by construction*. No preconfs, no handoffs — just invariants enforced by L1 smart contracts.
 
@@ -68,16 +68,6 @@ State locks are a natural fit for:
 
 They're less suited for applications that need to compose synchronously with pre-existing, external L1 state.
 
-# Series summary
-
-We set out to understand Universal Synchronous Composability. We now have four distinct paths to it, each resolving the dual prestate problem differently:
-
-- **Fully based:** L1 proposer holds both write-locks. Costly UX, strongest guarantees.
-- **SCOPE:** sequencer buys temporary L1 write-lock via preconf. Good for on-demand sync.
-- **Slot-end handoff:** sequencer hands L2 control to proposer at slot end. No preconf market required, predictable window.
-- **State locks:** invariants enforced ahead of time, no proposer coordination. Bootstrapping cost but decoupled liveness.
-
-{: .important-title }
-> Goal
->
-> Fabric's goal is to help shepherd the adoption of based rollups and the broader infrastructure that makes Ethereum feel like one unified chain. The design space has expanded — our job is to help the ecosystem pick the right tool for each job and build the standards that make them interoperable.
+<span class="fs-8">
+[< Back to Achieving Synchrony](/website/education/composability/achieving-synchrony){: .btn }
+</span>

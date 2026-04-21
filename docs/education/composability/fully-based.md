@@ -1,6 +1,6 @@
 ---
 title: Fully Based Rollups
-nav_order: 4.41
+nav_order: 4.5
 layout: default
 parent: Composability 101
 permalink: /education/composability/fully-based
@@ -17,7 +17,7 @@ permalink: /education/composability/fully-based
 
 # Based sequencing recap
 
-The first — and most natural — path to L1-L2 synchronous composability is *fully based sequencing*. If the L1 proposer is also the L2 sequencer, then they already hold the write-lock on both chains and dual prestate control is satisfied by default.
+The first — and most natural — path to L1-L2 synchronous composability is *fully based sequencing*. If the L1 proposer is also the L2 sequencer, then they already hold the write-lock on both chains and [dual prestate control](/website/education/composability/achieving-synchrony#ingredient-3-dual-prestate-control) is satisfied by default.
 
 But what are based rollups?
 
@@ -69,7 +69,7 @@ Given based sequencing can do everything shared sequencing can, what does based 
 
 The prerequisite for *atomic inclusion* was that the rollups shared the same global history and the way to guarantee this was by giving a single entity the sole authority to write it. Rollups can easily change the rules for who is allowed to sequence them but the L1 *cannot*: only Ethereum validators have proposing rights.
 
-This is what makes them so unique — Ethereum validators are the *only* entity that can have a write-lock on both the L1 and based rollups which is the prerequisite for L1-L2 atomic inclusion guarantees. As we saw previously, atomic inclusion was the first step for synchrony!
+This is what makes fully based rollups distinctive — by making the L1 proposer the L2 sequencer, a single entity holds the write-lock on both chains, which is *one* way to satisfy [dual prestate control](/website/education/composability/achieving-synchrony#ingredient-3-dual-prestate-control) for L1-L2 atomic inclusion. Other strategies (SCOPE, slot-end handoff, state locks) achieve the same end through coordination or invariants rather than by collapsing the roles. As we saw previously, atomic inclusion was the first step for synchrony!
 
 ## How to bundle
 
@@ -77,12 +77,20 @@ So, assuming we have a gateway, how can we extend atomic inclusion to apply to L
 
 To extend atomicity to the L1, we simply need to bundle in sub-transactions as part of our blob transaction (e.g., via [multicall](https://solidity-by-example.org/app/multi-call/)). This way either the whole L1 bundle lands (blob transaction plus sub-transactions) or it all will revert.
 
-For example, a blob transaction $$TX_{blob}$$ may contain the sub-transaction $$TX_{L1_{deposit}}$$, attempting to atomically deposit from the L1 to the L2 and then process it. You can see that having the write-lock across the L1 and L2s is the only way to *guarantee* this can happen synchronously.
+For example, a blob transaction $$TX_{blob}$$ may contain the sub-transaction $$TX_{L1_{deposit}}$$, attempting to atomically deposit from the L1 to the L2 and then process it. You can see that having the write-lock across the L1 and L2s is the most direct way to guarantee this can happen synchronously — though as we'll see in the other [dual prestate strategies](/website/education/composability/achieving-synchrony#ingredient-3-dual-prestate-control), proposer coordination (e.g., SCOPE-style preconfs) can achieve the same result without requiring the L2 to be fully based.
 
 While the contents of the blob needs to follow the same technique [described before](/website/education/composability/atomic-inclusion#preventing-unbundling) to prevent unbundling, it is simpler in the L1 case. If anyone attempted to extract out $$TX_{L1_{deposit}}$$, the standard L1 multicall contract would prevent unbundling because the transaction is nested in $$TX_{blob}$$ rather than being an individual transaction. This is like trying to observe someone's public SAFE transaction and trying to extract and execute one sub-transaction from their batch — it's not possible or many things would break!
 
 # L1 🔁 L2 atomic execution
 Atomic execution follows naturally from atomic inclusion. To understand this case, we can look to the famous flashloan example that leverages AggLayer for cryptographically-safe atomic execution from the [previous section](/website/education/composability/atomic-execution#the-agglayer-approach-cryptographic-safety) and [real-time proving](/website/education/composability/atomic-composability#real-time-proving).
+
+Before diving in, note that AggLayer is one concrete instance of an **atomicity gadget** — the mechanism that ensures both sides of a cross-chain interaction either commit together or roll back together. In the AggLayer flashloan example below, the gadget is a combination of validity proofs, pessimistic proofs at settlement, and the single-bundle revert semantics of the wrapping L1 transaction. That is not the only option. Other gadgets include:
+
+- **Rolling hashes** (as used in [SCOPE](/website/education/composability/scope)) — the sequencer commits to the cross-chain values it assumed during execution, and a settlement-time check verifies those commitments match reality.
+- **Settlement-time storage proof checks** — the gadget verifies that the source chain's actual state matches what the composition was built against.
+- **Direct storage proofs at execution time** — the pessimistic shape from [Step 3](/website/education/composability/atomic-composability#pessimistic-composability), where atomicity is enforced at the proof verification layer rather than a separate gadget.
+
+Fully based sequencing gives you the cleanest substrate for any of these gadgets because the same party holds both write-locks, but the gadget itself is a separable design choice. The example below uses AggLayer for clarity; a SCOPE-style rolling-hash gadget or a direct storage-proof read would each fit into the same slot with different tradeoffs.
 
 ## Flashloan example
 
@@ -143,5 +151,5 @@ Fully based sequencing gives us USC by construction — the L1 proposer has the 
 In the next sections we'll look at alternative approaches — [SCOPE](/website/education/composability/scope), [slot-end handoff](/website/education/composability/slot-end-handoff), and [state locks](/website/education/composability/state-locks) — that achieve L1-L2 synchrony without requiring the rollup to be fully based.
 
 <span class="fs-8">
-[> SCOPE](/website/education/composability/scope){: .btn }
+[< Back to Achieving Synchrony](/website/education/composability/achieving-synchrony){: .btn }
 </span>
