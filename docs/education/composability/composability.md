@@ -17,7 +17,7 @@ permalink: /education/composability
 
 We often hear that based rollups are presented as the solution to fragmentation. At the same time, various initiatives, such as the [Open Intents Framework](https://www.openintents.xyz/The-Open-Intents-Framework-Intents-As-A-Public-Good-1976d35200d680fb8215f28775e067ec) are actively addressing interoperability challenges.
 
-The goal of this series is to clarify the concept of composability, enabling a deeper understanding of the differences, limitations, and trade-offs among these approaches. This understanding will help shape Fabric’s objectives as we move forward.
+The goal of this series is to clarify the concept of composability, enabling a deeper understanding of the differences, limitations, and trade-offs among these approaches. This understanding will help shape Fabric's objectives as we move forward.
 
 Note: Much of the terminology used is influenced by the writings of [Jon Charbonneau](https://dba.xyz/were-all-building-the-same-thing/#cross-chain-unbundling) and [James Prestwich](https://prestwich.substack.com/p/the-definitive-guide-to-sequencing).
 
@@ -60,7 +60,7 @@ As Justin Drake puts it:
 > In other words users can make arbitrary synchronous calls between [rollups], seamlessly interleaving execution across rollups. - [Reddit AMA](https://www.reddit.com/r/ethereum/comments/191kke6/comment/kh78s3m/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 > 
 
-Achieving this is **only possible** with based sequencing because L1 proposers are the only entity with a write-lock on the L1, which is necessary to guarantee they can simultaneously sequence the L1 and based rollups.
+Based sequencing was originally considered the only path to USC because L1 proposers are the only entity with a write-lock on the L1. However, as we'll see in the [later sections](/website/education/composability/achieving-synchrony), newer approaches like SCOPE, slot-end handoff, and state locks have shown that L1-L2 synchronous composability can be achieved through coordination or state isolation, without requiring the rollup to be fully based.
 
 ### Synchrony requirements
 If achieving USC is our goal, let's first start with what's required for synchrony.
@@ -69,17 +69,18 @@ If achieving USC is our goal, let's first start with what's required for synchro
 > cross-chain synchronous composability definitionally requires some type of shared sequencer for that slot height. Chains without one can only ever have asynchronous composability - [Jon Charbonneau](https://dba.xyz/were-all-building-the-same-thing/#universal-synchronous-composability)
 > 
 
-The table below summarizes the requirements for synchrony. In the following sections we’ll understand that while based sequencing is a requirement for synchrony between the L1 and L2s, it isn’t sufficient for composability. For that we’ll need to introduce either cryptographic or cryptoeconomic solutions.
+The above framing was accurate at the time of writing; the design space for L1-L2 synchrony has since expanded beyond shared sequencing (see [Achieving Synchrony](/website/education/composability/achieving-synchrony)).
+
+The table below summarizes the requirements for synchrony. In the following sections we'll understand that while based sequencing is the most natural path to synchrony between the L1 and L2s, it isn't sufficient for composability. For that we'll need to introduce either cryptographic or cryptoeconomic solutions.
 
 | Synchrony between | Requirement |
 |----------|----------|
 | L2<>L2 | Shared L2 sequencer |
-| L1<>L2 | Based Sequencer |
+| L1<>L2 | Based Sequencer (or [alternative approaches](/website/education/composability/achieving-synchrony)) |
 | L2<>L3 + L3<>L3 | Shared L3 sequencer |
 
-Note that a shared L2 sequencer includes your non-based interoperability solutions e.g., Espresso or the Superchain. Additionally, a shared L3 sequencer could be a shared L2 sequencer or more simply a centralized L2 sequencer (see Spire’s post).
+Note that a shared L2 sequencer includes your non-based interoperability solutions e.g., Espresso or the Superchain. Additionally, a shared L3 sequencer could be a shared L2 sequencer or more simply a centralized L2 sequencer (see Spire's post).
 
 <span class="fs-8">
 [> Step 1 - Atomic Inclusion](/website/education/composability/atomic-inclusion){: .btn }
 </span>
-

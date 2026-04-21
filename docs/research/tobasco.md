@@ -28,4 +28,4 @@ At the heart of Tobasco is the `Tobasco.onlyTopOfBlock()` modifier that reverts 
 The repo contains an example Slasher contract that uses the [URC](../development/l1-components/urc.md) and [Constraints API](../development/l1-components/constraints-api.md).
 
 ## Why it Matters
-Tobasco is a simple but powerful primitive that can be used to ensure L1 super transactions as described in [Ultra TX](../education/composability/ultra-txs.md), [Signal-Boost](signal-boost.md), and [SCOPE](scope.md) execute with the latest L1 state for L1<>L2 synchronous composability. Beyond that it is a simple primitive for proposers to sell the ToB position to arbitragers.
+Tobasco is a simple but powerful primitive that can be used to ensure L1 super transactions as described in [Ultra TX](../education/composability/scope.md#motivation-one-powerful-transaction), [Signal-Boost](signal-boost.md), and [SCOPE](scope.md) execute with the latest L1 state for L1<>L2 synchronous composability. Beyond that it is a simple primitive for proposers to sell the ToB position to arbitragers.
