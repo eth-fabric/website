@@ -1,7 +1,7 @@
 ---
 title: Step 4 - Achieving Synchrony
 nav_order: 4.4
-layout: default
+layout: katex
 parent: Composability 101
 permalink: /education/composability/achieving-synchrony
 ---
@@ -17,76 +17,82 @@ permalink: /education/composability/achieving-synchrony
 
 # From async to sync
 
-In the previous sections we built up the ingredients for cross-chain composability: [atomic inclusion](/website/education/composability/atomic-inclusion), [atomic execution](/website/education/composability/atomic-execution), and [composability](/website/education/composability/atomic-composability) itself. Together, these allow contracts on different rollups to access each other's state and execute atomically — but so far, this can happen *asynchronously*, meaning the composing rollups don't need to settle in the same L1 slot.
+In the previous sections we built up the ingredients for cross-chain composability: [atomic inclusion](/website/education/composability/atomic-inclusion), [atomic execution](/website/education/composability/atomic-execution), and [composability](/website/education/composability/atomic-composability) itself. Together, these allow contracts on different rollups to access each other's state and execute atomically — however, this can happen *asynchronously*, meaning the composing rollups do not need to settle in the same L1 slot.
 
-For L2-to-L2, synchronous composability is achievable with a shared sequencer (or any L2-L2 coordinator) as we covered in [Step 3](/website/education/composability/atomic-composability). The remaining challenge is **L1-to-L2 synchrony**: can we make composability between the L1 and L2s happen within a single slot, so that everything feels like one unified chain? This is what we've been calling Universal Synchronous Composability (USC).
+For L2-to-L2, synchronous composability is achievable with a shared sequencer (or any L2-L2 coordinator). The remaining challenge is **L1-to-L2 synchrony**: composability between the L1 and L2s within a single slot, such that the unified system behaves as one chain. This is what we have been referring to as Universal Synchronous Composability (USC).
 
-# The dual prestate problem
+Achieving USC requires three ingredients. Each is a distinct problem with its own research agenda, and all three are required together.
 
-At the heart of every approach to L1-L2 synchronous composability lies the same fundamental challenge: **dual prestate control**.
+# Ingredient 1: Reorg willingness
 
-For an L2 sequencer to synchronously compose with the L1, they need a stable view of *both* the L1 and L2 state at the time of execution. If either state changes underneath them, atomicity checks would reject the state transition, requiring a rollback with bad UX.
+A synchronous composition binds state across chains. If one side reorgs and the other does not, atomicity is lost — the composition commits on one chain and disappears on the other. Since the L1 will occasionally reorg regardless of rollup design, the requirement is not to prevent reorgs but for the composing chains to **reorg together**.
 
-- **L2 prestate** is trivial to control — the sequencer already has a monopoly on L2 state transitions.
-- **L1 prestate** is the hard part — the L1 proposer has the final say over what gets included in the L1 block. If someone modifies L1 state that the sequencer was composing against, the synchronous transaction breaks.
+- **L1-to-L2:** if the L1 reorgs out the slot that included the composition, the L2 must follow. An L2 that does not reorg with its L1 cannot safely offer L1-to-L2 synchronous composability.
+- **L2-to-L2:** if two rollups compose synchronously and one of them reorgs, the other must reorg the matching portion of its history, otherwise the cross-chain invariant is violated.
 
-Every approach to L1-L2 synchronous composability must solve this dual prestate problem. Note that L2-to-L2 synchrony doesn't face this challenge since a shared sequencer already controls both prestates. They differ in *how* they give the sequencer confidence that the L1 state won't change underneath them.
+This is a design choice at the rollup's fork-choice layer and has UX consequences — soft confirmations become conditional on the finality of all composing chains. Minimizing reorg risk via fast L1 finality, preconf-backed confirmation rules, and related mechanisms is what keeps this tradeoff acceptable.
 
-# Four approaches
+→ See [L1 Reorgs](/website/education/l1-reorgs) for a deeper treatment of how L2s handle this in practice.
 
-The design space for L1-L2 synchronous composability has evolved significantly. What was once thought to require based sequencing can now be achieved through several distinct mechanisms, each with different tradeoffs:
+# Ingredient 2: Real-time proving
 
-| Approach | How it solves dual prestate | Requires based sequencing? | Requires preconf infra? |
-|----------|---------------------------|---------------------------|------------------------|
-| [Fully based rollups](/website/education/composability/fully-based) | Proposer controls both L1 and L2 prestates naturally | Yes | Yes (for UX) |
-| [SCOPE](/website/education/composability/scope) | L2 sequencer coordinates with L1 proposer on demand | No | Yes |
-| [Slot-end handoff](/website/education/composability/slot-end-handoff) | Sequencer hands L2 control to proposer at end of slot | No (but proposer involved) | No |
-| [State locks](/website/education/composability/state-locks) | Protected L1 state with delayed writes — no proposer coordination | No | No |
+Covered in detail in [Step 3](/website/education/composability/atomic-composability#real-time-proving). In summary: for a cryptographic atomicity gadget to operate at L1 cadence, the L2's state transition function (along with any gadget-supplementary proofs) must be proven within a single L1 slot. The trust spectrum ranges from a single TEE to a committee of TEEs to a full ZK proof, with sub-slot ZK proving now viable as demonstrated in [recent work](https://ethresear.ch/t/synchronous-composability-between-rollups-via-realtime-proving/23998).
 
-## Fully based rollups
+# Ingredient 3: Dual prestate control
 
-The most natural path. Based rollups delegate sequencing to L1 proposers, who already have a write-lock on the L1. When the same proposer sequences both the L1 and based rollups, dual prestate control is satisfied by default. The tradeoff is UX — without a dedicated sequencer, users rely on preconfs for soft confirmations, and the rollup's liveness is tied to opted-in L1 validators.
+For a synchronous composition to produce the result the user intended, the composing parties require a coordinated view of both chains' prestates at execution time. This requirement applies to both shapes of composability, for distinct reasons:
 
-<span class="fs-8">
-[> Fully Based Rollups](/website/education/composability/fully-based){: .btn }
-</span>
+- **Optimistic case:** the sequencer simulates cross-chain values. If the real state diverges from the simulated state, the settlement-time gadget detects the mismatch and forces the composition to roll back. This is safe but expensive, and degrades UX if it occurs frequently.
+- **Pessimistic case:** contracts read against committed state roots via storage proofs. The read is *authenticated* but potentially *stale* — if the source chain's state has advanced since the proven root, the composition executes against a historical view rather than the current one. A read-compute-writeback across chains A and B will not produce the user's intended result unless the two sequencers coordinate.
 
-## SCOPE
+In both cases, the composing parties must guarantee stable, coordinated prestates across the participating chains.
 
-[SCOPE](https://ethresear.ch/t/scope-synchronous-composability-protocol-for-ethereum/22978) is an accounting framework that allows an L2 sequencer to remain in control of their rollup while composing with L1 on demand. The sequencer coordinates with the L1 proposer — for example, by purchasing a top-of-block preconf — to get temporary guarantees about L1 state. When not composing, users get the familiar rollup UX. The tradeoff is that this coordination requires preconf infrastructure.
+- **L2 prestate** is straightforward to control — the sequencer holds a monopoly over L2 state transitions.
+- **L1 prestate** is the challenging case — the L1 proposer has final authority over the contents of the L1 block. If the proposer modifies L1 state underneath the composition, the outcome diverges from the user's intent regardless of the composability shape.
 
-<span class="fs-8">
-[> SCOPE](/website/education/composability/scope){: .btn }
-</span>
+L2-to-L2 synchrony is comparatively straightforward: a shared sequencer (or coordinated sequencer pair) already controls both prestates. L1-to-L2 is the harder case and is where most recent design work has focused. The optimistic path in particular ([SCOPE](/website/education/composability/scope), [slot-end handoff](/website/education/composability/slot-end-handoff), [state locks](/website/education/composability/state-locks), [fully based rollups](/website/education/composability/fully-based)) has received the most attention recently. Four distinct strategies have emerged for handling L1 prestate control:
 
-## Slot-end handoff
+| Strategy | How it controls L1 prestate | Requires preconf infra? | Requires proposer coordination? |
+|----------|----------------------------|-------------------------|----------------------------------|
+| [Fully based rollups](/website/education/composability/fully-based) | L1 proposer *is* the L2 sequencer | Yes (for UX) | N/A (same party) |
+| [SCOPE](/website/education/composability/scope) | L2 sequencer acquires temporary L1 write-lock via preconf | Yes | Yes (on demand) |
+| [Slot-end handoff](/website/education/composability/slot-end-handoff) | L2 sequencer transfers L2 control to proposer at slot end | No | Yes (every slot) |
+| [State locks](/website/education/composability/state-locks) | L1 invariants guarantee stable prestate ahead of time | No | No |
 
-[Proposed by Vitalik](https://ethresear.ch/t/combining-preconfirmations-with-based-rollups-for-synchronous-composability/23863), this approach takes the opposite direction: rather than giving the sequencer control over L1, the sequencer hands off temporary control of the L2 to the L1 proposer towards the end of the slot. By briefly restoring dual prestate control, the proposer can submit synchronously composable transactions during this window. The tradeoff is a smaller composability window and the proposer absorbing proving costs.
+The first three strategies resolve dual prestate at execution time by involving the L1 proposer. The fourth resolves it ahead of time via L1 smart contract invariants.
 
-<span class="fs-8">
-[> Slot-end Handoff](/website/education/composability/slot-end-handoff){: .btn }
-</span>
+Each strategy is documented in its own page — these are parallel alternatives, not a sequence:
 
-## State locks
-
-Rather than resolving dual prestate at execution time by involving the proposer, state locks solve the problem **ahead of time**. Protected L1 state is deployed via smart contracts where the L2 sequencer has privileged write access. Non-sequencer writes are delayed by at least one slot, guaranteeing the sequencer a stable L1 prestate without any proposer coordination. The tradeoff is bootstrapping — existing L1 contracts are not directly compatible and the protected state must be deployed from scratch.
-
-<span class="fs-8">
-[> State Locks](/website/education/composability/state-locks){: .btn }
-</span>
+- [Fully Based Rollups](/website/education/composability/fully-based) — proposer holds both write-locks; strongest guarantees, highest UX cost.
+- [SCOPE](/website/education/composability/scope) — sequencer acquires the L1 write-lock on demand; suited to designs where synchronous composability is an optional feature rather than the default.
+- [Slot-end Handoff](/website/education/composability/slot-end-handoff) — sequencer transfers L2 control to the proposer at slot end; no preconf market required.
+- [State Locks](/website/education/composability/state-locks) — invariants enforced at the contract level; decouples synchrony from proposer consent at the cost of bootstrapping.
 
 # Series summary
 
-Synchronous composability allows rollups to cross boundaries and feel like one chain. Universal synchronous composability is when everything — L1 and L2s — feel like one chain.
+Synchronous composability allows rollups to cross boundaries and behave as one chain. Universal synchronous composability extends this to the L1 and all participating L2s. To achieve USC, a system requires:
 
-Throughout this series we covered the ingredients needed for USC:
+1. **Reorg willingness** — composing chains reorg together, preserving the atomicity binding across reorgs on either side.
+2. **Real-time proving** — the L2's state transition function can be proven within a single L1 slot.
+3. **Dual prestate control** — the composing chains maintain a coordinated view of each other's prestate, so the composition produces the user's intended result rather than one that is merely consistent with stale state.
 
-- [*Atomic inclusion*](/website/education/composability/atomic-inclusion) is a necessary prerequisite that can be guaranteed by shared or based sequencers. Rollups should [take measures](/website/education/composability/atomic-inclusion#preventing-unbundling) to prevent unbundling and strive to share blobs. However, atomic inclusion is not enough to guarantee *safe* cross-chain interoperability on its own.
-- The [*Open Intents Framework*](/website/education/composability/atomic-execution#an-aside----open-intents-framework-cryptoeconomic-safety) is a pragmatic way to achieve cross-chain interoperability that does not require shared sequencers or even rollup stacks to be aware of it (at the cost of capital efficiency). When [combined with shared or based sequencing](/website/education/composability/atomic-execution#oif--atomic-inclusion), it can improve efficiency.
-- [*Atomic Execution*](/website/education/composability/atomic-execution) guarantees that cross-chain transactions either all succeed or do not execute at all. Protocols like [AggLayer](/website/education/composability/atomic-execution#the-agglayer-approach-cryptographic-safety) guarantee safety via cryptography. When combined with a shared or based sequencer, the execution can happen both synchronously and atomically.
-- [*Composability*](/website/education/composability/atomic-composability#composability) allows contracts to access state on other rollups. For L2-to-L2 this requires atomicity enforcement. For L1-to-L2, achieving this synchronously requires solving the dual prestate problem — and the design space now includes [four distinct approaches](#four-approaches), each with different tradeoffs around proposer involvement, infrastructure requirements, and bootstrapping costs.
+Throughout this series we covered the building blocks that make all of this possible:
+
+- [*Atomic inclusion*](/website/education/composability/atomic-inclusion) is the prerequisite — guaranteed by shared or based sequencers, with [measures](/website/education/composability/atomic-inclusion#preventing-unbundling) to prevent unbundling.
+- [*Atomic execution*](/website/education/composability/atomic-execution) guarantees cross-chain transactions either all succeed or do not execute at all. Protocols such as [AggLayer](/website/education/composability/atomic-execution#the-agglayer-approach-cryptographic-safety) provide cryptographic safety; the [Open Intents Framework](/website/education/composability/atomic-execution#an-aside----open-intents-framework-cryptoeconomic-safety) provides cryptoeconomic safety.
+- [*Composability*](/website/education/composability/atomic-composability#composability) allows contracts to access state across rollups. L2-to-L2 requires only atomicity enforcement; L1-to-L2 requires all three ingredients above.
+
+## Going deeper
+
+The strategy pages above ([Fully Based Rollups](/website/education/composability/fully-based), [SCOPE](/website/education/composability/scope), [Slot-end Handoff](/website/education/composability/slot-end-handoff), [State Locks](/website/education/composability/state-locks)) describe each approach at a conceptual level. For readers interested in more opinionated, implementation-oriented designs for L1-L2 synchronous composability, Fabric has published several research posts that dig into specific mechanisms:
+
+- [SCOPE](/website/research/scope) — full protocol specification for the accounting framework outlined in the strategy page.
+- [Signal-Boost](/website/research/signal-boost) — a plugin that lets rollups ingest generic L1 state synchronously, enabling L2 contracts to react to fresh L1 values within the same slot.
+- [Tobasco](/website/research/tobasco) — a top-of-block inclusion primitive that supports synchronously composable operations by enforcing ToB execution against the latest L1 state.
+
+These are opinionated designs rather than survey material — readers should expect concrete mechanism details, tradeoff analysis, and PoC code where applicable.
 
 {: .important-title }
 > Goal
 >
-> Fabric's goal is help shepherd the adoption of based rollups. We're using these learnings to motivate standards and public good infrastructure to help accelerate the based rollup ecosystem towards USC!
+> Fabric's goal is to help shepherd the adoption of based rollups and the broader infrastructure that makes Ethereum feel like a unified chain. The design space for dual prestate control has expanded — our role is to help the ecosystem select the appropriate tool for each context and build the standards that make them interoperable.

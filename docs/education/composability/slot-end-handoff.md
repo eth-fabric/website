@@ -1,6 +1,6 @@
 ---
 title: Slot-end Handoff
-nav_order: 4.43
+nav_order: 4.7
 layout: katex
 parent: Composability 101
 permalink: /education/composability/slot-end-handoff
@@ -23,7 +23,7 @@ During that window — usually the last portion of the 12-second L1 slot — the
 
 # How it solves dual prestate
 
-The dual prestate problem goes away by briefly restoring *single-party* control over both chains.
+The [dual prestate problem](/website/education/composability/achieving-synchrony#ingredient-3-dual-prestate-control) goes away by briefly restoring *single-party* control over both chains.
 
 1. For most of the slot, the L2 operates with a dedicated sequencer — classical rollup UX.
 2. Near slot end, the sequencer stops accepting new L2 transactions and hands off the L2's execution to the upcoming L1 proposer.
@@ -53,8 +53,7 @@ SCOPE and slot-end handoff are both *coordination-based* solutions to dual prest
 
 - **Narrower composability window:** users wanting sync composability must submit during the handoff window or wait for the next slot. This is predictable but less flexible than SCOPE's on-demand model.
 - **Proposer absorbs proving costs:** because the proposer is building the sync bundle, they need access to whatever proving infrastructure the rollup requires. For real-time-proven rollups this can be significant.
-- **Handoff protocol complexity:** the sequencer-to-proposer handoff needs to be fault-tolerant — if the next proposer is offline or malicious, the L2 shouldn't stall.
-- **Mempool separation during handoff:** the L2 sequencer must reliably freeze L2 state during the window; any late L2 transactions would break the proposer's prestate assumptions.
+- **Dead zone after handoff:** the L2 sequencer cannot resume L2 sequencing until after the L1 block has been confirmed, otherwise they could be building off the wrong L2 state. This introduces a "dead zone" while waiting, hurting UX. The new [fast confirmation rule](https://fastconfirm.it/) could potentially be used to shorten this.
 
 # When slot-end handoff fits
 
@@ -64,5 +63,5 @@ Slot-end handoff works best for rollups that:
 - Have L1 proposers (or their delegated builders) willing to absorb the proving and sequencing burden during handoff.
 
 <span class="fs-8">
-[> State Locks](/website/education/composability/state-locks){: .btn }
+[< Back to Achieving Synchrony](/website/education/composability/achieving-synchrony){: .btn }
 </span>
