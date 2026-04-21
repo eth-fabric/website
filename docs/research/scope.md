@@ -36,7 +36,7 @@ SCOPE makes them feel like a single mainland again: you can call, get a response
 SCOPE builds directly on two earlier designs:
 
 - **Ultra Transactions**  
-[Ultra TXs](../education/composability/ultra-txs.md) introduced the idea of bundling all L1 and L2 transactions into a single atomic L1 transaction. This enabled synchronous cross-chain execution by relying on account abstraction, top-of-block inclusion, and real-time proving. The power of Ultra TXs comes from collapsing multiple domains into one programmable “ultra transaction.”
+[Ultra TXs](../education/composability/scope.md#motivation-one-powerful-transaction) introduced the idea of bundling all L1 and L2 transactions into a single atomic L1 transaction. This enabled synchronous cross-chain execution by relying on account abstraction, top-of-block inclusion, and real-time proving. The power of Ultra TXs comes from collapsing multiple domains into one programmable “ultra transaction.”
 
 - **CIRC (Coordinated Inter-Rollup Communication)**  
    [CIRC](https://espresso.discourse.group/t/circ-coordinated-inter-rollup-communication/43/3) introduced the idea of mailbox-style commitments. Each rollup maintains inboxes for incoming cross-chain messages and outboxes for outgoing ones. Because these mailboxes are Merkleized, it’s easy to verify that what one rollup sends matches what another receives.

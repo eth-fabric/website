@@ -157,7 +157,7 @@ While the lookahead is fixed intra-epoch, non-determinism arises when attempting
 EIP-7251 introduces more opportunities for effective balances to change, i.e., if validators consolidate, which can increase the probability that the lookahead changes at the epoch boundary.
 
 ### Why this matters for preconf protocols
-Based rollups use preconfs to improve their UX. L2 users can send transactions directly to preconfers instead of waiting for them to get picked up from the mempool by a proposer (see [here](/website/education/composability/composability-and-based#sequencer-selection) for more context).
+Based rollups use preconfs to improve their UX. L2 users can send transactions directly to preconfers instead of waiting for them to get picked up from the mempool by a proposer (see [here](/website/education/composability/fully-based#sequencer-selection) for more context).
 
 Within an epoch it's possible to deterministically calculate the lookahead so we're fine. Based rollups and wallets can use this to select preconfers and direct user transactions to them. However, between epochs, it's *impossible* to definitely know ahead-of-time what the lookahead will look like - there's always some possibility that the lookahead changes because of an effective balance change at the end of an epoch.
 
@@ -167,7 +167,7 @@ Lin [summarizes the problem](https://hackmd.io/@linoscope/eip-7917-from-preconf-
 1. optimistically calculate the next epoch's lookahead and assign preconfers
 2. disable preconfs until the next epoch starts
 
-Option 1 is problematic if the lookahead changes, since the issued preconfs can no longer be guaranteed if the *assumed* proposer does not become the *actual* proposer. Option 2 is a bad UX - imagine if the last preconfer were much earlier in the epoch e.g., slot 8. The based rollups degrades back to [*total anarchy mode*](/website/education/composability/composability-and-based#total-anarchy) for 75% of the epoch!
+Option 1 is problematic if the lookahead changes, since the issued preconfs can no longer be guaranteed if the *assumed* proposer does not become the *actual* proposer. Option 2 is a bad UX - imagine if the last preconfer were much earlier in the epoch e.g., slot 8. The based rollups degrades back to [*total anarchy mode*](/website/education/composability/fully-based#total-anarchy) for 75% of the epoch!
 
 ## EIP-7917
 Clearly, cross-epoch lookhead non-determinism is an issue for preconf protocols, so what can we do about it? Lin Oshitani and Justin Drake collaborated to define [EIP-7917](https://eips.ethereum.org/EIPS/eip-7917) which allows for the lookahead to be deterministically calculated across epoch-boundaries. 
